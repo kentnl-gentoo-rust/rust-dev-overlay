@@ -152,7 +152,7 @@ rust-crate_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	# Create the .crate file and optionally do a test build
-	ecargo package --allow-dirty --no-metadata --no-verify || die
+	ecargo package --allow-dirty --no-metadata --no-verify
 }
 
 rust-crate_src_prepare() {
