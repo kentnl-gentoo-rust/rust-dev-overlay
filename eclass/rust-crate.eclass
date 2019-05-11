@@ -34,8 +34,8 @@ SLOT="${PV}/${PR}"
 IUSE="test"
 
 BDEPEND="
-	>=virtual/rust-1.32.0:=
-	>=virtual/cargo-0.32.0
+	>=virtual/rust-1.34.1:=
+	>=virtual/cargo-0.32.1
 "
 
 ECRATE_NAME="${PN}"
@@ -82,12 +82,17 @@ rust-crate_install() {
 	tar xf "${crate}" || die
 
 	# Calculate the sha256sum since cargo will want this later.
-	local shasum="$(sha256sum ${crate} | cut -d ' ' -f 1)"
+	local shasum
+	shasum="$(sha256sum "${crate}" | cut -d ' ' -f 1)"
 	local dir="${name}-${version}"
 	local checksum="${T}/${name}-${version}-checksum.json"
 
 	# Calculate the sha256 hashes of all the files in the crate.
-	local files=( $(find "${dir}" -type f) )
+	local file files=( )
+	#local files=( $(find "${dir}" -type f) )
+	while read -rd '' file; do
+		files+=( "${file}" )
+	done < <(find "${dir}" -type f -print0)
 
 	[[ "${#files[@]}" == "0" ]] && die "Could not find crate files for ${name}"
 
@@ -96,7 +101,7 @@ rust-crate_install() {
 	local idx=0
 	local f
 	for f in "${files[@]}"; do
-		shasum="$(sha256sum ${f} | cut -d ' ' -f 1)"
+		shasum="$(sha256sum "${f}" | cut -d ' ' -f 1)"
 		printf '\t\t"%s": "%s"' "${f#${dir}/}" "${shasum}" >> "${checksum}"
 
 		# The json parser is unnecessarily strict about not allowing
