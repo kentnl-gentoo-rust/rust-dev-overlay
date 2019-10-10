@@ -11,12 +11,10 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-src_prepare() {
-	# circular deps
-	sed -i -e '/\[dev-dependencies.quote\]/d' \
-		-e '/version = \"0.6\"/d' Cargo.toml || die
-
-	rust-crate_src_prepare
-}
+IUSE="test"
+BDEPEND="
+	=dev-rust/unicode-xid-0.1*:=
+"
+PATCHES=(
+	"${FILESDIR}/${P}-testfix.patch"
+)
