@@ -14,5 +14,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 BDEPEND="
-	~dev-rust/proc-macro2-0.4.27:=
+	( =dev-rust/proc-macro2-0.4*:= >=dev-rust/proc-macro2-0.4.21 )
 "
