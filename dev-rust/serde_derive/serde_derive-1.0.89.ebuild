@@ -12,15 +12,13 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 LICENSE="|| ( MIT Apache-2.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="test"
 
 BDEPEND="
-	~dev-rust/proc-macro2-0.4.27:=
-	~dev-rust/quote-0.6.11:=
-	~dev-rust/syn-0.15.29:=
+	=dev-rust/proc-macro2-0.4*:=
+	( =dev-rust/quote-0.6*:= >=dev-rust/quote-0.6.3 )
+	( =dev-rust/syn-0.15*:= >=dev-rust/syn-0.15.22 )
+	test? (
+		=dev-rust/serde-1*:=
+	)
 "
-
-src_prepare() {
-	sed -i '/\[dev-dependencies.serde\]/{N;d;}' "${S}/Cargo.toml" || die
-	rust-crate_src_prepare
-}
