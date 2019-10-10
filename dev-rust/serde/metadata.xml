@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="derive">Force dependencies to support this crates 'derive' feature</flag>
+	</use>
 </pkgmetadata>
