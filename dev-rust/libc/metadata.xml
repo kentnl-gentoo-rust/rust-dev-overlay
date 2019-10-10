@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="rustc-dep-of-std">Force dependencies to satisfy this crate feature</flag>
+	</use>
 </pkgmetadata>
