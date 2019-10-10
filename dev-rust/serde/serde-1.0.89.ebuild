@@ -10,7 +10,6 @@ HOMEPAGE="https://serde.rs"
 SRC_URI="https://crates.io/api/v1/crates/serde/1.0.89/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="derive test"
 
