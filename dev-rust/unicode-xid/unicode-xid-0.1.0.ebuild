@@ -7,7 +7,7 @@ inherit rust-crate
 
 DESCRIPTION="Determine if a char is a valid identifier for a parser and/or lexer"
 HOMEPAGE="https://github.com/unicode-rs/unicode-xid"
-SRC_URI="https://crates.io/api/v1/crates/serde/1.0.89/download -> ${P}.crate"
+SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
