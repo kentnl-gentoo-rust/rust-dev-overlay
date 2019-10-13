@@ -1,0 +1,21 @@
+This makes the dependency "quote" use the current path
+for its proc-macro2 dep, instead of the one in the global registry.
+
+Somehow this makes symbols/impl's visible to cargo doc that
+would otherwise be missing.
+
+Note that "cargo package" will re-strip this and it won't
+be there in the installed crate, meaning if you run tests
+on the installed crate, they'll still fail!
+
+Bug: https://github.com/alexcrichton/proc-macro2/issues/197
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -41,3 +41,6 @@
+ span-locations = []
+ [badges.travis-ci]
+ repository = "alexcrichton/proc-macro2"
++
++[patch.crates-io.proc-macro2]
++path = "."
