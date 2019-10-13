@@ -1,0 +1,9 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,6 +23,3 @@
+ repository = "https://github.com/XAMPPRocky/remove_dir_all.git"
+ [dev-dependencies.doc-comment]
+ version = "0.3"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["std", "errhandlingapi", "winerror", "fileapi", "winbase"]

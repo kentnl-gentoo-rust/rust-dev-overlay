@@ -1,0 +1,26 @@
+From e2747c6b76d49e17175c7b716ef6cbea61e13f2a Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date: Thu, 20 Jun 2019 22:41:40 +0200
+Subject: [PATCH] chore: Include README.md (#14)
+
+Otherwise doctests fail.
+
+Patch reworked by kentnl@gentoo.org to apply against
+cargo-generated Cargo.toml
+---
+ Cargo.toml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 3025090..41b39d7 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -14,7 +14,7 @@
+ name = "remove_dir_all"
+ version = "0.5.2"
+ authors = ["Aaronepower <theaaronepower@gmail.com>"]
+-include = ["Cargo.toml", "LICENCE-APACHE", "LICENCE-MIT", "src/**/*"]
++include = ["Cargo.toml", "LICENCE-APACHE", "LICENCE-MIT", "src/**/*", "README.md"]
+ description = "A safe, reliable implementation of remove_dir_all for Windows"
+ readme = "README.md"
+ keywords = ["utility", "filesystem", "remove_dir", "windows"]
