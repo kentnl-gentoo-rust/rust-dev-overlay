@@ -1,0 +1,25 @@
+This removes optional dependencies that are not useful on non-unix
+platforms, as cargo is currently not smart enough to do it itself
+
+Bug: https://github.com/rust-lang/cargo/issues/5896
+Bug: https://github.com/rust-lang/cargo/issues/5133
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,17 +29,6 @@
+ i128_support = []
+ nightly = ["i128_support"]
+ std = ["libc"]
+-[target."cfg(target_env = \"sgx\")".dependencies.rand_core]
+-version = "0.3"
+-default-features = false
+-
+-[target."cfg(target_env = \"sgx\")".dependencies.rdrand]
+-version = "0.4.0"
+-[target."cfg(target_os = \"fuchsia\")".dependencies.fuchsia-cprng]
+-version = "0.1.0"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+ optional = true
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["minwindef", "ntsecapi", "profileapi", "winnt"]
