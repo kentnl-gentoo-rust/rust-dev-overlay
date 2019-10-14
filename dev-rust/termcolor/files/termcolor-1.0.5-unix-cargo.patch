@@ -1,0 +1,8 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,5 +26,3 @@
+ [lib]
+ name = "termcolor"
+ bench = false
+-[target."cfg(windows)".dependencies.wincolor]
+-version = "1"
