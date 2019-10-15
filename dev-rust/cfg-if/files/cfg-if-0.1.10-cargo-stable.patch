@@ -1,0 +1,21 @@
+Remove compiler_builtins dep, which will never be stable.
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,16 +21,7 @@
+ readme = "README.md"
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/alexcrichton/cfg-if"
+-[dependencies.compiler_builtins]
+-version = "0.1.2"
+-optional = true
+-
+-[dependencies.core]
+-version = "1.0.0"
+-optional = true
+-package = "rustc-std-workspace-core"
+ 
+ [features]
+-rustc-dep-of-std = ["core", "compiler_builtins"]
+ [badges.travis-ci]
+ repository = "alexcrichton/cfg-if"
