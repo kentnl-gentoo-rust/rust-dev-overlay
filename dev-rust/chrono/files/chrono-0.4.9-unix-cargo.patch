@@ -1,0 +1,27 @@
+This removes optional dependencies that are not useful on non-unix
+platforms, as cargo is currently not smart enough to do it itself
+
+Bug: https://github.com/rust-lang/cargo/issues/5896
+Bug: https://github.com/rust-lang/cargo/issues/5133
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5cac005..85cf0a7 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -73,16 +73,7 @@ version = "1"
+ [features]
+ clock = ["time"]
+ default = ["clock"]
+-wasmbind = ["wasm-bindgen", "js-sys"]
+-[target."cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))".dependencies.js-sys]
+-version = "0.3"
+-optional = true
+ 
+-[target."cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))".dependencies.wasm-bindgen]
+-version = "0.2"
+-optional = true
+-[target."cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))".dev-dependencies.wasm-bindgen-test]
+-version = "0.2"
+ [badges.appveyor]
+ repository = "chronotope/chrono"
+ 
