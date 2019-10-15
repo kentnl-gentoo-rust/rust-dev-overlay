@@ -1,0 +1,18 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index ea8d5ee..e71a522 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -43,12 +43,6 @@ version = "0.2"
+ [features]
+ deadlock_detection = ["petgraph", "thread-id", "backtrace"]
+ nightly = []
+-[target."cfg(target_os = \"cloudabi\")".dependencies.cloudabi]
+-version = "0.0.3"
+-[target."cfg(target_os = \"redox\")".dependencies.redox_syscall]
+-version = "0.1"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2.55"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["winnt", "ntstatus", "minwindef", "winerror", "winbase", "errhandlingapi", "handleapi"]
++
