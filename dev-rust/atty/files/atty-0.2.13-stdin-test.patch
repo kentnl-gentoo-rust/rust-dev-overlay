@@ -1,0 +1,37 @@
+Disables the std_in test, which under portage, is closed/redirected
+and causes this test to fail.
+
+Bug: https://github.com/softprops/atty/issues/39
+
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -165,12 +165,6 @@
+     }
+ 
+     #[test]
+-    #[cfg(windows)]
+-    fn is_in() {
+-        assert!(is(Stream::Stdin))
+-    }
+-
+-    #[test]
+     #[cfg(unix)]
+     fn is_err() {
+         assert!(is(Stream::Stderr))
+@@ -182,16 +176,5 @@
+         assert!(is(Stream::Stdout))
+     }
+ 
+-    #[test]
+-    #[cfg(target_os = "macos")]
+-    fn is_in() {
+-        // macos on travis seems to pipe its input
+-        assert!(is(Stream::Stdin))
+-    }
+ 
+-    #[test]
+-    #[cfg(all(not(target_os = "macos"), unix))]
+-    fn is_in() {
+-        assert!(is(Stream::Stdin))
+-    }
+ }
