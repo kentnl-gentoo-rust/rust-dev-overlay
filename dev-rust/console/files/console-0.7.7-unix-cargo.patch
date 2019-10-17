@@ -1,0 +1,12 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -42,9 +42,4 @@
+ version = "0.1"
+ [target."cfg(unix)".dependencies.termios]
+ version = "0.3"
+-[target."cfg(windows)".dependencies.encode_unicode]
+-version = "0.3"
+ 
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["winbase", "winuser", "consoleapi", "processenv", "wincon"]
