@@ -8,5 +8,6 @@
 	</longdescription>
 	<use>
 		<flag name="perf-literal">Require deps needed for 'perf-literal' crate feature</flag>
+		<flag name="perf-cache">Require deps needed for 'perf-cache' crate feature</flag>
 	</use>
 </pkgmetadata>
