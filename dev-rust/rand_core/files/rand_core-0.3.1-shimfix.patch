@@ -1,0 +1,40 @@
+This patches the failure of `cargo test --doc` getting confused
+by multiple definitions of "rand_core" and having no way to know
+which is which.
+
+This resolves this by creating the rename at a higher level so that
+rust internals don't even recognize it as the same crate
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,14 +22,15 @@
+ categories = ["algorithms", "no-std"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-random/rand"
+-[dependencies.rand_core]
++[dependencies."core4"]
+ version = "0.4"
++package = "rand_core"
+ 
+ [features]
+-alloc = ["rand_core/alloc"]
++alloc = ["core4/alloc"]
+ default = ["std"]
+-serde1 = ["rand_core/serde1"]
+-std = ["rand_core/std"]
++serde1 = ["core4/serde1"]
++std = ["core4/std"]
+ [badges.appveyor]
+ repository = "rust-random/rand"
+ 
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -39,7 +39,7 @@
+ 
+ #![no_std]
+ 
+-extern crate rand_core as core4;
++extern crate core4;
+ 
+ pub use core4::{ErrorKind, Error};
+ pub use core4::{block, impls, le};
