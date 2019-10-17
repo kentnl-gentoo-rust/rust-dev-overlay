@@ -1,0 +1,31 @@
+This patch removes all:
+- nightly only features
+- wasm specific features
+- win32 specific features and deps
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 81d607d..6936694 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -66,21 +66,13 @@ version = "1.0"
+ version = "1.0.56"
+ 
+ [features]
+-const_fn = ["nightly"]
+ default = ["std"]
+-guid = ["winapi"]
+-nightly = []
+ std = []
+-stdweb = ["rand/stdweb"]
+ u128 = ["byteorder"]
+ v1 = []
+ v3 = ["md5"]
+ v4 = ["rand"]
+ v5 = ["sha1"]
+-wasm-bindgen = ["rand/wasm-bindgen"]
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-optional = true
+ [badges.appveyor]
+ repository = "uuid-rs/uuid"
+ 
