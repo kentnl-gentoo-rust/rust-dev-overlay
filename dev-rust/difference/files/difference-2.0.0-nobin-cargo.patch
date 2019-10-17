@@ -1,0 +1,22 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 1f84bc2..a2d03fb 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,9 +22,6 @@ categories = ["text-processing", "development-tools::testing"]
+ license = "MIT"
+ repository = "https://github.com/johannhof/difference.rs"
+ 
+-[[bin]]
+-name = "difference"
+-doc = false
+ [dependencies.getopts]
+ version = "0.2"
+ optional = true
+@@ -35,7 +32,6 @@ version = "0.4"
+ version = "0.2.7"
+ 
+ [features]
+-bin = ["getopts"]
+ default = []
+ [badges.appveyor]
+ repository = "johannhof/difference.rs"
