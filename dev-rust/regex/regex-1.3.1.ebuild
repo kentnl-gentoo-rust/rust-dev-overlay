@@ -11,7 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+perf-literal"
 RESTRICT="test"
 
 F_PERF_CACHE="( =dev-rust/thread_local-0.3*:= >=dev-rust/thread_local-0.3.6 )"
@@ -28,6 +28,7 @@ F_UNICODE="
 "
 BDEPEND="
 	( =dev-rust/regex-syntax-0.6*:= >=dev-rust/regex-syntax-0.6.12 )
+	perf-literal? ( $F_PERF_LITERAL )
 "
 src_prepare() {
 	rm -vrf examples/ || die

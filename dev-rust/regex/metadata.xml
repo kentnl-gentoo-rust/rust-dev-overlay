@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="perf-literal">Require deps needed for 'perf-literal' crate feature</flag>
+	</use>
 </pkgmetadata>
