@@ -1,0 +1,77 @@
+diff -Naur a/Cargo.toml b/Cargo.toml
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,9 +22,6 @@
+ keywords = ["data-structures"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/contain-rs/linked-hash-map"
+-[dependencies.clippy]
+-version = "0.*"
+-optional = true
+ 
+ [dependencies.heapsize]
+ version = "0.4"
+@@ -40,5 +37,4 @@
+ 
+ [features]
+ heapsize_impl = ["heapsize"]
+-nightly = []
+ serde_impl = ["serde", "serde_test"]
+diff -Naur a/src/lib.rs b/src/lib.rs
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -28,11 +28,6 @@
+ //! ```
+ 
+ #![forbid(missing_docs)]
+-#![cfg_attr(all(feature = "nightly", test), feature(test))]
+-
+-#![cfg_attr(feature = "clippy", feature(plugin))]
+-#![cfg_attr(feature = "clippy", plugin(clippy))]
+-#![cfg_attr(feature = "clippy", deny(clippy))]
+ 
+ // Optional Serde support
+ #[cfg(feature = "serde_impl")]
+@@ -1302,42 +1297,4 @@
+     }
+ }
+ 
+-#[cfg(all(feature = "nightly", test))]
+-mod bench {
+-    extern crate test;
+-
+-    use super::LinkedHashMap;
+-
+-    #[bench]
+-    fn not_recycled_cycling(b: &mut test::Bencher) {
+-        let mut hash_map = LinkedHashMap::with_capacity(1000);
+-        for i in 0usize..1000 {
+-            hash_map.insert(i, i);
+-        }
+-        b.iter(|| {
+-            for i in 0usize..1000 {
+-                hash_map.remove(&i);
+-            }
+-            hash_map.clear_free_list();
+-            for i in 0usize..1000 {
+-                hash_map.insert(i, i);
+-            }
+-        })
+-    }
+ 
+-    #[bench]
+-    fn recycled_cycling(b: &mut test::Bencher) {
+-        let mut hash_map = LinkedHashMap::with_capacity(1000);
+-        for i in 0usize..1000 {
+-            hash_map.insert(i, i);
+-        }
+-        b.iter(|| {
+-            for i in 0usize..1000 {
+-                hash_map.remove(&i);
+-            }
+-            for i in 0usize..1000 {
+-                hash_map.insert(i, i);
+-            }
+-        })
+-    }
+-}
