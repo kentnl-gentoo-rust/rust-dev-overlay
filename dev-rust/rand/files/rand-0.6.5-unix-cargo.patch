@@ -1,0 +1,19 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index fc0313a..a0cc40a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -75,14 +75,9 @@ nightly = ["simd_support"]
+ serde1 = ["rand_core/serde1", "rand_isaac/serde1", "rand_xorshift/serde1"]
+ simd_support = ["packed_simd"]
+ std = ["rand_core/std", "alloc", "rand_os", "rand_jitter/std"]
+-stdweb = ["rand_os/stdweb"]
+-wasm-bindgen = ["rand_os/wasm-bindgen"]
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+ default-features = false
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["minwindef", "ntsecapi", "profileapi", "winnt"]
+ [badges.appveyor]
+ repository = "rust-random/rand"
+ 
