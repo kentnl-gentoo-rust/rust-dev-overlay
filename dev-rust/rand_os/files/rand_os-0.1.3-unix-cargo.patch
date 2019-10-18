@@ -1,0 +1,27 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -28,24 +28,9 @@
+ [dependencies.rand_core]
+ version = "0.4"
+ features = ["std"]
+-[target."cfg(target_env = \"sgx\")".dependencies.rdrand]
+-version = "0.4.0"
+-[target."cfg(target_os = \"cloudabi\")".dependencies.cloudabi]
+-version = "0.0.3"
+-[target."cfg(target_os = \"fuchsia\")".dependencies.fuchsia-cprng]
+-version = "0.1.0"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["minwindef", "ntsecapi", "winnt"]
+-[target.wasm32-unknown-unknown.dependencies.stdweb]
+-version = "0.4"
+-optional = true
+ 
+-[target.wasm32-unknown-unknown.dependencies.wasm-bindgen]
+-version = "0.2.12"
+-optional = true
+ [badges.appveyor]
+ repository = "rust-random/rand"
+ 
