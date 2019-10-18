@@ -1,0 +1,22 @@
+This removes optional dependencies that are not useful on non-unix
+platforms, as cargo is currently not smart enough to do it itself
+
+Bug: https://github.com/rust-lang/cargo/issues/5896
+Bug: https://github.com/rust-lang/cargo/issues/5133
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -28,14 +28,6 @@
+ [dev-dependencies.log]
+ version = "0.4"
+ 
+-[dev-dependencies.winapi]
+-version = "0.3.0"
+-features = ["std", "processthreadsapi", "winbase"]
+-[target."cfg(target_os = \"redox\")".dependencies.redox_syscall]
+-version = "0.1"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3.0"
+-features = ["std", "minwinbase", "minwindef", "ntdef", "profileapi", "sysinfoapi", "timezoneapi"]
+ [badges.appveyor]
+ repository = "alexcrichton/time"
+ 
