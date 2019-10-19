@@ -1,0 +1,19 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 716eeda..9d360fb 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,14 +23,10 @@ repository = "https://github.com/bluss/arrayvec"
+ [package.metadata.release]
+ no-dev-version = true
+ tag-name = "nodrop-{{version}}"
+-[dependencies.nodrop-union]
+-version = "0.1.8"
+-optional = true
+ 
+ [features]
+ default = ["std"]
+ std = []
+ use_needs_drop = []
+-use_union = ["nodrop-union"]
+ [badges.maintenance]
+ status = "deprecated"
