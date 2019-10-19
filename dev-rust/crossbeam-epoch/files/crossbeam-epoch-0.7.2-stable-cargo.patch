@@ -1,0 +1,11 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 93de822..28a9cf9 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -49,6 +49,5 @@ version = "0.6"
+ [features]
+ alloc = ["crossbeam-utils/alloc"]
+ default = ["std"]
+-nightly = ["crossbeam-utils/nightly", "arrayvec/use_union"]
+ sanitize = []
+ std = ["crossbeam-utils/std", "lazy_static"]
