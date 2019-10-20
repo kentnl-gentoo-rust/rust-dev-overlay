@@ -1,0 +1,14 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index f032849..03c77bc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -34,9 +34,6 @@ version = "1.6.0"
+ [dev-dependencies.doc-comment]
+ version = "0.3"
+ 
+-[dev-dependencies.docopt]
+-version = "1"
+-
+ [dev-dependencies.lazy_static]
+ version = "1"
+ 
