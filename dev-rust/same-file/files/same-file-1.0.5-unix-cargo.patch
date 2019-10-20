@@ -1,0 +1,11 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index bdc20c0..71c0bd6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,5 +22,4 @@ readme = "README.md"
+ keywords = ["same", "file", "equal", "inode"]
+ license = "Unlicense/MIT"
+ repository = "https://github.com/BurntSushi/same-file"
+-[target."cfg(windows)".dependencies.winapi-util]
+-version = "0.1.1"
++
