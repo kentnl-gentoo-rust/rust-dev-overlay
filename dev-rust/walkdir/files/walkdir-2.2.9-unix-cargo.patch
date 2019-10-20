@@ -1,0 +1,17 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 041c3e7..2406552 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,12 +27,7 @@ repository = "https://github.com/BurntSushi/walkdir"
+ version = "1.0.1"
+ [dev-dependencies.doc-comment]
+ version = "0.3"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["std", "winnt"]
+ 
+-[target."cfg(windows)".dependencies.winapi-util]
+-version = "0.1.1"
+ [badges.appveyor]
+ repository = "BurntSushi/walkdir"
+ 
