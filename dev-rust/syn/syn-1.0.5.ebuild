@@ -19,15 +19,22 @@ F_QUOTE="
 F_PRINTING="${F_QUOTE}"
 F_PROC_MACRO="${F_QUOTE}"
 
-RESTRICT="test"
 BDEPEND="
 	=dev-rust/proc-macro2-1*:=
 	=dev-rust/unicode-xid-0.2*:=
 	printing? ( ${F_PRINTING} )
 	proc-macro? ( ${F_PROC_MACRO} )
+	test? (
+		${F_QUOTE}
+		=dev-rust/insta-0.9*:=
+		=dev-rust/rayon-1*:=
+		=dev-rust/ref-cast-0.2*:=
+		=dev-rust/regex-1*:=
+		=dev-rust/termcolor-1*:=
+		( =dev-rust/walkdir-2*:= >=dev-rust/walkdir-2.1 )
+	)
 "
-# TODO: run cargo test --all-features in future versions
-# currently this ebuild runs no tests due to the doc-tests being
-# defined with ```edition2018 blocks, which for some reason
-# only build/test on nightly. (may also be related to the crate
-# being edition="2015")
+
+src_test() {
+	ecargo test --release --all-features
+}
