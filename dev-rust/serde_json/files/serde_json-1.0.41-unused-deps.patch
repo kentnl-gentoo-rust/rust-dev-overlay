@@ -1,0 +1,28 @@
+diff --git a/Cargo.toml.old b/Cargo.toml
+index 5ce911b..46aba1c 100644
+--- a/Cargo.toml.old
++++ b/Cargo.toml
+@@ -39,23 +39,6 @@ version = "1.0"
+ 
+ [dependencies.serde]
+ version = "1.0.60"
+-[dev-dependencies.automod]
+-version = "0.1"
+-
+-[dev-dependencies.rustversion]
+-version = "0.1"
+-
+-[dev-dependencies.serde_bytes]
+-version = "0.11"
+-
+-[dev-dependencies.serde_derive]
+-version = "1.0"
+-
+-[dev-dependencies.serde_stacker]
+-version = "0.1"
+-
+-[dev-dependencies.trybuild]
+-version = "1.0"
+ 
+ [features]
+ arbitrary_precision = []

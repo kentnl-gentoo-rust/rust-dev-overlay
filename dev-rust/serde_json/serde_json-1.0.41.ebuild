@@ -11,10 +11,19 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="test"
+IUSE="indexmap test"
+
+F_INDEXMAP="
+	=dev-rust/indexmap-1*:=
+"
 BDEPEND="
 	( =dev-rust/itoa-0.4*:= >=dev-rust/itoa-0.4.3 )
 	=dev-rust/ryu-1*:=
 	( =dev-rust/serde-1*:= >=dev-rust/serde-1.0.60 )
+	test? (
+		${F_INDEXMAP}
+	)
 "
+PATCHES=(
+	"${FILESDIR}/${P}-unused-deps.patch"
+)

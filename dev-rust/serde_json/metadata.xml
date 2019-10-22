@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="indexmap">Require deps needed for 'indexmap' crate feature</flag>
+	</use>
 </pkgmetadata>
