@@ -1,0 +1,16 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index b3d0b53..f7f87cd 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,10 +21,4 @@ fold = []
+ [dependencies]
+ quote = { version = "0.3.7", optional = true }
+ unicode-xid = { version = "0.0.4", optional = true }
+-synom = { version = "0.11", path = "synom", optional = true }
+-
+-[dev-dependencies]
+-syntex_pos = "0.58"
+-syntex_syntax = "0.58"
+-tempdir = "0.3.5"
+-walkdir = "1.0.1"
++synom = { version = "0.11", optional = true }

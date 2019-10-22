@@ -7,6 +7,7 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="parsing">Require deps needed for 'parsing' crate feature</flag>
 		<flag name="printing">Require deps needed for 'printing' crate feature</flag>
 		<flag name="proc-macro">Require deps needed for 'proc-macro' crate feature</flag>
 	</use>
