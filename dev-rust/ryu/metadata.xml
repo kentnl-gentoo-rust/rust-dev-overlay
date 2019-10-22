@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="no-panic">Require deps needed for 'no-panic' crate feature</flag>
+	</use>
 </pkgmetadata>
