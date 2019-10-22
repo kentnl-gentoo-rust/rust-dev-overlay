@@ -9,5 +9,6 @@
 	<use>
 		<flag name="serde">Require deps needed for 'serde' crate feature</flag>
 		<flag name="clock">Require deps needed for 'clock' crate feature</flag>
+		<flag name="rustc-serialize">Require deps needed for 'rustc-serialize' crate feature</flag>
 	</use>
 </pkgmetadata>
