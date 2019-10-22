@@ -11,8 +11,8 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( Apache-2.0 MIT )"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="test"
+IUSE="owning-ref serde test"
+
 F_OWNING_REF="
 	=dev-rust/owning_ref-0.4*:=
 "
@@ -21,4 +21,10 @@ F_SERDE="
 "
 BDEPEND="
 	=dev-rust/scopeguard-1*:=
+	owning-ref? ( ${F_OWNING_REF} )
+	serde? ( ${F_SERDE} )
+	test? (
+		${F_OWNING_REF}
+		${F_SERDE}
+	)
 "

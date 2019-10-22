@@ -6,4 +6,8 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="owning-ref">Require deps needed for 'owning_ref' crate feature</flag>
+		<flag name="serde">Require deps needed for 'serde' crate feature</flag>
+	</use>
 </pkgmetadata>
