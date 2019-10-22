@@ -1,0 +1,31 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 32d6ef0..d11691f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -46,25 +46,11 @@ version = "1.0"
+ alloc = ["rand_core/alloc"]
+ default = ["std"]
+ i128_support = []
+-nightly = ["i128_support"]
+ serde1 = ["serde", "serde_derive", "rand_core/serde1"]
+-std = ["rand_core/std", "alloc", "libc", "winapi", "cloudabi", "fuchsia-cprng"]
+-[target."cfg(target_os = \"cloudabi\")".dependencies.cloudabi]
+-version = "0.0.3"
+-optional = true
+-[target."cfg(target_os = \"fuchsia\")".dependencies.fuchsia-cprng]
+-version = "0.1.0"
+-optional = true
++std = ["rand_core/std", "alloc", "libc"]
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+ optional = true
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["minwindef", "ntsecapi", "profileapi", "winnt"]
+-optional = true
+-[target.wasm32-unknown-unknown.dependencies.stdweb]
+-version = "0.4"
+-optional = true
+ [badges.appveyor]
+ repository = "alexcrichton/rand"
+ 
