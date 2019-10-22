@@ -1,0 +1,13 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 53bdcfd..e098fcc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,8 +27,6 @@ name = "humantime"
+ path = "src/lib.rs"
+ [dependencies.quick-error]
+ version = "1.0.0"
+-[dev-dependencies.chrono]
+-version = "0.4.0"
+ 
+ [dev-dependencies.rand]
+ version = "0.4.2"
