@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="atty">Require deps needed for 'atty' crate feature</flag>
+		<flag name="humantime">Require deps needed for 'humantime' crate feature</flag>
+		<flag name="regex">Require deps needed for 'regex' crate feature</flag>
+		<flag name="termcolor">Require deps needed for 'termcolor' crate feature</flag>
+	</use>
+</pkgmetadata>
