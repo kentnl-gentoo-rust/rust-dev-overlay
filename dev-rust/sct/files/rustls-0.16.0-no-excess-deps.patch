@@ -1,0 +1,28 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index d03ce9c..0ab044f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,23 +22,6 @@ categories = ["network-programming", "cryptography"]
+ license = "Apache-2.0/ISC/MIT"
+ repository = "https://github.com/ctz/rustls"
+ 
+-[[example]]
+-name = "bogo_shim"
+-path = "examples/internal/bogo_shim.rs"
+-required-features = ["dangerous_configuration", "quic"]
+-
+-[[example]]
+-name = "trytls_shim"
+-path = "examples/internal/trytls_shim.rs"
+-
+-[[example]]
+-name = "bench"
+-path = "examples/internal/bench.rs"
+-
+-[[bench]]
+-name = "benchmarks"
+-path = "tests/benchmarks.rs"
+-harness = false
+ [dependencies.base64]
+ version = "0.10"
+ 
