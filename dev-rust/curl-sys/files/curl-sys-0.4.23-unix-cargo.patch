@@ -1,0 +1,16 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 6d841b9..ef8ca84 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -57,11 +57,6 @@ static-ssl = ["openssl-sys/vendored"]
+ [target."cfg(all(unix, not(target_os = \"macos\")))".dependencies.openssl-sys]
+ version = "0.9"
+ optional = true
+-[target."cfg(target_env = \"msvc\")".build-dependencies.vcpkg]
+-version = "0.2"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["winsock2", "ws2def"]
+ [badges.appveyor]
+ repository = "alexcrichton/curl-rust"
+ 

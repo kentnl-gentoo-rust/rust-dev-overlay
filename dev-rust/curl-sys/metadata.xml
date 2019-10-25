@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="http2">Require deps needed for 'http2' crate feature</flag>
+		<flag name="mesalink">Require deps needed for 'mesalink' crate feature</flag>
+		<flag name="ssl">Require deps needed for 'ssl' crate feature</flag>
+		<flag name="static-ssl">Require deps needed for 'static-ssl' crate feature</flag>
+	</use>
+</pkgmetadata>
