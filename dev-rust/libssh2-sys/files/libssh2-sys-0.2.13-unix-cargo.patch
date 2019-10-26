@@ -1,0 +1,12 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 4e31f69..0a11c8e 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -36,7 +36,5 @@ version = "0.3.11"
+ 
+ [features]
+ vendored-openssl = ["openssl-sys/vendored"]
+-[target."cfg(target_env = \"msvc\")".build-dependencies.vcpkg]
+-version = "0.2"
+ [target."cfg(unix)".dependencies.openssl-sys]
+ version = "0.9.35"
