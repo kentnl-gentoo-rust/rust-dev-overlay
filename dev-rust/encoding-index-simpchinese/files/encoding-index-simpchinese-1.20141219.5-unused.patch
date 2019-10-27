@@ -1,0 +1,13 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index cf08d24..8a9c859 100644
+--- a/Cargo.toml.old
++++ b/Cargo.toml
+@@ -11,8 +11,3 @@ license = "CC0-1.0"
+ [lib]
+ name = "encoding_index_simpchinese"
+ path = "lib.rs"
+-
+-[dependencies.encoding_index_tests]
+-# TODO consider using dev-dependencies instead (Cargo issue #860)
+-version = "0.1.4"
+-path = "../tests"
