@@ -1,0 +1,29 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 28612f0..98c63ea 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,24 +24,15 @@ name = "encoding"
+ 
+ [dependencies.encoding-index-singlebyte]
+ version = "~1.20141219.5"
+-path = "src/index/singlebyte"
+ 
+ [dependencies.encoding-index-korean]
+ version = "~1.20141219.5"
+-path = "src/index/korean"
+ 
+ [dependencies.encoding-index-japanese]
+ version = "~1.20141219.5"
+-path = "src/index/japanese"
+ 
+ [dependencies.encoding-index-simpchinese]
+ version = "~1.20141219.5"
+-path = "src/index/simpchinese"
+ 
+ [dependencies.encoding-index-tradchinese]
+ version = "~1.20141219.5"
+-path = "src/index/tradchinese"
+-
+-[dev-dependencies]
+-getopts = "0.2" # for examples
+-
