@@ -1,0 +1,13 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 6d638cf..0be43f4 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -11,8 +11,3 @@ license = "CC0-1.0"
+ [lib]
+ name = "encoding_index_japanese"
+ path = "lib.rs"
+-
+-[dependencies.encoding_index_tests]
+-# TODO consider using dev-dependencies instead (Cargo issue #860)
+-version = "0.1.4"
+-path = "../tests"
