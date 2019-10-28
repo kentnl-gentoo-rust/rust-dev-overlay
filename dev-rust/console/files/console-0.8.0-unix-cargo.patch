@@ -1,0 +1,14 @@
+diff --git a/Cargo.toml.old b/Cargo.toml
+index c90cae1..8fdde7e 100644
+--- a/Cargo.toml.old
++++ b/Cargo.toml
+@@ -36,9 +36,3 @@ version = "1"
+ version = "0.1"
+ [target."cfg(unix)".dependencies.termios]
+ version = "0.3"
+-[target."cfg(windows)".dependencies.encode_unicode]
+-version = "0.3"
+-
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["winbase", "winuser", "consoleapi", "processenv", "wincon"]
