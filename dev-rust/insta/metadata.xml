@@ -6,4 +6,8 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="redactions">Require deps needed for 'redactions' crate feature</flag>
+		<flag name="ron">Require deps needed for 'ron' crate feature</flag>
+	</use>
 </pkgmetadata>
