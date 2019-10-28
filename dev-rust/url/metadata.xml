@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="heap-size">Require deps needed for 'heap_size' crate feature</flag>
+		<flag name="query-encoding">Require deps needed for 'query_encoding' crate feature</flag>
+		<flag name="rustc-serialize">Require deps needed for 'rustc-serialize' crate feature</flag>
+		<flag name="serde">Require deps needed for 'serde' crate feature</flag>
+	</use>
+</pkgmetadata>
