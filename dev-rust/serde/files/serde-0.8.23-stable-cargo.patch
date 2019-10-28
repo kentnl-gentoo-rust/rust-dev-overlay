@@ -1,0 +1,17 @@
+diff --git a/Cargo.toml.old b/Cargo.toml
+index 91e3725..613df16 100644
+--- a/Cargo.toml.old
++++ b/Cargo.toml
+@@ -14,12 +14,4 @@ include = ["Cargo.toml", "src/**/*.rs"]
+ 
+ [features]
+ default = ["std"]
+-
+ std = []
+-unstable = []
+-alloc = ["unstable"]
+-collections = ["alloc"]
+-unstable-testing = ["clippy", "unstable", "std"]
+-
+-[dependencies]
+-clippy = { version = "^0.*", optional = true }
