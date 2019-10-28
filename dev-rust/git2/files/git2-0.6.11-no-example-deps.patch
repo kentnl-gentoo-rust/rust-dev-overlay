@@ -1,0 +1,27 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 0dcba5a..5c87d69 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -33,14 +33,6 @@ version = "0.6.19"
+ 
+ [dependencies.url]
+ version = "1.0"
+-[dev-dependencies.docopt]
+-version = "0.8"
+-
+-[dev-dependencies.serde]
+-version = "1.0"
+-
+-[dev-dependencies.serde_derive]
+-version = "1.0"
+ 
+ [dev-dependencies.tempdir]
+ version = "0.3"
+@@ -53,7 +45,6 @@ curl = ["libgit2-sys/curl"]
+ default = ["ssh", "https", "curl"]
+ https = ["libgit2-sys/https", "openssl-sys", "openssl-probe"]
+ ssh = ["libgit2-sys/ssh"]
+-unstable = []
+ [target."cfg(all(unix, not(target_os = \"macos\")))".dependencies.openssl-probe]
+ version = "0.1"
+ optional = true

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="curl">Require deps needed for 'curl' crate feature</flag>
+		<flag name="https">Require deps needed for 'https' crate feature</flag>
+		<flag name="ssh">Require deps needed for 'ssh' crate feature</flag>
+	</use>
+</pkgmetadata>
