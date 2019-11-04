@@ -1,0 +1,25 @@
+From 3955684cd2b170675177b8671cf7ae778d7aa195 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 5 Nov 2019 11:15:48 +1300
+Subject: Disable network-dependent tests without explicit opt-in.
+
+---
+ src/lib.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 642715d..1045cdf 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -231,7 +231,7 @@ impl Crate {
+     }
+ }
+ 
+-
++#[cfg(network_tests)]
+ #[test]
+ fn test_dependencies() {
+     let index = Index::new("_test".into());
+-- 
+2.23.0
+
