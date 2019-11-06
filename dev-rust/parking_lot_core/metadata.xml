@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="deadlock-detection">Require deps needed for 'deadlock-detection' crate feature</flag>
+	</use>
 </pkgmetadata>

@@ -11,7 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+IUSE="deadlock-detection test"
 
 F_BACKTRACE="
 	( =dev-rust/backtrace-0.3*:= >=dev-rust/backtrace-0.3.2 )
@@ -22,12 +22,18 @@ F_PETGRAPH="
 F_THREAD_ID="
 	( =dev-rust/thread-id-3*:= >=dev-rust/thread-id-3.2.0 )
 "
-RESTRICT="test"
+F_DEADLOCK_DETECTION="
+	${F_PETGRAPH}
+	${F_THREAD_ID}
+	${F_BACKTRACE}
+"
 BDEPEND="
 	( =dev-rust/cfg-if-0.1*:= >=dev-rust/cfg-if-0.1.5 )
 	=dev-rust/smallvec-0.6*:=
 	=dev-rust/rustc_version-0.2*:=
 	( =dev-rust/libc-0.2*:= >=dev-rust/libc-0.2.55 )
+	deadlock-detection? ( ${F_DEADLOCK_DETECTION} )
+	test? ( ${F_DEADLOCK_DETECTION} )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-unix-cargo.patch"
