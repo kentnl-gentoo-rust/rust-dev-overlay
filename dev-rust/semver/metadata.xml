@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="ci">Require deps needed for 'ci' crate feature</flag>
+	</use>
 </pkgmetadata>
