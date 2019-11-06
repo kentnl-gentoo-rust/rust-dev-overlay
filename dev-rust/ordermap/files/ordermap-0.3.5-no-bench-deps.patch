@@ -1,0 +1,33 @@
+From 75de7e50199509e974de7d05f8c400ab32d507a9 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 7 Nov 2019 04:12:22 +1300
+Subject: Remove deps only used in benchmarks
+
+---
+ Cargo.toml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index dffd195..65b5c37 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -39,16 +39,10 @@ version = "1.0"
+ [dev-dependencies.itertools]
+ version = "0.7.0"
+ 
+-[dev-dependencies.lazy_static]
+-version = "1"
+-
+ [dev-dependencies.quickcheck]
+ version = "0.6"
+ default-features = false
+ 
+-[dev-dependencies.rand]
+-version = "0.4"
+-
+ [dev-dependencies.serde_test]
+ version = "1.0.5"
+ 
+-- 
+2.23.0
+
