@@ -1,0 +1,26 @@
+From accaec060f6e081c6d6ecee863e6ac304a352e38 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 7 Nov 2019 04:41:32 +1300
+Subject: Remove non-unix dependencies.
+
+---
+ Cargo.toml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index df05075..9904db2 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -15,9 +15,3 @@ appveyor = { repository = "ruuda/thread-id", branch = "v3.3.0" }
+ 
+ [target.'cfg(unix)'.dependencies]
+ libc = "0.2.6"
+-
+-[target.'cfg(windows)'.dependencies]
+-winapi = { version = "0.3", features = ["processthreadsapi"] }
+-
+-[target.'cfg(target_os = "redox")'.dependencies]
+-redox_syscall = "0.1"
+-- 
+2.23.0
+
