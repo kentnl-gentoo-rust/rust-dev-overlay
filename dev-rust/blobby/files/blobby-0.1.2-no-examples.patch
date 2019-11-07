@@ -1,0 +1,24 @@
+From 97cb12b4ae01151be38c0c134d8466ae965b55a3 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 7 Nov 2019 20:43:06 +1300
+Subject: Strip example deps
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index d2e5920..7fab29d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,7 +26,5 @@ default-features = false
+ version = "1"
+ features = ["std"]
+ 
+-[dev-dependencies.hex]
+-version = "0.3"
+ [badges.travis-ci]
+ repository = "RustCrypto/utils"
+-- 
+2.23.0
+
