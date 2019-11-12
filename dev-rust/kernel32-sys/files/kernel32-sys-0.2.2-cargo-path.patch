@@ -1,0 +1,26 @@
+From 89e1952cc8bdc778b689b45e9d2497bfe0d43e8d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 13 Nov 2019 01:40:35 +1300
+Subject: Strip path from dependencies
+
+These only work on unpublished crates
+---
+ Cargo.toml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5d28426..b45d779 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,6 +12,6 @@ build = "build.rs"
+ [lib]
+ name = "kernel32"
+ [dependencies]
+-winapi = { version = "0.2.5", path = "../.." }
++winapi = { version = "0.2.5" }
+ [build-dependencies]
+-winapi-build = { version = "0.1.1", path = "../../build" }
++winapi-build = { version = "0.1.1" }
+-- 
+2.23.0
+
