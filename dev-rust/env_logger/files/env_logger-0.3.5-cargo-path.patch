@@ -1,0 +1,25 @@
+From 16e91afd9d17cd66d24520124c71d5210baab846 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 13 Nov 2019 03:45:10 +1300
+Subject: Remove path from dep specification
+
+---
+ Cargo.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5efadbf..54d8268 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,7 +12,7 @@ variable.
+ """
+ 
+ [dependencies]
+-log = { version = "0.3", path = ".." }
++log = { version = "0.3" }
+ regex = { version = "0.1", optional = true }
+ 
+ [[test]]
+-- 
+2.23.0
+
