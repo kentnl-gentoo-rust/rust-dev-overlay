@@ -1,0 +1,31 @@
+From 7e491d5cce4ab4ed8daf2fc071c5f850c8b37631 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 12 Nov 2019 23:44:05 +1300
+Subject: Strip testing dependencies
+
+This allows us to build binary targets without requiring test
+dependencies, at the price of not being able to run tests.
+
+But in future, this patch won't be needed.
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 02edcad..c99cf14 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,10 +22,6 @@ bench = false
+ [dependencies]
+ memchr = "0.1.9"
+ 
+-[dev-dependencies]
+-quickcheck = "0.2"
+-rand = "0.3"
+-
+ [profile.test]
+ debug = true
+ 
+-- 
+2.23.0
+

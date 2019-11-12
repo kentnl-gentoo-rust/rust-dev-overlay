@@ -1,0 +1,43 @@
+From 5f912c60a38947fabe058a43e038ef53c278a129 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 12 Nov 2019 23:38:40 +1300
+Subject: Remove example-only deps
+
+---
+ Cargo.toml              |    10 -
+ benches/bench.rs        |   339 -
+ benches/random.txt      |   513 --
+ benches/sherlock.txt    | 13052 --------------------------------------
+ examples/dict-search.rs |   151 -
+ 5 files changed, 14065 deletions(-)
+ delete mode 100644 benches/bench.rs
+ delete mode 100644 benches/random.txt
+ delete mode 100644 benches/sherlock.txt
+ delete mode 100644 examples/dict-search.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e4d42d0..02edcad 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,18 +23,8 @@ bench = false
+ memchr = "0.1.9"
+ 
+ [dev-dependencies]
+-csv = "0.14"
+-docopt = "0.6"
+-memmap = "0.2"
+ quickcheck = "0.2"
+ rand = "0.3"
+-rustc-serialize = "0.3"
+-
+-[[bench]]
+-name = "bench"
+-path = "benches/bench.rs"
+-test = false
+-bench = true
+ 
+ [profile.test]
+ debug = true
+-- 
+2.23.0
+

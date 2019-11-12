@@ -1,0 +1,35 @@
+From 470128edee8f1b3bde07b115006cf1d3f94bb286 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 12 Nov 2019 23:40:56 +1300
+Subject: Remove binary targets to avoid pulling in test dependencies
+
+In future this patch won't be necessary, but as-is, dev-dependencies
+are auto-required when any binary target exists.
+
+This patch simply removes binary targets to avoid that problem.
+---
+ Cargo.toml  |  6 ------
+ src/main.rs | 13 -------------
+ 2 files changed, 19 deletions(-)
+ delete mode 100644 src/main.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 02edcad..5643a69 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -13,12 +13,6 @@ license = "Unlicense/MIT"
+ [lib]
+ name = "aho_corasick"
+ 
+-[[bin]]
+-name = "aho-corasick-dot"
+-test = false
+-doc = false
+-bench = false
+-
+ [dependencies]
+ memchr = "0.1.9"
+ 
+-- 
+2.23.0
+
