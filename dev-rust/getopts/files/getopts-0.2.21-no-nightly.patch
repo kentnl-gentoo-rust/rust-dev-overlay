@@ -1,0 +1,37 @@
+From ec49fe80579e7f300c02aa1cfb04462cd07ac3cd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 13 Nov 2019 05:57:21 +1300
+Subject: Remove deps for features that can only work on nightly
+
+---
+ Cargo.toml | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index db224fc..766dc34 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,20 +21,8 @@ readme = "README.md"
+ categories = ["command-line-interface"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-lang/getopts"
+-[dependencies.core]
+-version = "1.0"
+-optional = true
+-package = "rustc-std-workspace-core"
+-
+-[dependencies.std]
+-version = "1.0"
+-optional = true
+-package = "rustc-std-workspace-std"
+ 
+ [dependencies.unicode-width]
+ version = "0.1.5"
+ [dev-dependencies.log]
+ version = "0.4"
+-
+-[features]
+-rustc-dep-of-std = ["unicode-width/rustc-dep-of-std", "std", "core"]
+-- 
+2.23.0
+
