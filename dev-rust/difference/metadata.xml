@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="bin">Provide /usr/bin/difference binary</flag>
+	</use>
 </pkgmetadata>
