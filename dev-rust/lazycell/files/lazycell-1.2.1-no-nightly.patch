@@ -1,0 +1,27 @@
+From dc260fd5285c63c2ed372538cf6e986939fb15d3 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 14 Nov 2019 05:18:27 +1300
+Subject: No nightly deps or features
+
+---
+ Cargo.toml | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index faecd45..dbb0d43 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,10 +21,3 @@ readme = "README.md"
+ keywords = ["lazycell", "lazy", "cell", "library"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/indiv0/lazycell"
+-[dependencies.clippy]
+-version = "0.0"
+-optional = true
+-
+-[features]
+-nightly = []
+-nightly-testing = ["clippy", "nightly"]
+-- 
+2.23.0
+
