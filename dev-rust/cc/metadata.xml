@@ -6,4 +6,8 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="bin">Install /usr/bin/gcc-shim</flag>
+		<flag name="parallel">Require deps needed for 'parallel' crate feature</flag>
+	</use>
 </pkgmetadata>
