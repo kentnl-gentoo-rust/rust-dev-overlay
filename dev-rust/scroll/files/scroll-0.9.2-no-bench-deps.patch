@@ -1,0 +1,32 @@
+From 86d126f476cb77feb8d67fd36d9255af4290c6ee Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 14 Nov 2019 22:18:25 +1300
+Subject: No benchmark or example deps
+
+---
+ Cargo.toml           |   4 --
+ benches/bench.rs     | 161 -------------------------------------------
+ examples/data_ctx.rs |  28 --------
+ 3 files changed, 193 deletions(-)
+ delete mode 100644 benches/bench.rs
+ delete mode 100644 examples/data_ctx.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 8a27b1d..2d6019f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,11 +23,7 @@ repository = "https://github.com/m4b/scroll"
+ [dependencies.scroll_derive]
+ version = "0.9"
+ optional = true
+-[dev-dependencies.byteorder]
+-version = "1.0.0"
+ 
+-[dev-dependencies.rayon]
+-version = "1.0.0"
+ [build-dependencies.rustc_version]
+ version = "0.2"
+ 
+-- 
+2.23.0
+
