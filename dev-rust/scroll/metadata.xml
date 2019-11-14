@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="derive">Require deps needed for 'derive' crate feature</flag>
+	</use>
 </pkgmetadata>

@@ -11,13 +11,19 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-
-RESTRICT="test"
+IUSE="derive test"
+F_DERIVE="
+	=dev-rust/scroll_derive-0.9*
+"
 BDEPEND="
 	=dev-rust/rustc_version-0.2*:=
+	derive? ( ${F_DERIVE} )
+	test? ( ${F_DERIVE} )
 "
 src_prepare() {
 	eapply "${FILESDIR}/${P}-no-bench-deps.patch"
 	rm -vrf examples/ benches/ || die
+	# https://github.com/m4b/scroll/issues/65
+	rm -vf tests/readme.rs || die
 	default
 }
