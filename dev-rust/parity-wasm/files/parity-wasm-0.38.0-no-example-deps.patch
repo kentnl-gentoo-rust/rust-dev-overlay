@@ -1,0 +1,25 @@
+From 723032a35a0ae33ca18c8f80098e5c1ce68bd6db Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 17 Nov 2019 19:41:11 +1300
+Subject: Remove example-only deps
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e9a752d..c2126b4 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,8 +24,6 @@ keywords = ["wasm", "webassembly", "bytecode", "serde", "interpreter"]
+ categories = ["wasm", "parser-implementations"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/paritytech/parity-wasm"
+-[dev-dependencies.time]
+-version = "0.1"
+ 
+ [features]
+ default = ["std"]
+-- 
+2.23.0
+
