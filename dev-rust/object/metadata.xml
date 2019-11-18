@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="compression">Require deps needed for 'compression' crate feature</flag>
+		<flag name="wasm">Require deps needed for 'wasm' crate feature</flag>
+	</use>
+</pkgmetadata>

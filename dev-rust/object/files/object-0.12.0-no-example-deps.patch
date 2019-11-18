@@ -1,0 +1,25 @@
+From cb3886a06cc62cd0485863d72b61aa24c7247261 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 18 Nov 2019 22:38:23 +1300
+Subject: Remove example-only deps
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 69be30c..54a617a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -40,8 +40,6 @@ default-features = false
+ [dependencies.uuid]
+ version = "0.7"
+ default-features = false
+-[dev-dependencies.memmap]
+-version = "0.7"
+ 
+ [features]
+ compression = ["flate2"]
+-- 
+2.23.0
+
