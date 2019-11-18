@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="cpp-demangle">Require deps needed for 'cpp_demangle' crate feature</flag>
+		<flag name="rustc-demangle">Require deps needed for 'rustc-demangle' crate feature</flag>
+		<flag name="std-object">Require deps needed for 'std-object' crate feature</flag>
+	</use>
+</pkgmetadata>
