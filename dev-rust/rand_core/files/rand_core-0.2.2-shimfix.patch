@@ -1,0 +1,56 @@
+From 9e15e9fb3066accf63d11cf4e1f83436b4fb47f7 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 20 Nov 2019 05:31:34 +1300
+Subject: Fix version shim ambiguity
+
+This patches the failure of `cargo test --doc` getting confused
+by multiple definitions of "rand_core" and having no way to know
+which is which.
+
+This resolves this by creating the rename at a higher level so that
+rust internals don't even recognize it as the same crat
+---
+ Cargo.toml | 9 +++++----
+ src/lib.rs | 2 +-
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index d48260f..c654ac9 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,14 +22,15 @@ keywords = ["random", "rng"]
+ categories = ["algorithms", "no-std"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-random/rand"
+-[dependencies.rand_core]
++[dependencies.rand_core3]
+ version = "0.3"
+ default-features = false
++package = "rand_core"
+ 
+ [features]
+-alloc = ["rand_core/alloc"]
+-serde1 = ["rand_core/serde1"]
+-std = ["rand_core/std"]
++alloc = ["rand_core3/alloc"]
++serde1 = ["rand_core3/serde1"]
++std = ["rand_core3/std"]
+ [badges.appveyor]
+ repository = "rust-random/rand"
+ 
+diff --git a/src/lib.rs b/src/lib.rs
+index 0d1550c..17744cb 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -45,7 +45,7 @@
+ 
+ #![no_std]
+ 
+-extern crate rand_core as core3;
++extern crate rand_core3 as core3;
+ 
+ pub use core3::{ErrorKind, Error};
+ pub use core3::{block, impls, le};
+-- 
+2.23.0
+
