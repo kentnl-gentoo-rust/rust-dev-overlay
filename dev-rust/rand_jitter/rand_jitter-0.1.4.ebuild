@@ -11,10 +11,14 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="log test"
+F_LOG="
+	=dev-rust/log-0.4*:=
+"
 BDEPEND="
 	=dev-rust/rand_core-0.4*:=
+	log? ( ${F_LOG} )
+	test? ( ${F_LOG} )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-unix-cargo.patch"

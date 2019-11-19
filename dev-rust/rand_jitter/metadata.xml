@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="log">Require deps needed for 'log' crate feature</flag>
+	</use>
 </pkgmetadata>
