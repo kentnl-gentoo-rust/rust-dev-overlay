@@ -11,9 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="serde"1
-
-RESTRICT="test"
+IUSE="serde1 test"
 
 F_SERDE="
 	=dev-rust/serde-1*:=
@@ -29,4 +27,8 @@ F_SERDE1="
 BDEPEND="
 	=dev-rust/rand_core-0.3*:=
 	serde1? ( $F_SERDE1 )
+	test? (
+		=dev-rust/bincode-1*:=
+		${F_SERDE1}
+	)
 "
