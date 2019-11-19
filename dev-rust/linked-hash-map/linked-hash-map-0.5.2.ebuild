@@ -11,7 +11,22 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+IUSE="heapsize-impl serde-impl test"
+
+F_HEAPSIZE_IMPL="
+	=dev-rust/heapsize-0.4*:=
+"
+F_SERDE_IMPL="
+	${F_HEAPSIZE_IMPL}
+	=dev-rust/serde-1*:=
+	=dev-rust/serde_test-1*:=
+"
+BDEPEND="
+	heapsize-impl? ( ${F_HEAPSIZE_IMPL} )
+	serde-impl? ( ${F_SERDE_IMPL} )
+	test? ( ${F_SERDE_IMPL} )
+"
+
 PATCHES=(
 	"${FILESDIR}/${P}-bad-cargo-features.patch"
 )

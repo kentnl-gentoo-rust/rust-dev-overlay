@@ -6,4 +6,8 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="heapsize-impl">Require deps needed for 'heapsize_impl' crate feature</flag>
+		<flag name="serde-impl">Require deps needed for 'serde_impl' crate feature</flag>
+	</use>
 </pkgmetadata>
