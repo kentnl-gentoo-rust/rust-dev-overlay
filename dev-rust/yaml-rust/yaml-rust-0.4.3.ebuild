@@ -11,9 +11,12 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+IUSE="test"
 BDEPEND="
 	( >=dev-rust/linked-hash-map-0.0.9:= <dev-rust/linked-hash-map-0.6 )
+	test? (
+		=dev-rust/quickcheck-0.7*:=
+	)
 "
 src_prepare() {
 	# Pulls all optional deps
