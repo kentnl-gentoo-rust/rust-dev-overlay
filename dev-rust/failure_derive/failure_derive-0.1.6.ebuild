@@ -11,11 +11,13 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="test"
 BDEPEND="
 	=dev-rust/proc-macro2-1*:=
 	=dev-rust/quote-1*:=
 	( =dev-rust/syn-1*:= >=dev-rust/syn-1.0.3 )
 	=dev-rust/synstructure-0.12*:=
+	test? (
+		=dev-rust/failure-0.1*:=
+	)
 "
