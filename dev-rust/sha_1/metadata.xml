@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="asm">Require deps needed for 'asm' crate feature</flag>
+	</use>
 </pkgmetadata>

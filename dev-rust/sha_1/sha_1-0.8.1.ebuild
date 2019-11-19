@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${ECRATE_NAME}/${PV}/download -> ${ECRA
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="asm test"
 F_ASM="
 	=dev-rust/sha1-asm-0.4*:=
 "
@@ -21,6 +20,12 @@ BDEPEND="
 	=dev-rust/digest-0.8*:=
 	=dev-rust/fake-simd-0.1*:=
 	=dev-rust/opaque-debug-0.2*:=
+	asm? ( ${F_ASM} )
+	test? (
+		${F_ASM}
+		=dev-rust/digest-0.8*:=[dev]
+		=dev-rust/hex-literal-0.1*:=
+	)
 "
 
 S="${WORKDIR}/${ECRATE_NAME}-${PV}"
