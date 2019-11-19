@@ -11,12 +11,16 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-IUSE="serde"
-RESTRICT="test"
+IUSE="serde test"
 F_SERDE="
 	=dev-rust/serde-1*:=
 "
 BDEPEND="
 	( =dev-rust/typenum-1*:= >=dev-rust/typenum-1.10 )
 	serde? ( ${F_SERDE} )
+	test? (
+		${F_SERDE}
+		=dev-rust/bincode-1*:=
+		=dev-rust/serde_json-1*:=
+	)
 "
