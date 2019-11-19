@@ -11,12 +11,14 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="test"
 
-RESTRICT="test"
 BDEPEND="
 	=dev-rust/proc-macro2-1*:=
 	=dev-rust/quote-1*:=
 	=dev-rust/syn-1*:=
 	=dev-rust/unicode-xid-0.2*:=
+	test? (
+		=dev-rust/synstructure_test_traits-0.1*:=
+	)
 "
