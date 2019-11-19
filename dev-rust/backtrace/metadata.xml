@@ -7,6 +7,10 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="cpp-demangle">Require deps needed for 'cpp_demangle' crate feature</flag>
+		<flag name="gimli-symbolize">Require deps needed for 'gimli-symbolize' crate feature</flag>
 		<flag name="libbacktrace">Require deps needed for 'libbacktrace' crate feature</flag>
+		<flag name="serialize-rustc">Require deps needed for 'serialize-rustc' crate feature</flag>
+		<flag name="serialize-serde">Require deps needed for 'serialize-serde' crate feature</flag>
 	</use>
 </pkgmetadata>
