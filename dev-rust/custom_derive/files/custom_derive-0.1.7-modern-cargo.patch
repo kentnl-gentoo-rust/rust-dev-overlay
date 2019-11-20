@@ -1,0 +1,30 @@
+From 83cb968767d1d05caf2b98f38510a7a5b74566fd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 20 Nov 2019 13:01:42 +1300
+Subject: Remove unused/broken/legacy workspaces from Cargo
+
+These just break cargo.
+---
+ Cargo.toml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 610fdd9..533cf0a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -19,12 +19,6 @@ exclude = [
+     "update-docs.py",
+ ]
+ 
+-[workspace]
+-members = [
+-    "enum_derive",
+-    "newtype_derive",
+-]
+-
+ [features]
+ default = ["std"]
+ std = []
+-- 
+2.23.0
+
