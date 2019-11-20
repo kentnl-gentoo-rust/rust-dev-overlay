@@ -1,0 +1,38 @@
+From 82be42196c72c6aebfbfc70890ab4f869ca70793 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 20 Nov 2019 22:57:23 +1300
+Subject: Remove nightly-only simd support
+
+---
+ Cargo.toml | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a0cc40a..6c929da 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -30,11 +30,6 @@ all-features = true
+ version = "0.4"
+ optional = true
+ 
+-[dependencies.packed_simd]
+-version = "0.3"
+-features = ["into_bits"]
+-optional = true
+-
+ [dependencies.rand_chacha]
+ version = "0.1"
+ 
+@@ -71,9 +66,7 @@ version = "0.1"
+ alloc = ["rand_core/alloc"]
+ default = ["std"]
+ i128_support = []
+-nightly = ["simd_support"]
+ serde1 = ["rand_core/serde1", "rand_isaac/serde1", "rand_xorshift/serde1"]
+-simd_support = ["packed_simd"]
+ std = ["rand_core/std", "alloc", "rand_os", "rand_jitter/std"]
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+-- 
+2.24.0
+
