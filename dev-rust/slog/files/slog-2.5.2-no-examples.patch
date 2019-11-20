@@ -1,0 +1,37 @@
+From 31412a41a21faf47a898f6f332322db51ccb511e Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 21 Nov 2019 12:45:42 +1300
+Subject: Kill examples
+
+As they force dev-dependencies and optional deps even when not needed.
+---
+ Cargo.toml                  |  3 --
+ examples/README.md          |  5 ---
+ examples/common/mod.rs      | 36 ---------------
+ examples/named.rs           | 23 ----------
+ examples/singlethread.rs    | 29 ------------
+ examples/struct-log-self.rs | 90 -------------------------------------
+ 6 files changed, 186 deletions(-)
+ delete mode 100644 examples/README.md
+ delete mode 100644 examples/common/mod.rs
+ delete mode 100644 examples/named.rs
+ delete mode 100644 examples/singlethread.rs
+ delete mode 100644 examples/struct-log-self.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a2977b5..5b785bc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -38,9 +38,6 @@ lto = true
+ debug = false
+ debug-assertions = false
+ 
+-[[example]]
+-name = "singlethread"
+-required-features = ["nothreads"]
+ [dependencies.erased-serde]
+ version = "0.3"
+ optional = true
+-- 
+2.24.0
+
