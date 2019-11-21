@@ -1,0 +1,31 @@
+From 234a011d5660fab69cbd4b5b6853c37947820025 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 21 Nov 2019 22:34:04 +1300
+Subject: Nuke broken test
+
+Bug: https://github.com/rayon-rs/rayon/issues/710
+---
+ Cargo.toml                    |  5 --
+ tests/stack_overflow_crash.rs | 86 -----------------------------------
+ 2 files changed, 91 deletions(-)
+ delete mode 100644 tests/stack_overflow_crash.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 9a0585d..ca9e1be 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,11 +24,6 @@ categories = ["concurrency"]
+ license = "Apache-2.0/MIT"
+ repository = "https://github.com/rayon-rs/rayon"
+ 
+-[[test]]
+-name = "stack_overflow_crash"
+-path = "tests/stack_overflow_crash.rs"
+-harness = false
+-
+ [[test]]
+ name = "double_init_fail"
+ path = "tests/double_init_fail.rs"
+-- 
+2.24.0
+
