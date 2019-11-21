@@ -8,6 +8,10 @@
 	</longdescription>
 	<use>
 		<flag name="serde">Require deps needed for 'serde' crate feature</flag>
-		<flag name="v4">Require deps needed for 'v4' crate feature</flag>		
+		<flag name="slog">Require deps needed for 'slog' crate feature</flag>
+		<flag name="u128">Require deps needed for 'u128' crate feature</flag>
+		<flag name="v3">Require deps needed for 'v3' crate feature</flag>
+		<flag name="v4">Require deps needed for 'v4' crate feature</flag>
+		<flag name="v5">Require deps needed for 'v5' crate feature</flag>
 	</use>
 </pkgmetadata>
