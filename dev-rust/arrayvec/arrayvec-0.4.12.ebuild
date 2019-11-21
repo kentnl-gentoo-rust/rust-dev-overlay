@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="serde-1"
-RESTRICT="test"
+IUSE="serde-1 test"
 
 F_SERDE="
 	=dev-rust/serde-1*:=
@@ -20,4 +19,16 @@ F_SERDE="
 BDEPEND="
 	( =dev-rust/nodrop-0.1* >=dev-rust/nodrop-0.1.12 )
 	serde-1? ( ${F_SERDE} )
+	test? (
+		${F_SERDE}
+		=dev-rust/matches-0.1*:=
+		=dev-rust/serde_test-1*:=
+	)
 "
+PATCHES=(
+	"${FILESDIR}/${P}-no-benchmarks.patch"
+)
+src_prepare() {
+	rm -vrf benches/ || die
+	default
+}

@@ -1,0 +1,43 @@
+From 9ce81c89c259788f0d450080e354a4ec36a7fd7d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 21 Nov 2019 13:34:47 +1300
+Subject: Remove benchmarks
+
+---
+ Cargo.toml             |  9 -----
+ benches/arraystring.rs | 90 ------------------------------------------
+ benches/extend.rs      | 43 --------------------
+ 3 files changed, 142 deletions(-)
+ delete mode 100644 benches/arraystring.rs
+ delete mode 100644 benches/extend.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f67c3c3..8a882f6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,13 +27,6 @@ features = ["serde-1"]
+ no-dev-version = true
+ tag-name = "{{version}}"
+ 
+-[[bench]]
+-name = "extend"
+-harness = false
+-
+-[[bench]]
+-name = "arraystring"
+-harness = false
+ [dependencies.nodrop]
+ version = "0.1.12"
+ default-features = false
+@@ -42,8 +35,6 @@ default-features = false
+ version = "1.0"
+ optional = true
+ default-features = false
+-[dev-dependencies.bencher]
+-version = "0.1.4"
+ 
+ [dev-dependencies.matches]
+ version = "0.1"
+-- 
+2.24.0
+
