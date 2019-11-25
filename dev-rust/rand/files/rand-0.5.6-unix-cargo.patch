@@ -1,3 +1,12 @@
+From a8e5726c1160233fe7ca58b13a5a4e4637a137c7 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 25 Nov 2019 23:33:45 +1300
+Subject: Remove non-unix and nightly deps
+
+---
+ Cargo.toml | 16 +---------------
+ 1 file changed, 1 insertion(+), 15 deletions(-)
+
 diff --git a/Cargo.toml b/Cargo.toml
 index 32d6ef0..d11691f 100644
 --- a/Cargo.toml
@@ -29,3 +38,6 @@ index 32d6ef0..d11691f 100644
  [badges.appveyor]
  repository = "alexcrichton/rand"
  
+-- 
+2.24.0
+

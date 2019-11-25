@@ -1,0 +1,26 @@
+From 6b386118eb8d2a4012ebfb485ceb6002639dccac Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 25 Nov 2019 23:34:54 +1300
+Subject: Revert deny(warnings)
+
+As this stupidly can't be avoided with --cap-lints warn
+---
+ src/lib.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index a1eb469..f92735e 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -228,7 +228,7 @@
+ 
+ #![deny(missing_docs)]
+ #![deny(missing_debug_implementations)]
+-#![doc(test(attr(allow(unused_variables), deny(warnings))))]
++#![doc(test(attr(allow(unused_variables))))]
+ 
+ #![cfg_attr(not(feature="std"), no_std)]
+ #![cfg_attr(all(feature="alloc", not(feature="std")), feature(alloc))]
+-- 
+2.24.0
+
