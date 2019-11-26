@@ -12,7 +12,6 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
 IUSE="arbitrary-depth derive serde test"
-RESTRICT="test"
 F_SERDE_LIB="
 	=dev-rust/serde-1*:=
 "
@@ -27,4 +26,10 @@ BDEPEND="
 	arbitrary-depth? ( ${F_SMALLVEC} )
 	derive? ( ${F_SVAL_DERIVE} )
 	serde? ( ${F_SERDE_LIB} )
+	test? (
+		=dev-rust/quickcheck-0.9*:=[use-logging,regex]
+		${F_SERDE_LIB}
+		${F_SMALLVEC}
+		${F_SVAL_DERIVE}
+	)
 "
