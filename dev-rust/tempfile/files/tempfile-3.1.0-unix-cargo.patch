@@ -1,0 +1,27 @@
+From 0d6cb35326050c577a76316e67237351a8f0b293 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 29 Nov 2019 03:46:07 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index dcc1ff9..74c0a48 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -30,10 +30,5 @@ version = "0.7"
+ 
+ [dependencies.remove_dir_all]
+ version = "0.5"
+-[target."cfg(target_os = \"redox\")".dependencies.redox_syscall]
+-version = "0.1"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2.27"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["fileapi", "handleapi", "winbase"]
+-- 
+2.24.0
+
