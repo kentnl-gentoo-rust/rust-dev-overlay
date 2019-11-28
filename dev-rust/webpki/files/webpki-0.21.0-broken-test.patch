@@ -1,0 +1,26 @@
+From 1151b35287d29906a43b40f8d9978942dcace8b8 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 29 Nov 2019 00:32:14 +1300
+Subject: Disable broken test
+
+Bug: https://github.com/briansmith/webpki/issues/111
+---
+ tests/integration.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/integration.rs b/tests/integration.rs
+index 9fc5e6b..7cb47e6 100644
+--- a/tests/integration.rs
++++ b/tests/integration.rs
+@@ -68,7 +68,7 @@ pub fn netflix() {
+         .unwrap();
+ }
+ 
+-#[cfg(feature = "trust_anchor_util")]
++#[cfg(all(broken_tests,feature = "trust_anchor_util"))]
+ #[test]
+ pub fn ed25519() {
+     let ee = include_bytes!("ed25519/ee.der");
+-- 
+2.24.0
+
