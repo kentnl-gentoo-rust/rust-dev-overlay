@@ -1,0 +1,25 @@
+From e4609a97b30d49192eeabf45426fc62dd0287361 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 28 Nov 2019 21:08:48 +1300
+Subject: Remove benchmark-only dependencies
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6da5f34..56ef1fb 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -37,8 +37,6 @@ default-features = false
+ [dependencies.libc]
+ version = "^0.2.8"
+ default-features = false
+-[dev-dependencies.paste]
+-version = "0.1"
+ 
+ [features]
+ alloc_trait = []
+-- 
+2.24.0
+

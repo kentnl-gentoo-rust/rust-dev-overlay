@@ -1,0 +1,28 @@
+From 5b24ca530683c41ef53c8ea9cc42a8139b1900bf Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 28 Nov 2019 21:52:19 +1300
+Subject: Add missing jemalloc-ctl dep
+
+Bug: https://github.com/gnzlbg/jemallocator/issues/140
+---
+ Cargo.toml | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 56ef1fb..3efde4c 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -38,6 +38,10 @@ default-features = false
+ version = "^0.2.8"
+ default-features = false
+ 
++[dev-dependencies.jemalloc-ctl]
++version = "^0.3"
++default-features = false
++
+ [features]
+ alloc_trait = []
+ background_threads = ["jemalloc-sys/background_threads"]
+-- 
+2.24.0
+
