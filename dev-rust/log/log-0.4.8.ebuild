@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="serde sval"
-RESTRICT="test"
+IUSE="serde sval test"
 F_SERDE="
 	=dev-rust/serde-1*:=
 "
@@ -24,4 +23,9 @@ BDEPEND="
 	( =dev-rust/cfg-if-0.1*:= >=dev-rust/cfg-if-0.1.2 )
 	sval? ( ${F_SVAL} )
 	serde? ( ${F_SERDE} )
+	test? (
+		${F_SVAL}
+		${F_SERDE}
+		=dev-rust/serde_test-1*:=
+	)
 "
