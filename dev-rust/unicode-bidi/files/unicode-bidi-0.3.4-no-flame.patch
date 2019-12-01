@@ -1,0 +1,43 @@
+From 472ae33c12eba34015981989481616aa64371418 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 1 Dec 2019 23:10:27 +1300
+Subject: Remove flame_it feature set
+
+As this is only used internally for benching/testing in ways
+that aren't useful for Gentoo, and only complicate the depgraph
+
+Additionally, flamer et. al. Don't compile on recent rust due to
+reliance on old features that have been removed, or renamed.
+---
+ Cargo.toml | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f12ebcd..555c5d1 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,13 +23,6 @@ repository = "https://github.com/servo/unicode-bidi"
+ 
+ [lib]
+ name = "unicode_bidi"
+-[dependencies.flame]
+-version = "0.1"
+-optional = true
+-
+-[dependencies.flamer]
+-version = "0.1"
+-optional = true
+ 
+ [dependencies.serde]
+ version = ">=0.8, <2.0"
+@@ -43,7 +36,6 @@ version = ">=0.8, <2.0"
+ 
+ [features]
+ with_serde = ["serde"]
+-flame_it = ["flame", "flamer"]
+ unstable = []
+ default = []
+ bench_it = []
+-- 
+2.24.0
+

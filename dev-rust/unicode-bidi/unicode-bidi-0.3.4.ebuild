@@ -11,17 +11,19 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="with-serde"
-RESTRICT="test"
+IUSE="with-serde test"
 
-F_FLAME_IT="
-	=dev-rust/flame-0.1*:=
-	=dev-rust/flamer-0.1*:=
-"
 F_WITH_SERDE="
 	( >=dev-rust/serde-0.8:=[derive] <dev-rust/serde-2 )
 "
 BDEPEND="
 	=dev-rust/matches-0.1*:=
 	with-serde? ( ${F_WITH_SERDE} )
+	test? (
+		${F_WITH_SERDE}
+		( >=dev-rust/serde_test-0.8:= <dev-rust/serde_test-2 )
+	)
 "
+PATCHES=(
+	"${FILESDIR}/${P}-no-flame.patch"
+)
