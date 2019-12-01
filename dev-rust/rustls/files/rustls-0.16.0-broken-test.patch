@@ -1,0 +1,29 @@
+From ba41df0717cfc78609ca24e9326b68b010d98b12 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 29 Nov 2019 04:40:43 +1300
+Subject: Disable test broken by missing fuzz files
+
+---
+ src/msgs/message_test.rs | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/msgs/message_test.rs b/src/msgs/message_test.rs
+index 63315cc..2687365 100644
+--- a/src/msgs/message_test.rs
++++ b/src/msgs/message_test.rs
+@@ -2,9 +2,12 @@ use super::codec::Reader;
+ use super::codec::Codec;
+ use super::message::Message;
+ 
++#[cfg(broken_tests)]
+ use std::fs;
++#[cfg(broken_tests)]
+ use std::io::Read;
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn test_read_fuzz_corpus() {
+     let prefix = "fuzz/corpus/message/";
+-- 
+2.24.0
+

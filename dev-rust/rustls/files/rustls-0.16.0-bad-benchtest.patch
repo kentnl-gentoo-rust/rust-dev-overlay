@@ -1,0 +1,27 @@
+From 5fe50138f82424596a17b2b260910915a99009eb Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 29 Nov 2019 04:50:18 +1300
+Subject: Remove non-test benchmark
+
+---
+ Cargo.toml          |  2 --
+ tests/benchmarks.rs | 26 --------------------------
+ 2 files changed, 28 deletions(-)
+ delete mode 100644 tests/benchmarks.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 0ab044f..f20941e 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -37,8 +37,6 @@ version = "0.6.0"
+ 
+ [dependencies.webpki]
+ version = "0.21.0"
+-[dev-dependencies.criterion]
+-version = "0.2.11"
+ 
+ [dev-dependencies.env_logger]
+ version = "0.6.1"
+-- 
+2.24.0
+

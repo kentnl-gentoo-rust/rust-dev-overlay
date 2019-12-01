@@ -1,3 +1,98 @@
+From d5c9422e2ce3a95c61125142d7d96e5fbef2b5c6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 29 Nov 2019 04:36:49 +1300
+Subject: Remove unwaantex examples, benchmarks and cruft files.
+
+As examples un-necessarily cause all dev-dependencies to always
+be present.
+---
+ .azure-pipelines.yml             |  71 ---
+ .travis.yml                      |  41 --
+ Cargo.toml                       |  17 -
+ admin/bench-measure.mk           |  44 --
+ admin/bench-range                |  18 -
+ admin/build-lcov                 |   9 -
+ admin/capture-certdata           |  76 ---
+ admin/coverage                   |  87 ---
+ admin/coverage-rustc             |  25 -
+ admin/format-bench               |  32 --
+ admin/llvm-gcov                  |   2 -
+ admin/pipelines/bench.yml        |   3 -
+ admin/pipelines/bogo.yml         |   4 -
+ admin/pipelines/cargo-steps.yml  |  18 -
+ admin/pipelines/coverage.yml     |  13 -
+ admin/pipelines/min-versions.yml |   6 -
+ admin/pipelines/rustup.yml       |  38 --
+ admin/pull-readme                |   9 -
+ admin/pull-usage                 |  17 -
+ admin/rustls-logo-web.png        | Bin 85971 -> 0 bytes
+ bogo/.gitignore                  |   2 -
+ bogo/check.py                    |  47 --
+ bogo/config.json                 | 305 ----------
+ bogo/fetch-and-build             |  14 -
+ bogo/keys/cert.pem               |  17 -
+ bogo/keys/ecdsa_p256_cert.pem    |   9 -
+ bogo/keys/ecdsa_p256_key.pem     |   5 -
+ bogo/keys/ecdsa_p384_cert.pem    |  10 -
+ bogo/keys/ecdsa_p384_key.pem     |   6 -
+ bogo/keys/key.pem                |  28 -
+ bogo/keys/rsa_1024_cert.pem      |  12 -
+ bogo/keys/rsa_1024_key.pem       |  16 -
+ bogo/keys/rsa_chain_cert.pem     |  38 --
+ bogo/keys/rsa_chain_key.pem      |  28 -
+ bogo/patches/testerrormap.diff   |  84 ---
+ bogo/regen-certs                 | 122 ----
+ bogo/runme                       |  23 -
+ examples/README.md               |   1 -
+ examples/internal/bench.rs       | 512 -----------------
+ examples/internal/bogo_shim.rs   | 954 -------------------------------
+ examples/internal/trytls_shim.rs | 100 ----
+ trytls/.gitignore                |   1 -
+ trytls/runme                     |  14 -
+ 43 files changed, 2878 deletions(-)
+ delete mode 100644 .azure-pipelines.yml
+ delete mode 100644 .travis.yml
+ delete mode 100644 admin/bench-measure.mk
+ delete mode 100755 admin/bench-range
+ delete mode 100755 admin/build-lcov
+ delete mode 100755 admin/capture-certdata
+ delete mode 100755 admin/coverage
+ delete mode 100755 admin/coverage-rustc
+ delete mode 100755 admin/format-bench
+ delete mode 100755 admin/llvm-gcov
+ delete mode 100644 admin/pipelines/bench.yml
+ delete mode 100644 admin/pipelines/bogo.yml
+ delete mode 100644 admin/pipelines/cargo-steps.yml
+ delete mode 100644 admin/pipelines/coverage.yml
+ delete mode 100644 admin/pipelines/min-versions.yml
+ delete mode 100644 admin/pipelines/rustup.yml
+ delete mode 100755 admin/pull-readme
+ delete mode 100755 admin/pull-usage
+ delete mode 100755 admin/rustls-logo-web.png
+ delete mode 100644 bogo/.gitignore
+ delete mode 100644 bogo/check.py
+ delete mode 100644 bogo/config.json
+ delete mode 100755 bogo/fetch-and-build
+ delete mode 100644 bogo/keys/cert.pem
+ delete mode 100644 bogo/keys/ecdsa_p256_cert.pem
+ delete mode 100644 bogo/keys/ecdsa_p256_key.pem
+ delete mode 100644 bogo/keys/ecdsa_p384_cert.pem
+ delete mode 100644 bogo/keys/ecdsa_p384_key.pem
+ delete mode 100644 bogo/keys/key.pem
+ delete mode 100644 bogo/keys/rsa_1024_cert.pem
+ delete mode 100644 bogo/keys/rsa_1024_key.pem
+ delete mode 100644 bogo/keys/rsa_chain_cert.pem
+ delete mode 100644 bogo/keys/rsa_chain_key.pem
+ delete mode 100644 bogo/patches/testerrormap.diff
+ delete mode 100755 bogo/regen-certs
+ delete mode 100755 bogo/runme
+ delete mode 100644 examples/README.md
+ delete mode 100644 examples/internal/bench.rs
+ delete mode 100644 examples/internal/bogo_shim.rs
+ delete mode 100644 examples/internal/trytls_shim.rs
+ delete mode 100644 trytls/.gitignore
+ delete mode 100755 trytls/runme
+
 diff --git a/Cargo.toml b/Cargo.toml
 index d03ce9c..0ab044f 100644
 --- a/Cargo.toml
@@ -26,3 +121,6 @@ index d03ce9c..0ab044f 100644
  [dependencies.base64]
  version = "0.10"
  
+-- 
+2.24.0
+
