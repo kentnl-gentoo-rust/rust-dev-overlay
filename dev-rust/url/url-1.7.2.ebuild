@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="heap-size query-encoding rustc-serialize serde"
-RESTRICT="test"
+IUSE="heap-size query-encoding rustc-serialize serde test"
 F_ENCODING="
 	=dev-rust/encoding-0.2*:=
 "
@@ -33,4 +32,23 @@ BDEPEND="
 	query-encoding? ( ${F_ENCODING} )
 	rustc-serialize? ( ${F_RUSTC_SERIALIZE} )
 	serde? ( ${F_SERDE} )
+	test? (
+		${F_HEAPSIZE}
+		${F_ENCODING}
+		${F_RUSTC_SERIALIZE}
+		${F_SERDE}
+		=dev-rust/rustc-serialize-0.3*:=
+		=dev-rust/rustc-test-0.3*:=
+		( >=dev-rust/serde_json-0.6.1:= <dev-rust/serde_json-0.9 )
+	)
 "
+PATCHES=(
+	"${FILESDIR}/${P}-nobench.patch"
+)
+src_prepare() {
+	# cruft files
+	rm -vf appveyor.yml .travis.yml || die
+	# benchmarks
+	rm -vf benches/parse_url.rs || die
+	default
+}
