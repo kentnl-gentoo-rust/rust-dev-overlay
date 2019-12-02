@@ -1,0 +1,25 @@
+From 9b966bb398b0ac660d8ee6594fdbd93352f0136f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 2 Dec 2019 18:52:18 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index fc1c2d7..0817a73 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,8 +24,4 @@ repository = "https://github.com/Stebalien/term"
+ 
+ [features]
+ default = []
+-[target."cfg(windows)".dependencies.kernel32-sys]
+-version = "0.2"
+ 
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.2"
+-- 
+2.24.0
+
