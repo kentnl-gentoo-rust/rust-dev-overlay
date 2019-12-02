@@ -1,0 +1,26 @@
+From d031e80794344218d67f1536cc4a57cacc61fefd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 2 Dec 2019 19:31:30 +1300
+Subject: Disable benchmark tests
+
+These inherently rely on nightly rust features.
+---
+ src/stats.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/stats.rs b/src/stats.rs
+index 335b6d6..7297060 100644
+--- a/src/stats.rs
++++ b/src/stats.rs
+@@ -877,7 +877,7 @@ mod tests {
+     }
+ }
+ 
+-#[cfg(test)]
++#[cfg(all(disabled_bench,test))]
+ mod bench {
+     use Bencher;
+     use stats::Stats;
+-- 
+2.24.0
+
