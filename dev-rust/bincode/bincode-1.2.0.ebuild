@@ -11,12 +11,15 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="test"
 BDEPEND="
 	( =dev-rust/byteorder-1*:= >=dev-rust/byteorder-1.3 )
 	( =dev-rust/serde-1*:= >=dev-rust/serde-1.0.63 )
 	( =dev-rust/autocfg-0.1*:= >=dev-rust/autocfg-0.1.2 )
+	test? (
+		=dev-rust/serde_bytes-0.11*:=
+		( =dev-rust/serde_derive-1*:= >=dev-rust/serde_derive-1.0.27 )
+	)
 "
 src_prepare() {
 	rm -vrf examples/ || die
