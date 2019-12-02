@@ -11,10 +11,13 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="test"
 BDEPEND="
 	=dev-rust/matches-0.1*:=
 	=dev-rust/unicode-bidi-0.3*:=
 	( =dev-rust/unicode-normalization-0.1*:= >=dev-rust/unicode-normalization-0.1.5 )
+	test? (
+		=dev-rust/rustc-serialize-0.3*:=
+		=dev-rust/rustc-test-0.3*:=
+	)
 "
