@@ -11,13 +11,16 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="test"
 
-RESTRICT="test"
 BDEPEND="
 	=dev-rust/base64-0.10*:=
 	=dev-rust/bitflags-1*:=
 	=dev-rust/serde-1*:=[derive]
+	test? (
+		=dev-rust/serde_bytes-0.10*:=
+		=dev-rust/serde_json-1*:=
+	)
 "
 src_prepare() {
 	# Pulls all deps
