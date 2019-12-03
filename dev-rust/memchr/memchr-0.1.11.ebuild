@@ -11,8 +11,15 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Unlicense )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="test"
 BDEPEND="
 	( =dev-rust/libc-0.2*:= >=dev-rust/libc-0.2.4 )
+	test? (
+		=dev-rust/quickcheck-0.2*:=
+	)
 "
+src_prepare() {
+	rm -vrf benches/ || die
+	rm -vf appveyor.yml session.vim || die
+	default
+}
