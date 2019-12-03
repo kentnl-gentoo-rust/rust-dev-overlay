@@ -7,6 +7,8 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="all">Require deps needed for 'all' crate feature</flag>
 		<flag name="graphmap">Require deps needed for 'graphmap' crate feature</flag>
+		<flag name="serde-1">Require deps needed for 'serde-1' crate feature</flag>
 	</use>
 </pkgmetadata>
