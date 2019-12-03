@@ -11,20 +11,25 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Unlicense )"
 KEYWORDS="~amd64 ~x86"
-IUSE="dot"
-RESTRICT="test"
+IUSE="dot test"
 BDEPEND="
 	( =dev-rust/memchr-0.1*:= >=dev-rust/memchr-0.1.9 )
+	test? (
+		=dev-rust/quickcheck-0.2*:=
+		=dev-rust/rand-0.3*:=
+	)
 "
 src_prepare() {
 	rm -vrf examples/ || die
 	rm -vrf benches/ || die
 	eapply "${FILESDIR}/${P}-no-example-deps.patch"
-	if use dot; then
-		eapply "${FILESDIR}/${P}-no-test-binaries.patch"
-	else
-		rm -vrf src/main.rs || die
-		eapply "${FILESDIR}/${P}-no-binaries.patch"
+	if ! use test; then
+		if use dot; then
+			eapply "${FILESDIR}/${P}-no-test-binaries.patch"
+		else
+			rm -vrf src/main.rs || die
+			eapply "${FILESDIR}/${P}-no-binaries.patch"
+		fi
 	fi
 	default
 }
