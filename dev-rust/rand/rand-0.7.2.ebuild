@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="+std serde1"
-RESTRICT="test"
+IUSE="log +std serde1 small_rng test"
 F_GETRANDOM_PACKAGE="
 	( >=dev-rust/getrandom-0.1.1 )
 "
@@ -27,12 +26,21 @@ BDEPEND="
 	( =dev-rust/rand_core-0.5*:=[std?] >=dev-rust/rand_core-0.5.1 )
 	( =dev-rust/rand_chacha-0.2*:= >=dev-rust/rand_chacha-0.2.1 )
 	( =dev-rust/libc-0.2*:= >=dev-rust/libc-0.2.22 )
+	log? ( ${F_LOG} )
+	small_rng? ( ${F_SMALL_RNG} )
 	std? (
+		${F_GETRANDOM_PACKAGE}
+	)
+	test? (
+		=dev-rust/rand_hc-0.2*:=
+		${F_LOG}
+		${F_SMALL_RNG}
 		${F_GETRANDOM_PACKAGE}
 	)
 "
 PATCHES=(
 	"${FILESDIR}/${P}-unix-cargo.patch"
+	"${FILESDIR}/${P}-nobench.patch"
 )
 src_prepare() {
 	# Do not compile on stable: https://github.com/rust-random/rand/issues/896

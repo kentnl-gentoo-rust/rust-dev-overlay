@@ -1,0 +1,43 @@
+From f6ca0992d7a378e2aa44ccc6c6721c257ed0d7c1 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 4 Dec 2019 02:59:20 +1300
+Subject: Nuke benches and bench-deps
+
+---
+ Cargo.toml            |   9 --
+ benches/generators.rs | 220 ------------------------------------------
+ benches/misc.rs       | 140 ---------------------------
+ benches/seq.rs        | 177 ---------------------------------
+ benches/weighted.rs   |  36 -------
+ 5 files changed, 582 deletions(-)
+ delete mode 100644 benches/generators.rs
+ delete mode 100644 benches/misc.rs
+ delete mode 100644 benches/seq.rs
+ delete mode 100644 benches/weighted.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index b51b3d7..b0affa8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -45,18 +45,9 @@ optional = true
+ [dev-dependencies.rand_hc]
+ version = "0.2"
+ 
+-[dev-dependencies.rand_isaac]
+-version = "0.2"
+-
+ [dev-dependencies.rand_pcg]
+ version = "0.2"
+ 
+-[dev-dependencies.rand_xorshift]
+-version = "0.2"
+-
+-[dev-dependencies.rand_xoshiro]
+-version = "0.4"
+-
+ [features]
+ alloc = ["rand_core/alloc"]
+ default = ["std"]
+-- 
+2.24.0
+
