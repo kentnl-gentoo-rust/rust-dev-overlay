@@ -11,4 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+
+PATCHES=(
+	"${FILESDIR}/${P}-no-path-deps.patch"
+)
