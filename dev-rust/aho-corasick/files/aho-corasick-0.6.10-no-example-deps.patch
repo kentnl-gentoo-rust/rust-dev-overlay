@@ -1,0 +1,44 @@
+From ddb4e93fb3cf9274dd5d2890c942768b856fb6b3 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 4 Dec 2019 22:33:00 +1300
+Subject: Nuke examples and deps
+
+---
+ Cargo.toml              |  13 ----
+ examples/dict-search.rs | 138 ----------------------------------------
+ 2 files changed, 151 deletions(-)
+ delete mode 100644 examples/dict-search.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 0e79959..ab0be71 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -47,14 +47,6 @@ test = false
+ bench = true
+ [dependencies.memchr]
+ version = "2"
+-[dev-dependencies.csv]
+-version = "1"
+-
+-[dev-dependencies.docopt]
+-version = "1"
+-
+-[dev-dependencies.memmap]
+-version = "0.6"
+ 
+ [dev-dependencies.quickcheck]
+ version = "0.7"
+@@ -63,10 +55,5 @@ default-features = false
+ [dev-dependencies.rand]
+ version = "0.5"
+ 
+-[dev-dependencies.serde]
+-version = "1"
+-
+-[dev-dependencies.serde_derive]
+-version = "1"
+ [badges.travis-ci]
+ repository = "BurntSushi/aho-corasick"
+-- 
+2.24.0
+

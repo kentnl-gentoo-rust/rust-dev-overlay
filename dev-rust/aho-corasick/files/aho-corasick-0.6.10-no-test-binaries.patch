@@ -1,0 +1,33 @@
+From 59b4fc4f2dbb97becf402772a341337eb8501ff6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 12 Nov 2019 23:44:05 +1300
+Subject: Strip testing dependencies
+
+This allows us to build binary targets without requiring test
+dependencies, at the price of not being able to run tests.
+
+But in future, this patch won't be needed.
+---
+ Cargo.toml | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index ab0be71..3b2c941 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -48,12 +48,5 @@ bench = true
+ [dependencies.memchr]
+ version = "2"
+ 
+-[dev-dependencies.quickcheck]
+-version = "0.7"
+-default-features = false
+-
+-[dev-dependencies.rand]
+-version = "0.5"
+-
+ [badges.travis-ci]
+ repository = "BurntSushi/aho-corasick"
+-- 
+2.24.0
+
