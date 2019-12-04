@@ -1,0 +1,23 @@
+From 9f200e7c1551d970ee84ca359eeeb6cec1201949 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 06:53:08 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 40a6d8e..cd28ab3 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,6 +29,3 @@ duration = []
+ nightly = []
+ [target."cfg(any(target_os=\"redox\", unix))".dependencies.libc]
+ version = "0.2.42"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["handleapi", "winsock2", "ws2def", "ws2ipdef", "ws2tcpip"]
+-- 
+2.24.0
+
