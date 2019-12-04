@@ -11,4 +11,9 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Unlicense )"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+IUSE="test"
+BDEPEND="
+	test? (
+		=dev-rust/quickcheck-0.2*:=
+	)
+"
