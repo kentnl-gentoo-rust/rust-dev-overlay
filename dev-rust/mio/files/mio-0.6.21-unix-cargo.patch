@@ -1,0 +1,35 @@
+From 4fdb30edd98ab518ad2eaa5a8d8aff1d676485c9 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 06:46:07 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 7281548..509d380 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -54,18 +54,5 @@ version = "0.3.4"
+ [features]
+ default = ["with-deprecated"]
+ with-deprecated = []
+-[target."cfg(target_os = \"fuchsia\")".dependencies.fuchsia-zircon]
+-version = "0.3.2"
+-
+-[target."cfg(target_os = \"fuchsia\")".dependencies.fuchsia-zircon-sys]
+-version = "0.3.2"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2.42"
+-[target."cfg(windows)".dependencies.kernel32-sys]
+-version = "0.2"
+-
+-[target."cfg(windows)".dependencies.miow]
+-version = "0.2.1"
+-
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.2.6"
+-- 
+2.24.0
+
