@@ -1,0 +1,28 @@
+From 0f776e28cefebc0424bcc53a0b892df22a97bb6a Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 19:09:54 +1300
+Subject: Nuke benches and deps
+
+---
+ Cargo.toml       |   6 ---
+ benches/basic.rs | 136 -----------------------------------------------
+ 2 files changed, 142 deletions(-)
+ delete mode 100644 benches/basic.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e755a35..a910253 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -55,9 +55,3 @@ version = "0.1.6"
+ version = "0.1.1"
+ [dev-dependencies.num_cpus]
+ version = "1.8.0"
+-
+-[dev-dependencies.tokio]
+-version = "0.1.7"
+-
+-[dev-dependencies.tokio-io-pool]
+-version = "=0.1.4"
+-- 
+2.24.0
+
