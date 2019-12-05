@@ -1,0 +1,30 @@
+From 4703cb634bd6e031e111251fbb54398f543c6aa2 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 18:16:44 +1300
+Subject: Nuke benchmarks and benchmark deps
+
+---
+ Cargo.toml         |   3 -
+ benches/mpsc.rs    | 536 ---------------------------------------------
+ benches/oneshot.rs | 239 --------------------
+ 3 files changed, 778 deletions(-)
+ delete mode 100644 benches/mpsc.rs
+ delete mode 100644 benches/oneshot.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 59a4f67..be598b1 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -25,9 +25,6 @@ version = "1.0.6"
+ 
+ [dependencies.futures]
+ version = "0.1.19"
+-[dev-dependencies.env_logger]
+-version = "0.6"
+-default-features = false
+ 
+ [dev-dependencies.loom]
+ version = "0.1.1"
+-- 
+2.24.0
+
