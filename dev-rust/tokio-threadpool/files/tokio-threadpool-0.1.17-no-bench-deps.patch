@@ -1,0 +1,38 @@
+From e5b0345a2fac5aa35f4dd47727a429a310af71ff Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 16:11:33 +1300
+Subject: Nuke benches/examples and related deps
+
+---
+ Cargo.toml          |   6 --
+ benches/basic.rs    | 165 --------------------------------------------
+ benches/blocking.rs | 137 ------------------------------------
+ benches/depth.rs    |  76 --------------------
+ examples/depth.rs   |  48 -------------
+ examples/hello.rs   |  24 -------
+ 6 files changed, 456 deletions(-)
+ delete mode 100644 benches/basic.rs
+ delete mode 100644 benches/blocking.rs
+ delete mode 100644 benches/depth.rs
+ delete mode 100644 examples/depth.rs
+ delete mode 100644 examples/hello.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5541360..406ff66 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -51,11 +51,5 @@ version = "0.1.8"
+ version = "0.6"
+ default-features = false
+ 
+-[dev-dependencies.futures-cpupool]
+-version = "0.1.7"
+-
+ [dev-dependencies.rand]
+ version = "0.7"
+-
+-[dev-dependencies.threadpool]
+-version = "1.7.1"
+-- 
+2.24.0
+
