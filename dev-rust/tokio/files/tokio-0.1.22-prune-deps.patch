@@ -1,0 +1,86 @@
+From 39c6564f831029e6ca4b7c3c12da9dddca80b92e Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 07:59:32 +1300
+Subject: nuke examples and unneeded deps
+
+---
+ Cargo.toml                                 |  25 --
+ examples/README.md                         |  62 ---
+ examples/blocking.rs                       |  87 ----
+ examples/chat-combinator-current-thread.rs | 172 --------
+ examples/chat-combinator.rs                | 156 -------
+ examples/chat.rs                           | 473 ---------------------
+ examples/connect.rs                        | 257 -----------
+ examples/echo-udp.rs                       |  74 ----
+ examples/echo.rs                           | 115 -----
+ examples/hello_world.rs                    |  58 ---
+ examples/manual-runtime.rs                 |  87 ----
+ examples/print_each_packet.rs              | 150 -------
+ examples/proxy.rs                          | 130 ------
+ examples/tinydb.rs                         | 227 ----------
+ examples/tinyhttp.rs                       | 325 --------------
+ examples/udp-client.rs                     |  70 ---
+ examples/udp-codec.rs                      |  65 ---
+ 17 files changed, 2533 deletions(-)
+ delete mode 100644 examples/README.md
+ delete mode 100644 examples/blocking.rs
+ delete mode 100644 examples/chat-combinator-current-thread.rs
+ delete mode 100644 examples/chat-combinator.rs
+ delete mode 100644 examples/chat.rs
+ delete mode 100644 examples/connect.rs
+ delete mode 100644 examples/echo-udp.rs
+ delete mode 100644 examples/echo.rs
+ delete mode 100644 examples/hello_world.rs
+ delete mode 100644 examples/manual-runtime.rs
+ delete mode 100644 examples/print_each_packet.rs
+ delete mode 100644 examples/proxy.rs
+ delete mode 100644 examples/tinydb.rs
+ delete mode 100644 examples/tinyhttp.rs
+ delete mode 100644 examples/udp-client.rs
+ delete mode 100644 examples/udp-codec.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e89f08a..a9ef88d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -88,37 +88,12 @@ optional = true
+ version = "0.5"
+ default-features = false
+ 
+-[dev-dependencies.flate2]
+-version = "1"
+-features = ["tokio"]
+-
+-[dev-dependencies.futures-cpupool]
+-version = "0.1"
+-
+-[dev-dependencies.http]
+-version = "0.1"
+-
+-[dev-dependencies.httparse]
+-version = "1.0"
+-
+ [dev-dependencies.libc]
+ version = "0.2"
+ 
+ [dev-dependencies.num_cpus]
+ version = "1.0"
+ 
+-[dev-dependencies.serde]
+-version = "1.0"
+-
+-[dev-dependencies.serde_derive]
+-version = "1.0"
+-
+-[dev-dependencies.serde_json]
+-version = "1.0"
+-
+-[dev-dependencies.time]
+-version = "0.1"
+-
+ [features]
+ codec = ["io", "tokio-codec"]
+ default = ["codec", "fs", "io", "reactor", "rt-full", "sync", "tcp", "timer", "udp", "uds"]
+-- 
+2.24.0
+

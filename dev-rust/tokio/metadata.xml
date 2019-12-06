@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="codec">Require deps needed for 'codec' crate feature</flag>
+		<flag name="experimental-tracing">Require deps needed for 'experimental-tracing' crate feature</flag>
+		<flag name="fs">Require deps needed for 'fs' crate feature</flag>
+		<flag name="io">Require deps needed for 'io' crate feature</flag>
+		<flag name="reactor">Require deps needed for 'reactor' crate feature</flag>
+		<flag name="rt-full">Require deps needed for 'rt-full' crate feature</flag>
+		<flag name="sync">Require deps needed for 'sync' crate feature</flag>
+		<flag name="tcp">Require deps needed for 'tcp' crate feature</flag>
+		<flag name="timer">Require deps needed for 'timer' crate feature</flag>
+		<flag name="udp">Require deps needed for 'udp' crate feature</flag>
+		<flag name="uds">Require deps needed for 'uds' crate feature</flag>
+	</use>
+</pkgmetadata>
