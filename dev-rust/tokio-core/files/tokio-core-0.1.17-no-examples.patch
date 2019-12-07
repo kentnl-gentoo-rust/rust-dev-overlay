@@ -1,0 +1,79 @@
+From db0239060f3723e62e718d54f36c15d54df58fb4 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 8 Dec 2019 07:11:13 +1300
+Subject: Remove examples and example deps
+
+---
+ Cargo.toml               |  27 ----
+ examples/README.md       |  52 -------
+ examples/chat.rs         | 134 ----------------
+ examples/compress.rs     | 123 ---------------
+ examples/connect.rs      | 283 ----------------------------------
+ examples/echo-threads.rs | 100 ------------
+ examples/echo-udp.rs     |  70 ---------
+ examples/echo.rs         | 131 ----------------
+ examples/hello.rs        |  46 ------
+ examples/proxy.rs        | 127 ---------------
+ examples/sink.rs         |  56 -------
+ examples/tinydb.rs       | 209 -------------------------
+ examples/tinyhttp.rs     | 322 ---------------------------------------
+ examples/udp-codec.rs    |  78 ----------
+ 14 files changed, 1758 deletions(-)
+ delete mode 100644 examples/README.md
+ delete mode 100644 examples/chat.rs
+ delete mode 100644 examples/compress.rs
+ delete mode 100644 examples/connect.rs
+ delete mode 100644 examples/echo-threads.rs
+ delete mode 100644 examples/echo-udp.rs
+ delete mode 100644 examples/echo.rs
+ delete mode 100644 examples/hello.rs
+ delete mode 100644 examples/proxy.rs
+ delete mode 100644 examples/sink.rs
+ delete mode 100644 examples/tinydb.rs
+ delete mode 100644 examples/tinyhttp.rs
+ delete mode 100644 examples/udp-codec.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5733097..36bb15f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -56,36 +56,9 @@ version = "0.2.1"
+ version = "0.4"
+ default-features = false
+ 
+-[dev-dependencies.flate2]
+-version = "1"
+-features = ["tokio"]
+-
+-[dev-dependencies.futures-cpupool]
+-version = "0.1"
+-
+-[dev-dependencies.http]
+-version = "0.1"
+-
+-[dev-dependencies.httparse]
+-version = "1.0"
+-
+ [dev-dependencies.libc]
+ version = "0.2"
+ 
+-[dev-dependencies.num_cpus]
+-version = "1.0"
+-
+-[dev-dependencies.serde]
+-version = "1.0"
+-
+-[dev-dependencies.serde_derive]
+-version = "1.0"
+-
+-[dev-dependencies.serde_json]
+-version = "1.0"
+-
+-[dev-dependencies.time]
+-version = "0.1"
+ [badges.appveyor]
+ repository = "alexcrichton/tokio-core"
+ 
+-- 
+2.24.0
+
