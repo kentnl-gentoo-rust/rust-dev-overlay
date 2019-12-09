@@ -1,0 +1,26 @@
+From 6b24fac47193043de5ecb07b9c5669199e572463 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 8 Dec 2019 07:54:37 +1300
+Subject: remove non-unix dependencies
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 0bb1a67..3d02e87 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -44,9 +44,6 @@ version = "0.6"
+ 
+ [target."cfg(unix)".dependencies.signal-hook]
+ version = "0.1"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["minwindef", "wincon"]
+ [badges.appveyor]
+ id = "s83yxhy9qeb58va7"
+ repository = "carllerche/tokio"
+-- 
+2.24.0
+
