@@ -1,0 +1,29 @@
+From 521e8a7e8ec1aef06a613c03afb105d7a8652031 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 10 Dec 2019 17:34:34 +1300
+Subject: Remove deps on non-unix target
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f0cdbeb..f70a7af 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -55,12 +55,7 @@ version = "0.6.5"
+ 
+ [target."cfg(unix)".dependencies.tokio-signal]
+ version = "0.2.5"
+-[target."cfg(windows)".dependencies.mio-named-pipes]
+-version = "0.1"
+ 
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["handleapi", "winerror", "minwindef", "processthreadsapi", "synchapi", "threadpoollegacyapiset", "winbase", "winnt"]
+ [badges.appveyor]
+ repository = "alexcrichton/tokio-process"
+ 
+-- 
+2.24.0
+
