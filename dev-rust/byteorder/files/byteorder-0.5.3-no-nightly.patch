@@ -1,0 +1,28 @@
+From 62c13e72297f2ccbbdadfd42c1a605d9a2bb3539 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 11 Dec 2019 21:20:44 +1300
+Subject: Fix negative overflow in literal i16 in doc tests
+
+Because --cap-lints is utterly useless here.
+---
+ src/lib.rs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index a25bab6..66774a6 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -115,8 +115,8 @@ fn pack_size(n: u64) -> usize {
+ /// use byteorder::{ByteOrder, BigEndian};
+ ///
+ /// let mut buf = [0; 2];
+-/// BigEndian::write_i16(&mut buf, -50_000);
+-/// assert_eq!(-50_000, BigEndian::read_i16(&buf));
++/// BigEndian::write_i16(&mut buf, -5_000);
++/// assert_eq!(-5_000, BigEndian::read_i16(&buf));
+ /// ```
+ pub trait ByteOrder {
+     /// Reads an unsigned 16 bit integer from `buf`.
+-- 
+2.24.0
+
