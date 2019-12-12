@@ -1,0 +1,25 @@
+From cfecc1e68ecbfaa93418e244152b2fbf9948bf23 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 13 Dec 2019 03:05:38 +1300
+Subject: Fix doc tests failing due to overflow in a literal uint8
+
+---
+ src/lib.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index a01dd4b..967576a 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -207,7 +207,7 @@ pub trait LazyStatic {
+ /// extern crate lazy_static;
+ ///
+ /// lazy_static! {
+-///     static ref BUFFER: Vec<u8> = (0..65537).collect();
++///     static ref BUFFER: Vec<u8> = (0..255).collect();
+ /// }
+ ///
+ /// fn main() {
+-- 
+2.24.0
+
