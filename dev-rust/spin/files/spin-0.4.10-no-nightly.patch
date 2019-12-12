@@ -1,0 +1,26 @@
+From df07353a34a20b114a4e37aacbf12c8ba4f58bcd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 13 Dec 2019 02:58:01 +1300
+Subject: Remove nightly features
+
+---
+ Cargo.toml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index fad7f11..52ddc76 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -19,9 +19,3 @@ documentation = "https://mvdnes.github.io/rust-docs/spin-rs/spin/index.html"
+ keywords = ["spinlock", "mutex", "rwlock"]
+ license = "MIT"
+ repository = "https://github.com/mvdnes/spin-rs.git"
+-
+-[features]
+-const_fn = []
+-default = ["unstable"]
+-once = []
+-unstable = ["const_fn", "once"]
+-- 
+2.24.0
+
