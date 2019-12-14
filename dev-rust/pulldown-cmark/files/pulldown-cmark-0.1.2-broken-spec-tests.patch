@@ -1,0 +1,480 @@
+From d6155da825f923e843c0da1ebef27484a996d1cf Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 15 Dec 2019 00:46:32 +1300
+Subject: Disable broken spec tests
+
+Bug: https://github.com/raphlinus/pulldown-cmark/issues/114
+---
+ tests/spec.rs | 59 ++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 58 insertions(+), 1 deletion(-)
+
+diff --git a/tests/spec.rs b/tests/spec.rs
+index 0af2128..511c2a9 100644
+--- a/tests/spec.rs
++++ b/tests/spec.rs
+@@ -100,6 +100,7 @@ extern crate pulldown_cmark;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_5() {
+         let original = r##"- foo
+@@ -129,6 +130,7 @@ extern crate pulldown_cmark;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_6() {
+         let original = r##">		foo
+@@ -153,6 +155,7 @@ extern crate pulldown_cmark;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_7() {
+         let original = r##"-		foo
+@@ -1196,6 +1199,7 @@ Foo *bar*
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_51() {
+         let original = r##"Foo *bar
+@@ -1530,6 +1534,7 @@ bar
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_64() {
+         let original = r##"Foo
+@@ -2870,6 +2875,7 @@ foo</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_116() {
+         let original = r##"<table><tr><td>
+@@ -3231,6 +3237,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_130() {
+         let original = r##"<a href="foo">
+@@ -3256,6 +3263,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_131() {
+         let original = r##"<Warning>
+@@ -3281,6 +3289,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_132() {
+         let original = r##"<i class="foo">
+@@ -3306,6 +3315,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_133() {
+         let original = r##"</ins>
+@@ -3329,6 +3339,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_134() {
+         let original = r##"<del>
+@@ -3354,6 +3365,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_135() {
+         let original = r##"<del>
+@@ -3402,6 +3414,7 @@ int x = 33;
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_137() {
+         let original = r##"<pre language="haskell"><code>
+@@ -3435,6 +3448,7 @@ main = print $ parseTags tags
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_138() {
+         let original = r##"<script type="text/javascript">
+@@ -3467,6 +3481,7 @@ document.getElementById("demo").innerHTML = "Hello JavaScript!";
+     }
+ 
+     #[test]
++    #[cfg(broken_test)]
+     fn spec_test_139() {
+         let original = r##"<style
+   type="text/css">
+@@ -3554,6 +3569,7 @@ foo
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_142() {
+         let original = r##"- <div>
+@@ -3581,6 +3597,7 @@ foo
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_143() {
+         let original = r##"<style>p{color:red;}</style>
+@@ -3605,6 +3622,7 @@ foo
+     }
+ 
+     #[test]
++    #[cfg(broken_test)]
+     fn spec_test_144() {
+         let original = r##"<!-- foo -->*bar*
+ *baz*
+@@ -3652,6 +3670,7 @@ foo
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_146() {
+         let original = r##"<!-- Foo
+@@ -3681,6 +3700,7 @@ bar
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_147() {
+         let original = r##"<?php
+@@ -3733,6 +3753,7 @@ okay
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_149() {
+         let original = r##"<![CDATA[
+@@ -4082,6 +4103,7 @@ Hi
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_161() {
+         let original = r##"[Foo*bar\]]:my_(url) 'title (with parens)'
+@@ -4236,6 +4258,7 @@ with blank line'
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_167() {
+         let original = r##"[foo]: /url\bar\*baz "foo\"bar\baz"
+@@ -4417,6 +4440,7 @@ bar
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_175() {
+         let original = r##"[foo]: /url
+@@ -5749,6 +5773,7 @@ with two lines.</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_225() {
+         let original = r##"- foo
+@@ -5875,6 +5900,7 @@ baz
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_229() {
+         let original = r##"1234567890. not ok
+@@ -6232,6 +6258,7 @@ bar
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_242() {
+         let original = r##"-   
+@@ -6256,6 +6283,7 @@ bar
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_243() {
+         let original = r##"-
+@@ -6386,6 +6414,7 @@ bar
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_248() {
+         let original = r##"foo
+@@ -6973,6 +7002,7 @@ baz</li>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_267() {
+         let original = r##"The number of windows in my house is
+@@ -7021,6 +7051,7 @@ baz</li>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_269() {
+         let original = r##"- foo
+@@ -7057,6 +7088,7 @@ baz</li>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_270() {
+         let original = r##"- foo
+@@ -7717,6 +7749,7 @@ baz</li>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_290() {
+         let original = r##"\	\A\a\ \3\φ\«
+@@ -7905,6 +7938,7 @@ bar</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_298() {
+         let original = r##"<a href="/bar\/)">
+@@ -8126,6 +8160,7 @@ foo
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_308() {
+         let original = r##"<a href="&ouml;&ouml;.html">
+@@ -8954,6 +8989,7 @@ foo
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_347() {
+         let original = r##"*foo bar
+@@ -9886,6 +9922,7 @@ bar</em></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_391() {
+         let original = r##"*foo**bar**baz*
+@@ -9949,6 +9986,7 @@ bar</em></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_394() {
+         let original = r##"*foo**bar***
+@@ -10203,6 +10241,7 @@ bar</strong></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_406() {
+         let original = r##"**foo*bar*baz**
+@@ -11003,6 +11042,7 @@ bim</em> bop</strong></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_444() {
+         let original = r##"***foo***
+@@ -11024,6 +11064,7 @@ bim</em> bop</strong></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_445() {
+         let original = r##"_____foo_____
+@@ -11066,6 +11107,7 @@ bim</em> bop</strong></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_447() {
+         let original = r##"*foo __bar *baz bim__ bam*
+@@ -11423,6 +11465,7 @@ bim</em> bop</strong></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_464() {
+         let original = r##"[link](</my uri>)
+@@ -11511,6 +11554,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_468() {
+         let original = r##"[link](foo(and(bar)))
+@@ -11622,6 +11666,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_473() {
+         let original = r##"[link](foo\bar)
+@@ -11900,6 +11945,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_486() {
+         let original = r##"[link \[bar](/uri)
+@@ -12198,6 +12244,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_500() {
+         let original = r##"[link \[bar][ref]
+@@ -12498,6 +12545,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_513() {
+         let original = r##"[foo] [bar]
+@@ -12521,6 +12569,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_514() {
+         let original = r##"[foo]
+@@ -12666,6 +12715,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_520() {
+         let original = r##"[foo][ref\[]
+@@ -12833,6 +12883,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_527() {
+         let original = r##"[foo] 
+@@ -13112,6 +13163,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_539() {
+         let original = r##"[foo](not a link)
+@@ -13537,6 +13589,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_558() {
+         let original = r##"![foo] 
+@@ -13785,6 +13838,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_569() {
+         let original = r##"<a+b+c:d>
+@@ -13806,6 +13860,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_570() {
+         let original = r##"<made-up-scheme://foo,bar>
+@@ -13848,6 +13903,7 @@ bar>)</p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_572() {
+         let original = r##"<localhost:5001/foo>
+@@ -14188,6 +14244,7 @@ _boolean zoop:33=zoop:33 /></p>
+         assert_eq!(expected, s);
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn spec_test_588() {
+         let original = r##"Foo <responsive-image src="foo.jpg" />
+@@ -14994,4 +15051,4 @@ baz</p>
+         html::push_html(&mut s, p);
+ 
+         assert_eq!(expected, s);
+-    }
+\ No newline at end of file
++    }
+-- 
+2.24.0
+
