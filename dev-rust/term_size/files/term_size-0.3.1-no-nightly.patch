@@ -1,0 +1,34 @@
+From 035f8e156de6b6f59f3a1764f70aa43afb9bea7a Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 15 Dec 2019 22:25:34 +1300
+Subject: Remove all nightly-test only dependencies and features
+
+---
+ Cargo.toml | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a696271..1a479a2 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -59,17 +59,7 @@ lto = true
+ debug = false
+ debug-assertions = false
+ rpath = false
+-[dependencies.clippy]
+-version = "~0.0.112"
+-optional = true
+ 
+-[features]
+-debug = []
+-default = []
+-lints = ["clippy", "nightly"]
+-nightly = []
+-travis = ["lints", "nightly"]
+-unstable = []
+ [target."cfg(not(target_os = \"windows\"))".dependencies.libc]
+ version = "~0.2.20"
+ 
+-- 
+2.24.0
+

@@ -1,0 +1,28 @@
+From b3142e96462f34771aacc0801ebea7fb776af96c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 15 Dec 2019 22:22:36 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 4b5c0fe..a696271 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -72,11 +72,7 @@ travis = ["lints", "nightly"]
+ unstable = []
+ [target."cfg(not(target_os = \"windows\"))".dependencies.libc]
+ version = "~0.2.20"
+-[target."cfg(target_os = \"windows\")".dependencies.kernel32-sys]
+-version = "~0.2.2"
+ 
+-[target."cfg(target_os = \"windows\")".dependencies.winapi]
+-version = "~0.2.8"
+ [badges.appveyor]
+ repository = "kbknapp/term_size-rs"
+ 
+-- 
+2.24.0
+
