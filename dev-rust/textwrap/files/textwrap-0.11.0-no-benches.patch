@@ -1,0 +1,33 @@
+From 7a5dfbaa3b04f8653fd849c23ddcae45efba4a3f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 15 Dec 2019 22:57:55 +1300
+Subject: Remove benchmarks and benchmark only deps
+
+---
+ Cargo.toml        |   8 ---
+ benches/linear.rs | 122 ----------------------------------------------
+ 2 files changed, 130 deletions(-)
+ delete mode 100644 benches/linear.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 4ec570f..0771c69 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -35,14 +35,6 @@ optional = true
+ 
+ [dependencies.unicode-width]
+ version = "0.1.3"
+-[dev-dependencies.lipsum]
+-version = "0.6"
+-
+-[dev-dependencies.rand]
+-version = "0.6"
+-
+-[dev-dependencies.rand_xorshift]
+-version = "0.1"
+ 
+ [dev-dependencies.version-sync]
+ version = "0.6"
+-- 
+2.24.0
+
