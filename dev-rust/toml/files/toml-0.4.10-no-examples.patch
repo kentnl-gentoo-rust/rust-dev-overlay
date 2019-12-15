@@ -1,0 +1,30 @@
+From 14406b7f5e3ac4ec1a6f4fd1068bf240b52ffe91 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 15 Dec 2019 20:17:27 +1300
+Subject: Remove examples and example deps
+
+---
+ Cargo.toml                |  2 --
+ examples/decode.rs        | 55 ---------------------------------------
+ examples/enum_external.rs | 46 --------------------------------
+ examples/toml2json.rs     | 51 ------------------------------------
+ 4 files changed, 154 deletions(-)
+ delete mode 100644 examples/decode.rs
+ delete mode 100644 examples/enum_external.rs
+ delete mode 100644 examples/toml2json.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6e54621..66f0418 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,7 +27,5 @@ version = "1.0"
+ [dev-dependencies.serde_derive]
+ version = "1.0"
+ 
+-[dev-dependencies.serde_json]
+-version = "1.0"
+ [badges.travis-ci]
+ repository = "alexcrichton/toml-rs"
+-- 
+2.24.0
+
