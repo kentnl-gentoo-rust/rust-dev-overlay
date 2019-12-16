@@ -1,0 +1,23 @@
+From de70656e8b99f0c5bfb6d84bca0ede099ca83b6d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 16 Dec 2019 17:31:48 +1300
+Subject: Remove non-unix target deps
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 56a7f2d..3e9a4b1 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,6 +22,3 @@ license = "MIT"
+ 
+ [lib]
+ name = "ansi_term"
+-[target."cfg(target_os=\"windows\")".dependencies.winapi]
+-version = "0.3.4"
+-features = ["errhandlingapi", "consoleapi", "processenv"]
+-- 
+2.24.0
+

@@ -1,0 +1,25 @@
+From 1cdf455e0318062dc0bb3a78dc6042e05a362c01 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 16 Dec 2019 17:51:14 +1300
+Subject: Disable broken test
+
+Bad whitespace sensitivity.
+---
+ src/debug.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/debug.rs b/src/debug.rs
+index da30c62..f0872f4 100644
+--- a/src/debug.rs
++++ b/src/debug.rs
+@@ -101,6 +101,7 @@ mod test {
+             Red.on(Blue).blink().bold().dimmed().hidden().italic().reverse().strikethrough().underline() =>
+             "Style { fg(Red), on(Blue), blink, bold, dimmed, hidden, italic, reverse, strikethrough, underline }");
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn long_and_detailed() {
+         let debug = r##"Style {
+-- 
+2.24.0
+
