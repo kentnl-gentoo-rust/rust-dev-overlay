@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="color">Require deps needed for 'color' crate feature</flag>
+		<flag name="suggestions">Require deps needed for 'suggestions' crate feature</flag>
+		<flag name="vec-map">Require deps needed for 'vec_map' crate feature</flag>
+		<flag name="wrap-help">Require deps needed for 'wrap-help' crate feature</flag>
+		<flag name="yaml">Require deps needed for 'yaml' crate feature</flag>
+	</use>
+</pkgmetadata>

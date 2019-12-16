@@ -1,0 +1,36 @@
+From 7bdf4285fba7f2a2566141dda77a4b11af602c38 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 17 Dec 2019 01:21:47 +1300
+Subject: Remove clippy support
+
+As this only compiles on nightly
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 00762ea..53de90a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -63,10 +63,6 @@ optional = true
+ [dependencies.bitflags]
+ version = "1.0"
+ 
+-[dependencies.clippy]
+-version = "~0.0.166"
+-optional = true
+-
+ [dependencies.strsim]
+ version = "0.8"
+ optional = true
+@@ -97,7 +93,6 @@ color = ["ansi_term", "atty"]
+ debug = []
+ default = ["suggestions", "color", "vec_map"]
+ doc = ["yaml"]
+-lints = ["clippy"]
+ nightly = []
+ no_cargo = []
+ suggestions = ["strsim"]
+-- 
+2.24.0
+

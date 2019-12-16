@@ -1,0 +1,32 @@
+From 086be0a835d5e71701df8ab9250c3b367ed1db2d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 16 Dec 2019 07:04:34 +1300
+Subject: trim unused dev-depends
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index c76ceb4..00762ea 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -88,15 +88,10 @@ optional = true
+ [dependencies.yaml-rust]
+ version = "0.3.5"
+ optional = true
+-[dev-dependencies.lazy_static]
+-version = "1.3"
+ 
+ [dev-dependencies.regex]
+ version = "1"
+ 
+-[dev-dependencies.version-sync]
+-version = "0.8"
+-
+ [features]
+ color = ["ansi_term", "atty"]
+ debug = []
+-- 
+2.24.0
+
