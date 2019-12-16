@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="preserve-order">Require deps needed for 'preserve-order' crate feature</flag>
+	</use>
 </pkgmetadata>
