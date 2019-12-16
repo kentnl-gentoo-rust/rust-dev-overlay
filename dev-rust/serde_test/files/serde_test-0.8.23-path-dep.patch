@@ -1,0 +1,22 @@
+From b2a36dbea4c1d024ff9f1523032557f369b8fef7 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 16 Dec 2019 22:21:18 +1300
+Subject: Fix invalid path dep
+
+---
+ Cargo.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 90bd65d..208f673 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,4 +12,4 @@ keywords = ["serde", "serialization"]
+ include = ["Cargo.toml", "src/**/*.rs"]
+ 
+ [dependencies]
+-serde = { version = "0.8.23", path = "../serde" }
++serde = { version = "0.8.23" }
+-- 
+2.24.0
+
