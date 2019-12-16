@@ -1,0 +1,27 @@
+From 1d3ead20502ba291c3982f1d7cc16ad7e43ccea5 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 16 Dec 2019 23:05:01 +1300
+Subject: Remove nightly-only features
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a58d99b..51148b8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -16,10 +16,8 @@ keywords = ["data-structures"]
+ readme = "README.md"
+ 
+ [features]
+-nightly = []
+ serde_impl = ["serde", "serde_test"]
+ 
+ [dependencies]
+-clippy = { version = "0.*", optional = true }
+ serde = { version = "^0.8", optional = true }
+ serde_test = { version = "^0.8", optional = true }
+-- 
+2.24.0
+
