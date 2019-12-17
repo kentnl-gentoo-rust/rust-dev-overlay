@@ -1,0 +1,31 @@
+From 19e2a9a0d6e0628b67c616ed09d871dac82e5f42 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 18 Dec 2019 00:00:02 +1300
+Subject: Remove tests
+
+As these rely on a bunch of nightly-only or deprecated features
+and speculate itself in turn relies on a bunch of deprecated features
+and I don't see myself fixing these any time soon.
+---
+ Cargo.toml     |   5 --
+ tests/tests.rs | 229 -------------------------------------------------
+ 2 files changed, 234 deletions(-)
+ delete mode 100644 tests/tests.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 77d8c8f..733c1e8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -19,9 +19,4 @@ homepage = "https://github.com/utkarshkukreti/diff.rs"
+ documentation = "https://docs.rs/diff"
+ license = "MIT OR Apache-2.0"
+ repository = "https://github.com/utkarshkukreti/diff.rs"
+-[dev-dependencies.quickcheck]
+-version = "0.4.1"
+-default-features = false
+ 
+-[dev-dependencies.speculate]
+-version = "0.0.25"
+-- 
+2.24.0
+
