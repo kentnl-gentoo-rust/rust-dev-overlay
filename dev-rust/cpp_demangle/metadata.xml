@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="fuzz">Require deps needed for 'fuzz' crate feature</flag>
+	</use>
 </pkgmetadata>

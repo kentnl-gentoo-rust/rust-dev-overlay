@@ -11,11 +11,20 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-RESTRICT="test"
+IUSE="fuzz test"
+
+F_FUZZ="
+	( =dev-rust/afl-0.4*:= >=dev-rust/afl-0.4.4 )
+"
+# TODO: Install binary "afl_runner"?
 BDEPEND="
 	( =dev-rust/cfg-if-0.1*:= >=dev-rust/cfg-if-0.1.9 )
 	=dev-rust/glob-0.3*:=
+	fuzz? ( ${F_FUZZ} )
+	test? (
+		( =dev-rust/diff-0.1*:= >=dev-rust/diff-0.1.11 )
+		${F_FUZZ}
+)
 "
 src_prepare() {
 	eapply "${FILESDIR}/${P}-nobins.patch"
