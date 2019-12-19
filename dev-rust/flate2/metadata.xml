@@ -7,6 +7,8 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="miniz-sys">Require deps needed for 'miniz-sys' crate feature</flag>
+		<flag name="tokio">Require deps needed for 'tokio' crate feature</flag>
 		<flag name="rust-backend">Require deps needed for 'rust_backend' crate feature</flag>
 	</use>
 </pkgmetadata>
