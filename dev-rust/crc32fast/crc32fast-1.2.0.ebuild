@@ -11,10 +11,18 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-RESTRICT="test"
+IUSE="test"
 
 BDEPEND="
 	=dev-rust/cfg-if-0.1*:=
+	test? (
+		=dev-rust/quickcheck-0.6*:=
+	)
 "
+PATCHES=(
+	"${FILESDIR}/${P}-nobench.patch"
+)
+src_prepare() {
+	rm -vrf benches/ || die
+	default
+}

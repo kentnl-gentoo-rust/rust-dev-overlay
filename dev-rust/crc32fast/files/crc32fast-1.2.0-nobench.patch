@@ -1,0 +1,40 @@
+From 91242f830cbce5016415fbfe9b58ac8c04975815 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 20 Dec 2019 02:09:26 +1300
+Subject: Remove benchmarks and bench-only deps
+
+---
+ Cargo.toml       |  8 --------
+ benches/bench.rs | 49 ------------------------------------------------
+ 2 files changed, 57 deletions(-)
+ delete mode 100644 benches/bench.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index ca8bbcc..80e1332 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -20,21 +20,13 @@ keywords = ["checksum", "crc", "crc32", "simd", "fast"]
+ license = "MIT OR Apache-2.0"
+ repository = "https://github.com/srijs/rust-crc32fast"
+ 
+-[[bench]]
+-name = "bench"
+-harness = false
+ [dependencies.cfg-if]
+ version = "0.1"
+-[dev-dependencies.bencher]
+-version = "0.1"
+ 
+ [dev-dependencies.quickcheck]
+ version = "0.6"
+ default-features = false
+ 
+-[dev-dependencies.rand]
+-version = "0.4"
+-
+ [features]
+ default = ["std"]
+ nightly = []
+-- 
+2.24.0
+
