@@ -1,0 +1,39 @@
+From d254e8a829fab990b7b5ffda3a74196b730c0bbf Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 19 Dec 2019 22:58:34 +1300
+Subject: Remove benchmarks and related dependencies
+
+---
+ Cargo.toml         |  9 ---------
+ benches/benches.rs | 44 --------------------------------------------
+ 2 files changed, 53 deletions(-)
+ delete mode 100644 benches/benches.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f37130e..ce1615d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,20 +21,11 @@ keywords = ["arena"]
+ categories = ["memory-management", "no-std"]
+ license = "MIT"
+ repository = "https://github.com/SimonSapin/rust-typed-arena"
+-[profile.bench]
+-debug = true
+ 
+ [lib]
+ name = "typed_arena"
+ path = "src/lib.rs"
+ 
+-[[bench]]
+-name = "benches"
+-path = "benches/benches.rs"
+-harness = false
+-[dev-dependencies.criterion]
+-version = "0.3"
+-
+ [features]
+ default = ["std"]
+ std = []
+-- 
+2.24.0
+
