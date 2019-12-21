@@ -12,7 +12,6 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
 IUSE="+cpp-demangle +rustc-demangle +std-object test"
-RESTRICT="test"
 F_CPP_DEMANGLE="
 	=dev-rust/cpp_demangle-0.2*:=
 "
@@ -32,11 +31,24 @@ BDEPEND="
 	cpp-demangle? ( ${F_CPP_DEMANGLE} )
 	rustc-demangle? ( ${F_RUSTC_DEMANGLE} )
 	std-object? ( ${F_OBJECT} )
+	test? (
+		${F_CPP_DEMANGLE}
+		${F_RUSTC_DEMANGLE}
+		${F_OBJECT}
+		( =dev-rust/backtrace-0.3*:=[libbacktrace] >=dev-rust/backtrace-0.3.13 )
+		=dev-rust/findshlibs-0.5*:=
+		=dev-rust/memmap-0.7*:=
+	)
 "
+PATCHES=(
+	"${FILESDIR}/${P}-broken-test.patch"
+)
 src_prepare() {
 	# Not useful here
 	rm -vrf ci/ benchmark.sh bench.plot.r coverage || die
-	# Pulls dev-deps and optional deps
+	# Bug: https://github.com/gimli-rs/addr2line/issues/154
+	# Bug: https://bugs.gentoo.org/703470
+	rm -vrf tests/output_equivalence.rs || die
 	rm -vrf examples/ || die
 	default
 }
