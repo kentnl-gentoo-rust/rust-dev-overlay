@@ -1,0 +1,49 @@
+From b842bd14793412a640a68c5e66c1471be79c651c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 22 Dec 2019 03:47:29 +1300
+Subject: Remove benchmarks and benchmark deps
+
+---
+ Cargo.toml          | 13 -------------
+ benches/kurtosis.rs | 42 ------------------------------------------
+ benches/mean.rs     | 43 -------------------------------------------
+ benches/min.rs      | 44 --------------------------------------------
+ 4 files changed, 142 deletions(-)
+ delete mode 100644 benches/kurtosis.rs
+ delete mode 100644 benches/mean.rs
+ delete mode 100644 benches/min.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 2881e6f..270974e 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,17 +22,6 @@ categories = ["science", "no-std"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/vks/average"
+ 
+-[[bench]]
+-name = "mean"
+-harness = false
+-
+-[[bench]]
+-name = "min"
+-harness = false
+-
+-[[bench]]
+-name = "kurtosis"
+-harness = false
+ [dependencies.conv]
+ version = "0.3"
+ default-features = false
+@@ -57,8 +46,6 @@ optional = true
+ [dependencies.serde_derive]
+ version = "1"
+ optional = true
+-[dev-dependencies.bencher]
+-version = "0.1"
+ 
+ [dev-dependencies.quantiles]
+ version = "0.7"
+-- 
+2.24.0
+
