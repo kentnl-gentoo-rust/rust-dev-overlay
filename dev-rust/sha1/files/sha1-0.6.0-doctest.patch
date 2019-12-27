@@ -1,0 +1,22 @@
+From 27c7f771d43fdab5a54af6bad190830262d12474 Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <ignatenko@redhat.com>
+Date: Thu, 26 Apr 2018 09:35:50 +0200
+Subject: [PATCH] guard hexdigest() doctest by cfg(feature=std)
+
+Fixes: https://github.com/mitsuhiko/rust-sha1/issues/34
+---
+ src/lib.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 446c98b..a83e1e6 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -26,6 +26,7 @@
+ //! ```
+ //! extern crate sha1;
+ //! # fn main() {
++//! #[cfg(feature="std")]
+ //! assert_eq!(sha1::Sha1::from("Hello World!").hexdigest(),
+ //!            "2ef7bde608ce5404e97d5f042f95f89f1c232871");
+ //! # }
