@@ -1,0 +1,25 @@
+From 0d1a676a4b0895418bca911585ecfd2a1878c35b Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 04:04:27 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index b1d36e2..399865e 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -7,8 +7,5 @@ license = "MPL-2.0"
+ repository = "https://github.com/servo/heapsize"
+ build = "build.rs"
+ 
+-[target.'cfg(windows)'.dependencies]
+-kernel32-sys = "0.2.1"
+-
+ [features]
+ unstable = []
+-- 
+2.24.0
+
