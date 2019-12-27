@@ -1,0 +1,37 @@
+From 05d458fbff222b7268b0eebdce712ca1699a48aa Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 04:34:59 +1300
+Subject: Remove heapsize feature
+
+The specified heapsize feature cannot be compiled on recent rusts
+as heapsize_plugin uses features no longer in modern rust.
+
+Thus, any crate using unicase w/ feature=heapsize will in turn
+fail to compile anyway.
+---
+ Cargo.toml | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index ee82de2..101d601 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -19,15 +19,6 @@ description = "A case-insensitive wrapper around strings."
+ keywords = ["lowercase", "case", "case-insensitive"]
+ license = "MIT"
+ repository = "https://github.com/seanmonstar/unicase"
+-[dependencies.heapsize]
+-version = ">=0.2.0, <0.4"
+-optional = true
+ 
+-[dependencies.heapsize_plugin]
+-version = "0.1.2"
+-optional = true
+ [build-dependencies.version_check]
+ version = "0.1"
+-
+-[features]
+-heap_size = ["heapsize", "heapsize_plugin"]
+-- 
+2.24.0
+
