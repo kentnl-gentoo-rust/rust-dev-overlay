@@ -1,0 +1,38 @@
+From eb916e85d6e4771acd8193521ea3cae0fd239f01 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 18:06:35 +1300
+Subject: Remove unused dev-deps
+
+Used by tests stripped upstream
+---
+ Cargo.toml | 14 --------------
+ 1 file changed, 14 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 39bafec..888d844 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -33,20 +33,6 @@ features = ["derive"]
+ 
+ [dependencies.serde_json]
+ version = "1.0"
+-[dev-dependencies.difference]
+-version = "2.0.0"
+-
+-[dev-dependencies.duct]
+-version = "0.9"
+-
+-[dev-dependencies.env_logger]
+-version = "0.5.0-rc.1"
+-
+-[dev-dependencies.log]
+-version = "0.4.1"
+ 
+ [dev-dependencies.proptest]
+ version = "0.7.0"
+-
+-[dev-dependencies.tempdir]
+-version = "0.3.5"
+-- 
+2.24.0
+
