@@ -1,0 +1,27 @@
+From ac8fe285e044cd46ba9de539ec43f105136b7803 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 16:43:19 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index c0f11f3..d3b7848 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,10 +26,5 @@ repository = "https://github.com/alexcrichton/filetime"
+ version = "0.1.6"
+ [dev-dependencies.tempfile]
+ version = "3"
+-[target."cfg(target_os = \"redox\")".dependencies.redox_syscall]
+-version = "0.1"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2.27"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["fileapi", "minwindef", "winbase"]
+-- 
+2.24.0
+
