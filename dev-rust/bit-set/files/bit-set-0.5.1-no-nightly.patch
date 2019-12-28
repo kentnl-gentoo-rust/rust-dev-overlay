@@ -1,0 +1,22 @@
+From d185e156b38866e76ed01e9e618fb1f055479b5c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 19:38:57 +1300
+Subject: Disable nightly features
+
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 46e42c4..2b159a6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,5 +29,4 @@ version = "0.3"
+ 
+ [features]
+ default = ["std"]
+-nightly = ["bit-vec/nightly"]
+ std = ["bit-vec/std"]
+-- 
+2.24.0
+
