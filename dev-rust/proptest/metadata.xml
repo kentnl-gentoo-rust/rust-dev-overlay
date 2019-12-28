@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="fork">Require deps needed for 'fork' crate feature</flag>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
+		<flag name="timeout">Require deps needed for 'timeout' crate feature</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,27 @@
+From 66189a6248e5d5e6fdf6fdcf626016ef55890476 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 22:37:07 +1300
+Subject: Remove nightly-only features
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 39d4040..4626ee6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -64,10 +64,8 @@ version = "0.2.5"
+ alloc = []
+ default = ["std", "fork", "timeout"]
+ fork = ["std", "rusty-fork", "tempfile"]
+-nightly = ["lazy_static/spin_no_std"]
+ std = ["rand/std", "bit-set/std", "quick-error", "regex-syntax", "num-traits/std"]
+ timeout = ["fork", "rusty-fork/timeout"]
+-unstable = ["rand/i128_support"]
+ [badges.appveyor]
+ branch = "master"
+ repository = "AltSysrq/proptest"
+-- 
+2.24.0
+
