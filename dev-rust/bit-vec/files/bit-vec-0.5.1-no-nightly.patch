@@ -1,0 +1,22 @@
+From 1f2c6d27994619d54159f2379a7f96e626cc5c64 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Dec 2019 18:59:34 +1300
+Subject: No Nightly
+
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index ca7d8fb..bd338e0 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,5 +26,4 @@ version = "0.3.15"
+ 
+ [features]
+ default = ["std"]
+-nightly = []
+ std = []
+-- 
+2.24.0
+
