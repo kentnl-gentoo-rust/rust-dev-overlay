@@ -1,0 +1,26 @@
+From 8d23792b3d922aeaca9592d62ccaaae82dce1f6c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 30 Dec 2019 06:45:50 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 11230b0..f8688ef 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -62,9 +62,4 @@ stable = []
+ tmp = ["tempfile"]
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+-[target."cfg(windows)".dependencies.miow]
+-version = "0.3"
+ 
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["winerror"]
+-- 
+2.24.0
+
