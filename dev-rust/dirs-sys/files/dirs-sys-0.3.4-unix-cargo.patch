@@ -1,0 +1,29 @@
+From 4739c98b3e57fb3d2c2c1ef2ad02e83629d8b9bc Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 29 Dec 2019 20:37:35 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index b25c267..e35ff4f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -20,10 +20,7 @@ license = "MIT OR Apache-2.0"
+ repository = "https://github.com/soc/dirs-sys-rs"
+ [dependencies.cfg-if]
+ version = "0.1"
+-[target."cfg(target_os = \"redox\")".dependencies.redox_users]
+-version = "0.3.0"
++
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["knownfolders", "objbase", "shlobj", "winbase", "winerror"]
++
+-- 
+2.24.0
+
