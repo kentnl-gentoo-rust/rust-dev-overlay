@@ -1,0 +1,26 @@
+From 35980b9237adadeb57c0d3bea4720e630eb9e22e Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 29 Dec 2019 21:26:32 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index d41a5ea..cc16847 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -28,9 +28,6 @@ version = "2.0.1"
+ 
+ [features]
+ default = []
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["consoleapi", "wincon", "handleapi", "fileapi"]
+ [badges.appveyor]
+ repository = "Stebalien/term"
+ 
+-- 
+2.24.0
+
