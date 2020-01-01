@@ -1,0 +1,44 @@
+From 2ba228f4d0abdf62cffca219cb6c260276b6107d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 2 Jan 2020 02:06:38 +1300
+Subject: Remove examples and benchmarks
+
+---
+ Cargo.toml                     |   3 -
+ benches/tokenizer.rs           | 157 -----------------
+ examples/arena.rs              | 297 ---------------------------------
+ examples/capi/tokenize.c       |  74 --------
+ examples/html2html.rs          |  49 ------
+ examples/noop-tokenize.rs      |  43 -----
+ examples/noop-tree-builder.rs  | 107 ------------
+ examples/print-rcdom.rs        |  77 ---------
+ examples/print-tree-actions.rs | 169 -------------------
+ examples/tokenize.rs           |  98 -----------
+ 10 files changed, 1074 deletions(-)
+ delete mode 100644 benches/tokenizer.rs
+ delete mode 100644 examples/arena.rs
+ delete mode 100644 examples/capi/tokenize.c
+ delete mode 100644 examples/html2html.rs
+ delete mode 100644 examples/noop-tokenize.rs
+ delete mode 100644 examples/noop-tree-builder.rs
+ delete mode 100644 examples/print-rcdom.rs
+ delete mode 100644 examples/print-tree-actions.rs
+ delete mode 100644 examples/tokenize.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e57f784..e0286ee 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -36,9 +36,6 @@ harness = false
+ [[test]]
+ name = "serializer"
+ 
+-[[bench]]
+-name = "tokenizer"
+-harness = false
+ [dependencies.log]
+ version = "0.4"
+ 
+-- 
+2.24.0
+
