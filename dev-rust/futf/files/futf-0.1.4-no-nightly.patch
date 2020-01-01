@@ -1,0 +1,71 @@
+From a666fe9353dbf45f223c34d6e7c15106209c9dbd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 1 Jan 2020 23:27:39 +1300
+Subject: Disable nightly only features
+
+Additionally, fix legacy feature requirement "str_char" which is now
+mainline.
+
+Bug: https://github.com/rust-lang/rust/issues/27754
+---
+ src/lib.rs  | 4 ++--
+ src/test.rs | 7 +++++--
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index a47cda0..71e4d59 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -4,7 +4,7 @@
+ // option. This file may not be copied, modified, or distributed
+ // except according to those terms.
+ 
+-#![cfg_attr(test, feature(test, str_char))]
++#![cfg_attr(all(test,nightly_only), feature(test))]
+ 
+ #[macro_use]
+ extern crate debug_unreachable;
+@@ -12,7 +12,7 @@ extern crate debug_unreachable;
+ #[macro_use]
+ extern crate mac;
+ 
+-#[cfg(test)]
++#[cfg(all(test,nightly_only))]
+ extern crate test as std_test;
+ 
+ use std::{slice, char};
+diff --git a/src/test.rs b/src/test.rs
+index f8e0c93..bd664aa 100644
+--- a/src/test.rs
++++ b/src/test.rs
+@@ -8,6 +8,7 @@ use super::{Meaning, Byte, classify, decode, all_cont};
+ 
+ use std::borrow::ToOwned;
+ use std::io::Write;
++#[cfg(nightly_only)]
+ use std_test::Bencher;
+ 
+ #[test]
+@@ -248,7 +249,8 @@ static BOUNDARY: &'static [bool]
+     = &[false, true, true, false, false, true, true, true,
+         true, false, false, true, true, true, false, false];
+ 
+-#[bench]
++#[cfg(nightly_only)]
++#[cfg_attr(nightly_only, bench)]
+ fn std_utf8_check(b: &mut Bencher) {
+     b.iter(|| {
+         assert!(IXES.iter().zip(BOUNDARY.iter()).all(|(&ix, &expect)| {
+@@ -260,7 +262,8 @@ fn std_utf8_check(b: &mut Bencher) {
+ // We don't expect to be as fast as is_char_boundary, because we provide more
+ // information. But we shouldn't be tremendously slower, either. A factor of
+ // 5-10 is expected on this text.
+-#[bench]
++#[cfg(nightly_only)]
++#[cfg_attr(nightly_only, bench)]
+ fn futf_check(b: &mut Bencher) {
+     b.iter(|| {
+         assert!(IXES.iter().zip(BOUNDARY.iter()).all(|(&ix, &expect)| {
+-- 
+2.24.0
+
