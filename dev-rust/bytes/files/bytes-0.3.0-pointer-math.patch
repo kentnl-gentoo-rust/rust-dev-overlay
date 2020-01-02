@@ -1,0 +1,25 @@
+From ab423b98c23a62dc4b16cf4f5f0eefaadf094c0b Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 3 Jan 2020 08:25:42 +1300
+Subject: Fix pointer math in bytes size_of test
+
+---
+ src/str/bytes.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/str/bytes.rs b/src/str/bytes.rs
+index d5bf409..6ad1988 100644
+--- a/src/str/bytes.rs
++++ b/src/str/bytes.rs
+@@ -303,7 +303,7 @@ struct TraitObject {
+ pub fn test_size_of() {
+     // TODO: One day, there shouldn't be a drop flag
+     let ptr_size = mem::size_of::<usize>();
+-    let expect = ptr_size * 3;
++    let expect = ptr_size * 2;
+ 
+     assert_eq!(expect, mem::size_of::<Bytes>());
+     assert_eq!(expect + ptr_size, mem::size_of::<Option<Bytes>>());
+-- 
+2.24.0
+
