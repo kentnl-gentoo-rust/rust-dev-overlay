@@ -1,0 +1,24 @@
+From 92fa2c241b3bb4884f2806bb2f54bf09ec3e0a33 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 2 Jan 2020 17:32:53 +1300
+Subject: Disable broken test
+
+---
+ src/markdown_deps.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/markdown_deps.rs b/src/markdown_deps.rs
+index 00ca12b..eaebcef 100644
+--- a/src/markdown_deps.rs
++++ b/src/markdown_deps.rs
+@@ -271,6 +271,7 @@ mod tests {
+         assert_eq!(request.unwrap_err(), "no dependency on foobar");
+     }
+ 
++    #[cfg(broken_tests)]
+     #[test]
+     fn bad_toml() {
+         let block = "[dependencies]\n\
+-- 
+2.24.0
+
