@@ -1,0 +1,35 @@
+From dbb155e75d4de97e7f85eb4fdb5c40f7be9124a9 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 2 Jan 2020 19:09:36 +1300
+Subject: Remove benchmarks and bench deps
+
+---
+ Cargo.toml         |   5 -
+ benches/convert.rs | 319 ---------------------------------------------
+ 2 files changed, 324 deletions(-)
+ delete mode 100644 benches/convert.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f5a26ab..cdaf112 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,16 +24,11 @@ repository = "https://github.com/starkat99/half-rs"
+ [package.metadata.docs.rs]
+ features = ["std", "serde"]
+ 
+-[[bench]]
+-name = "convert"
+-harness = false
+ [dependencies.serde]
+ version = "1.0"
+ features = ["derive"]
+ optional = true
+ default-features = false
+-[dev-dependencies.criterion]
+-version = "0.3"
+ 
+ [dev-dependencies.quickcheck]
+ version = "0.9"
+-- 
+2.24.0
+
