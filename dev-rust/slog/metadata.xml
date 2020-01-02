@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="nested-values">Require deps needed for 'nested-values' crate feature</flag>
+	</use>
 </pkgmetadata>
