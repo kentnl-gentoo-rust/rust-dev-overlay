@@ -1,0 +1,26 @@
+From 1335b533739cdadd152352eb1a2b5079b5e7d9d8 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 2 Jan 2020 21:57:17 +1300
+Subject: Remove configuration for stripped test
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 17fcd3e..c247652 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,9 +22,6 @@ keywords = ["serde", "erasure"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/dtolnay/erased-serde"
+ 
+-[[test]]
+-name = "test"
+-path = "tests/readme.rs"
+ [dependencies.serde]
+ version = "1.0.63"
+ [dev-dependencies.serde_cbor]
+-- 
+2.24.0
+
