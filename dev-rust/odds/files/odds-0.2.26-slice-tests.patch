@@ -1,0 +1,32 @@
+From 1ce7ebfd123efcbcf7a8236613712a07b92d67e6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 3 Jan 2020 07:57:33 +1300
+Subject: Fix ambiguous types in slice doc-tests
+
+---
+ src/slice/mod.rs | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/slice/mod.rs b/src/slice/mod.rs
+index 5c49f39..03e1e82 100644
+--- a/src/slice/mod.rs
++++ b/src/slice/mod.rs
+@@ -425,11 +425,11 @@ impl_pod!{@array 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}
+ /// use odds::slice::split_aligned_for;
+ ///
+ /// fn count_ones(data: &[u8]) -> u32 {
+-///     let mut total = 0;
++///     let mut total: u32 = 0;
+ ///     let (head, mid, tail) = split_aligned_for::<[u64; 2]>(data);
+-///     total += head.iter().map(|x| x.count_ones()).sum();
+-///     total += mid.iter().map(|x| x[0].count_ones() + x[1].count_ones()).sum();
+-///     total += tail.iter().map(|x| x.count_ones()).sum();
++///     total += head.iter().map(|x| x.count_ones()).sum::<u32>();
++///     total += mid.iter().map(|x| x[0].count_ones() + x[1].count_ones()).sum::<u32>();
++///     total += tail.iter().map(|x| x.count_ones()).sum::<u32>();
+ ///     total
+ /// }
+ ///
+-- 
+2.24.0
+
