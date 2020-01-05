@@ -7,6 +7,7 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="bit-set">Require deps needed for 'bit-set' crate feature</flag>
 		<flag name="fork">Require deps needed for 'fork' crate feature</flag>
 		<flag name="std">Require deps needed for 'std' crate feature</flag>
 		<flag name="timeout">Require deps needed for 'timeout' crate feature</flag>

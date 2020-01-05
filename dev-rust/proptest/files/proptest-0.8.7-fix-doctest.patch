@@ -1,0 +1,25 @@
+From 2c47370dc7f0f3311ca3d6392f768aad2df2ae5c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 6 Jan 2020 00:51:23 +1300
+Subject: Disable uncompileable doc example
+
+---
+ src/lib.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index fb6638c..98bfd7d 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1410,7 +1410,7 @@
+ //! recursion. This also uses the [`prop_oneof!`](macro.prop_oneof.html), which
+ //! we haven't seen yet but should be self-explanatory.
+ //!
+-//! ```rust,no_run
++//! ```ignore
+ //! #[macro_use] extern crate proptest;
+ //!
+ //! use std::collections::HashMap;
+-- 
+2.24.0
+
