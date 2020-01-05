@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="checkpoint">Require deps needed for 'checkpoint' crate feature</flag>
+		<flag name="futures">Require deps needed for 'futures' crate feature</flag>
+		<flag name="generator">Require deps needed for 'generator' crate feature</flag>
+	</use>
+</pkgmetadata>
