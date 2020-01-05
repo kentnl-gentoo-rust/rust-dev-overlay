@@ -1,0 +1,32 @@
+From b83f0b60e44ef52a79bdfe463648f2ea8b1ac122 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 6 Jan 2020 02:06:47 +1300
+Subject: Fix buggy code-generation in macro
+
+---
+ src/lib.rs | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index b32e0fc..932e942 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -146,6 +146,7 @@ macro_rules! model {
+         $($op:ident ($($type:ty),*) ($parm:pat in $strategy:expr) => $body:expr),*
+     ) => {
+         use $crate::pt::collection::vec as prop_vec;
++        use $crate::pt::prop_oneof;
+         use $crate::pt::prelude::*;
+         use $crate::pt::test_runner::TestRunner;
+ 
+@@ -205,6 +206,7 @@ macro_rules! linearizable {
+         $($op:ident ($($type:ty),*) ($parm:pat in $strategy:expr) -> $ret:ty $body:block),*
+     ) => {
+         use $crate::pt::collection::vec as prop_vec;
++        use $crate::pt::prop_oneof;
+         use $crate::pt::prelude::*;
+         use $crate::pt::test_runner::TestRunner;
+ 
+-- 
+2.24.0
+
