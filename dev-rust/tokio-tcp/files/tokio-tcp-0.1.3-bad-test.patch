@@ -1,0 +1,26 @@
+From cd39319748e827a1291b517ec6e04996dac0645f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 5 Jan 2020 21:38:39 +1300
+Subject: Disable broken network test.
+
+Doesn't even run as a user from a vanilla crate, blocks forever.
+
+---
+ tests/tcp.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tests/tcp.rs b/tests/tcp.rs
+index fbbd14c..33c6605 100644
+--- a/tests/tcp.rs
++++ b/tests/tcp.rs
+@@ -94,6 +94,7 @@ mod unix {
+     use std::{net, thread};
+     use std::time::Duration;
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn poll_hup() {
+         drop(env_logger::try_init());
+-- 
+2.24.0
+
