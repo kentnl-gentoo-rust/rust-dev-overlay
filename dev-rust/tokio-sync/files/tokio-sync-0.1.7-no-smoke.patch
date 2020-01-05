@@ -1,0 +1,58 @@
+From 7194c313938851973ddc862577d47226197fc6d9 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 5 Jan 2020 20:16:29 +1300
+Subject: Disable tests that take ridiculous amounts of time to run
+
+Some of these may be merely minutes, but some I gave up on waiting for
+after 40+ minutes of CPU time.
+
+These can be re-enabled by setting RUSTFLAGS="--cfg smoke_test" in your
+environment
+---
+ tests/fuzz_list.rs      | 1 +
+ tests/fuzz_semaphore.rs | 3 +++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/tests/fuzz_list.rs b/tests/fuzz_list.rs
+index d0207cc..c9da7f1 100644
+--- a/tests/fuzz_list.rs
++++ b/tests/fuzz_list.rs
+@@ -22,6 +22,7 @@ use loom::thread;
+ 
+ use std::sync::Arc;
+ 
++#[cfg(smoke_test)]
+ #[test]
+ fn smoke() {
+     use block::Read::*;
+diff --git a/tests/fuzz_semaphore.rs b/tests/fuzz_semaphore.rs
+index 4721f75..77c286b 100644
+--- a/tests/fuzz_semaphore.rs
++++ b/tests/fuzz_semaphore.rs
+@@ -17,6 +17,7 @@ use std::sync::atomic::AtomicUsize;
+ use std::sync::atomic::Ordering::SeqCst;
+ use std::sync::Arc;
+ 
++#[cfg(smoke_test)]
+ #[test]
+ fn basic_usage() {
+     const NUM: usize = 2;
+@@ -107,6 +108,7 @@ fn release() {
+     });
+ }
+ 
++#[cfg(smoke_test)]
+ #[test]
+ fn basic_closing() {
+     const NUM: usize = 2;
+@@ -135,6 +137,7 @@ fn basic_closing() {
+     });
+ }
+ 
++#[cfg(smoke_test)]
+ #[test]
+ fn concurrent_close() {
+     const NUM: usize = 3;
+-- 
+2.24.0
+
