@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-IUSE="mio-support tokio-support"
-RESTRICT="test"
+IUSE="mio-support tokio-support test"
 
 F_MIO_SUPPORT="
 	=dev-rust/mio-0.6*:=
@@ -31,6 +30,11 @@ BDEPEND="
 	=dev-rust/signal-hook-registry-1.2*:=
 	mio-support? ( ${F_MIO_SUPPORT} )
 	tokio-support? ( ${F_TOKIO_SUPPORT} )
+	test? (
+		${DEV_DEPEND}
+		${F_MIO_SUPPORT}
+		${F_TOKIO_SUPPORT}
+	)
 "
 src_prepare() {
 	rm -vrf benches/ examples/ || die
