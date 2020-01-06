@@ -1,0 +1,56 @@
+From 6e4acef260eb42f8ca6f4cf5a639791ff840d65a Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 6 Jan 2020 16:28:30 +1300
+Subject: Remove all non-critical examples
+
+---
+ Cargo.toml                       | 18 -----------
+ examples/bench.rs                | 28 ------------------
+ examples/bench_vs_lazy_static.rs | 51 --------------------------------
+ examples/lazy_static.rs          | 36 ----------------------
+ examples/regex.rs                | 49 ------------------------------
+ 5 files changed, 182 deletions(-)
+ delete mode 100644 examples/bench.rs
+ delete mode 100644 examples/bench_vs_lazy_static.rs
+ delete mode 100644 examples/lazy_static.rs
+ delete mode 100644 examples/regex.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a2d04d5..5f110e6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -28,21 +28,6 @@ repository = "https://github.com/matklad/once_cell"
+ name = "reentrant_init_deadlocks"
+ required-features = ["std"]
+ 
+-[[example]]
+-name = "bench"
+-required-features = ["std"]
+-
+-[[example]]
+-name = "bench_vs_lazy_static"
+-required-features = ["std"]
+-
+-[[example]]
+-name = "lazy_static"
+-required-features = ["std"]
+-
+-[[example]]
+-name = "regex"
+-required-features = ["std"]
+ [dependencies.parking_lot]
+ version = "0.9.0"
+ optional = true
+@@ -50,9 +35,6 @@ default_features = false
+ [dev-dependencies.crossbeam-utils]
+ version = "0.6.0"
+ 
+-[dev-dependencies.lazy_static]
+-version = "1.0.0"
+-
+ [dev-dependencies.regex]
+ version = "1.2.0"
+ 
+-- 
+2.24.0
+
