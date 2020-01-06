@@ -8,5 +8,6 @@
 	</longdescription>
 	<use>
 		<flag name="indexmap">Require deps needed for 'indexmap' crate feature</flag>
+		<flag name="preserve-order">Require deps needed for 'preserve-order' crate feature</flag>
 	</use>
 </pkgmetadata>
