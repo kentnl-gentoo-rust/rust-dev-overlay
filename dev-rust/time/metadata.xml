@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="rustc-serialize">Require deps needed for 'rustc-serialize' crate feature</flag>
+	</use>
 </pkgmetadata>

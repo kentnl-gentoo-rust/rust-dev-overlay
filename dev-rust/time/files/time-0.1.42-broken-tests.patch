@@ -1,0 +1,27 @@
+From bedf691b3b4de8891ea3051e8a82c653625ac07c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 6 Jan 2020 21:19:30 +1300
+Subject: Disable broken test
+
+Test has hardcoded timestamps and will predictably break in future,
+as they are for me now, due to NOW > SOME_FUTURE_TIME as NOW is
+2020-01-06 ... and SOME_FUTURE_TIME is 2020-01-01 ...
+---
+ src/lib.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index ef44f3a..b01c2e4 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -692,6 +692,7 @@ mod tests {
+         set_time_zone_la_or_london(true)
+     }
+ 
++    #[cfg(broken_test)]
+     #[test]
+     fn test_get_time() {
+         static SOME_RECENT_DATE: i64 = 1325376000i64; // 2012-01-01T00:00:00Z
+-- 
+2.24.0
+
