@@ -1,0 +1,36 @@
+From f6df04c08732d6367e3021fac89de5b98bf88c00 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 7 Jan 2020 14:22:33 +1300
+Subject: Remove broken tests and resulting unused deps
+
+---
+ Cargo.toml               |   6 -
+ tests/test_precedence.rs | 387 ---------------------------------------
+ tests/test_round_trip.rs | 153 ----------------
+ 3 files changed, 546 deletions(-)
+ delete mode 100644 tests/test_precedence.rs
+ delete mode 100644 tests/test_round_trip.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 60a42de..24809d6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -40,15 +40,9 @@ version = "0.1"
+ [dev-dependencies.insta]
+ version = "0.8"
+ 
+-[dev-dependencies.rayon]
+-version = "1.0"
+-
+ [dev-dependencies.ref-cast]
+ version = "0.2"
+ 
+-[dev-dependencies.regex]
+-version = "1.0"
+-
+ [dev-dependencies.termcolor]
+ version = "1.0"
+ 
+-- 
+2.24.0
+
