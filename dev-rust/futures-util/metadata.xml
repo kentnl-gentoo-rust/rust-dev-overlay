@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="async-await-macro">Require deps needed for 'async-await-macro' crate feature</flag>
+		<flag name="channel">Require deps needed for 'channel' crate feature</flag>
+		<flag name="compat">Require deps needed for 'compat' crate feature</flag>
+		<flag name="io-compat">Require deps needed for 'io-compat' crate feature</flag>
+		<flag name="io">Require deps needed for 'io' crate feature</flag>
+		<flag name="read-initializer">Require deps needed for 'read-initializer' crate feature</flag>
+		<flag name="sink">Require deps needed for 'sink' crate feature</flag>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
+	</use>
+</pkgmetadata>
