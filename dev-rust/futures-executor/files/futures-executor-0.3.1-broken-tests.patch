@@ -1,0 +1,22 @@
+From 69c1328674cf31d112ae5d5a849dc3a6010fc0a6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 8 Jan 2020 09:18:03 +1300
+Subject: Disable tests with undeclared circular dependencies
+
+Bug: https://github.com/rust-lang/futures-rs/issues/1020
+---
+ tests/local_pool.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tests/local_pool.rs b/tests/local_pool.rs
+index b6a5678..2398980 100644
+--- a/tests/local_pool.rs
++++ b/tests/local_pool.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::oneshot;
+ use futures::executor::LocalPool;
+ use futures::future::{Future, lazy, poll_fn};
+-- 
+2.24.0
+
