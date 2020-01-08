@@ -1,0 +1,212 @@
+From a322e2b119e66f5fca705dbce7028d8792b237cd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 9 Jan 2020 06:37:23 +1300
+Subject: Disable tests with undeclared circular dependencies
+
+See: https://github.com/rust-lang/futures-rs/issues/2025
+---
+ tests/abortable.rs               | 1 +
+ tests/basic_combinators.rs       | 1 +
+ tests/eager_drop.rs              | 1 +
+ tests/fuse.rs                    | 1 +
+ tests/futures_ordered.rs         | 1 +
+ tests/futures_unordered.rs       | 1 +
+ tests/io_buf_reader.rs           | 1 +
+ tests/io_buf_writer.rs           | 1 +
+ tests/io_lines.rs                | 1 +
+ tests/io_read_line.rs            | 1 +
+ tests/io_read_to_string.rs       | 1 +
+ tests/io_read_until.rs           | 1 +
+ tests/mutex.rs                   | 1 +
+ tests/oneshot.rs                 | 1 +
+ tests/ready_queue.rs             | 1 +
+ tests/sink.rs                    | 1 +
+ tests/stream_into_async_read.rs  | 1 +
+ tests/stream_select_all.rs       | 1 +
+ tests/stream_select_next_some.rs | 1 +
+ tests/unfold.rs                  | 1 +
+ 20 files changed, 20 insertions(+)
+
+diff --git a/tests/abortable.rs b/tests/abortable.rs
+index 5925c9a..5421595 100644
+--- a/tests/abortable.rs
++++ b/tests/abortable.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::oneshot;
+ use futures::executor::block_on;
+ use futures::future::{abortable, Aborted, FutureExt};
+diff --git a/tests/basic_combinators.rs b/tests/basic_combinators.rs
+index fa65b6f..e63c1ae 100644
+--- a/tests/basic_combinators.rs
++++ b/tests/basic_combinators.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::future::{self, FutureExt, TryFutureExt};
+ use futures_test::future::FutureTestExt;
+ use std::sync::mpsc;
+diff --git a/tests/eager_drop.rs b/tests/eager_drop.rs
+index 674e401..bff6b6b 100644
+--- a/tests/eager_drop.rs
++++ b/tests/eager_drop.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::oneshot;
+ use futures::future::{self, Future, FutureExt, TryFutureExt};
+ use futures::task::{Context, Poll};
+diff --git a/tests/fuse.rs b/tests/fuse.rs
+index 83f2c1c..733f0fc 100644
+--- a/tests/fuse.rs
++++ b/tests/fuse.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::future::{self, FutureExt};
+ use futures::task::Context;
+ use futures_test::task::panic_waker;
+diff --git a/tests/futures_ordered.rs b/tests/futures_ordered.rs
+index d06b62f..3d9f410 100644
+--- a/tests/futures_ordered.rs
++++ b/tests/futures_ordered.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::oneshot;
+ use futures::executor::{block_on, block_on_stream};
+ use futures::future::{self, join, Future, FutureExt, TryFutureExt};
+diff --git a/tests/futures_unordered.rs b/tests/futures_unordered.rs
+index 1995a2b..b23b2be 100644
+--- a/tests/futures_unordered.rs
++++ b/tests/futures_unordered.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use std::marker::Unpin;
+ use std::pin::Pin;
+ use std::sync::atomic::{AtomicBool, Ordering};
+diff --git a/tests/io_buf_reader.rs b/tests/io_buf_reader.rs
+index 69cb538..d53e0c9 100644
+--- a/tests/io_buf_reader.rs
++++ b/tests/io_buf_reader.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::executor::block_on;
+ use futures::future::{Future, FutureExt};
+ use futures::io::{
+diff --git a/tests/io_buf_writer.rs b/tests/io_buf_writer.rs
+index c7c194f..92439f3 100644
+--- a/tests/io_buf_writer.rs
++++ b/tests/io_buf_writer.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::executor::block_on;
+ use futures::future::{Future, FutureExt};
+ use futures::io::{AsyncSeek, AsyncSeekExt, AsyncWrite, AsyncWriteExt, BufWriter, Cursor, SeekFrom};
+diff --git a/tests/io_lines.rs b/tests/io_lines.rs
+index 39eafa9..0dbf41e 100644
+--- a/tests/io_lines.rs
++++ b/tests/io_lines.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::executor::block_on;
+ use futures::future::{Future, FutureExt};
+ use futures::stream::{self, StreamExt, TryStreamExt};
+diff --git a/tests/io_read_line.rs b/tests/io_read_line.rs
+index d1dba5e..348d913 100644
+--- a/tests/io_read_line.rs
++++ b/tests/io_read_line.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::executor::block_on;
+ use futures::future::{Future, FutureExt};
+ use futures::stream::{self, StreamExt, TryStreamExt};
+diff --git a/tests/io_read_to_string.rs b/tests/io_read_to_string.rs
+index db825af..c4a6fed 100644
+--- a/tests/io_read_to_string.rs
++++ b/tests/io_read_to_string.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::executor::block_on;
+ use futures::future::{Future, FutureExt};
+ use futures::stream::{self, StreamExt, TryStreamExt};
+diff --git a/tests/io_read_until.rs b/tests/io_read_until.rs
+index 5152281..9f3886a 100644
+--- a/tests/io_read_until.rs
++++ b/tests/io_read_until.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::executor::block_on;
+ use futures::future::{Future, FutureExt};
+ use futures::stream::{self, StreamExt, TryStreamExt};
+diff --git a/tests/mutex.rs b/tests/mutex.rs
+index 80a6e65..256ce87 100644
+--- a/tests/mutex.rs
++++ b/tests/mutex.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::mpsc;
+ use futures::executor::block_on;
+ use futures::future::{ready, FutureExt};
+diff --git a/tests/oneshot.rs b/tests/oneshot.rs
+index 58951ec..272ff92 100644
+--- a/tests/oneshot.rs
++++ b/tests/oneshot.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::oneshot;
+ use futures::future::{FutureExt, TryFutureExt};
+ use futures_test::future::FutureTestExt;
+diff --git a/tests/ready_queue.rs b/tests/ready_queue.rs
+index 1fa7d79..bf4f596 100644
+--- a/tests/ready_queue.rs
++++ b/tests/ready_queue.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::oneshot;
+ use futures::executor::{block_on, block_on_stream};
+ use futures::future;
+diff --git a/tests/sink.rs b/tests/sink.rs
+index 8fab8f3..210e9ca 100644
+--- a/tests/sink.rs
++++ b/tests/sink.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::{mpsc, oneshot};
+ use futures::executor::block_on;
+ use futures::future::{self, Future, FutureExt, TryFutureExt};
+diff --git a/tests/stream_into_async_read.rs b/tests/stream_into_async_read.rs
+index c528af0..084048a 100644
+--- a/tests/stream_into_async_read.rs
++++ b/tests/stream_into_async_read.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_tests)]
+ use core::pin::Pin;
+ use futures::io::{AsyncRead, AsyncBufRead};
+ use futures::stream::{self, TryStreamExt};
+diff --git a/tests/stream_select_all.rs b/tests/stream_select_all.rs
+index eb711dd..66beff5 100644
+--- a/tests/stream_select_all.rs
++++ b/tests/stream_select_all.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::channel::mpsc;
+ use futures::executor::block_on_stream;
+ use futures::future::{self, FutureExt};
+diff --git a/tests/stream_select_next_some.rs b/tests/stream_select_next_some.rs
+index 09d7e89..13e02fc 100644
+--- a/tests/stream_select_next_some.rs
++++ b/tests/stream_select_next_some.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::{future, select};
+ use futures::future::{FusedFuture, FutureExt};
+ use futures::stream::{FuturesUnordered, StreamExt};
+diff --git a/tests/unfold.rs b/tests/unfold.rs
+index 95722cf..e29ca6d 100644
+--- a/tests/unfold.rs
++++ b/tests/unfold.rs
+@@ -1,3 +1,4 @@
++#![cfg(circular_deps)]
+ use futures::future;
+ use futures::stream;
+ 
+-- 
+2.24.0
+

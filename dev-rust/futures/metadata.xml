@@ -6,4 +6,13 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="async-await">Require deps needed for 'async-await' crate feature</flag>
+		<flag name="compat">Require deps needed for 'compat' crate feature</flag>
+		<flag name="executor">Require deps needed for 'executor' crate feature</flag>
+		<flag name="io-compat">Require deps needed for 'io-compat' crate feature</flag>
+		<flag name="read-initializer">Require deps needed for 'read-initializer' crate feature</flag>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
+		<flag name="thread-pool">Require deps needed for 'thread-pool' crate feature</flag>
+	</use>
 </pkgmetadata>
