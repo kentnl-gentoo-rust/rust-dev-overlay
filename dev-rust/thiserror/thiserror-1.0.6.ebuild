@@ -11,8 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
-
-RESTRICT="test"
+IUSE="test"
 DEV_DEPEND="
 	=dev-rust/anyhow-1*:=
 	=dev-rust/ref-cast-1*:=
@@ -21,4 +20,5 @@ DEV_DEPEND="
 "
 BDEPEND="
 	~dev-rust/thiserror-impl-1.0.6:=
+	test? ( ${DEV_DEPEND} )
 "
