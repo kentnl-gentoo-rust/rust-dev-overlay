@@ -1,0 +1,36 @@
+From fee1010cb7b42671ed1a08f89e5c56b2cf99ca8f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 9 Jan 2020 20:23:51 +1300
+Subject: Remove unwanted cargo logic
+
+- Remove win32 only deps
+- Remove wasm specific features
+---
+ Cargo.toml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index dd6684e..1b22268 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -65,17 +65,11 @@ version = "1.0.56"
+ 
+ [features]
+ default = ["std"]
+-guid = ["winapi"]
+ std = []
+-stdweb = ["rand/stdweb"]
+ v1 = []
+ v3 = ["md5"]
+ v4 = ["rand"]
+ v5 = ["sha1"]
+-wasm-bindgen = ["rand/wasm-bindgen"]
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-optional = true
+ [badges.appveyor]
+ repository = "uuid-rs/uuid"
+ 
+-- 
+2.24.0
+
