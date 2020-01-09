@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="unicode-width">Require deps needed for 'unicode-width' crate feature</flag>
+	</use>
 </pkgmetadata>
