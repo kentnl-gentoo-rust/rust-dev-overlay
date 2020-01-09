@@ -1,0 +1,36 @@
+From fa40504e9d65704f399951563467e0b34d285252 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 9 Jan 2020 21:44:39 +1300
+Subject: Remove benches & examples
+
+And prune resulting unneeded deps
+---
+ Cargo.toml              |   8 --
+ benches/benchmarks.rs   | 160 ----------------------------------------
+ examples/make_tables.rs | 116 -----------------------------
+ 3 files changed, 284 deletions(-)
+ delete mode 100644 benches/benchmarks.rs
+ delete mode 100644 examples/make_tables.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 749243c..840fb71 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,14 +22,6 @@ keywords = ["base64", "utf8", "encode", "decode", "no_std"]
+ categories = ["encoding"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/marshallpierce/rust-base64"
+-[profile.bench]
+-debug = true
+-
+-[[bench]]
+-name = "benchmarks"
+-harness = false
+-[dev-dependencies.criterion]
+-version = "0.3"
+ 
+ [dev-dependencies.doc-comment]
+ version = "0.3"
+-- 
+2.24.0
+
