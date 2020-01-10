@@ -1,0 +1,24 @@
+From a5f0662d7579ad0b679b65589b0c6a9ca9cd5bc2 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 11 Jan 2020 06:34:28 +1300
+Subject: Fix deps
+
+---
+ Cargo.toml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 7add915..517286f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -7,5 +7,4 @@ homepage = "https://github.com/csherratt/timebomb"
+ description = "A timeout mechnisem for unit tests"
+ 
+ [dependencies]
+-pulse = "*"
+-time = "*"
+\ No newline at end of file
++pulse = { version = "0.5", default-features = false }
+-- 
+2.24.0
+
