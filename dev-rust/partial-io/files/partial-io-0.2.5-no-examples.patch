@@ -1,0 +1,38 @@
+From 2faab8bd3c6dd919aaef39fbc95a9ba9bca99957 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 10 Jan 2020 21:42:00 +1300
+Subject: Remove examples
+
+---
+ Cargo.toml              |   6 --
+ examples/buggy_write.rs | 213 ----------------------------------------
+ 2 files changed, 219 deletions(-)
+ delete mode 100644 examples/buggy_write.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index aec46b5..ba0fe4f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -25,9 +25,6 @@ repository = "https://github.com/facebookincubator/rust-partial-io"
+ [package.metadata.docs.rs]
+ features = ["tokio", "quickcheck"]
+ 
+-[[example]]
+-name = "buggy_write"
+-required-features = ["quickcheck"]
+ [dependencies.quickcheck]
+ version = "0.4"
+ optional = true
+@@ -42,9 +39,6 @@ optional = true
+ [dev-dependencies.quickcheck]
+ version = "0.4"
+ 
+-[dev-dependencies.lazy_static]
+-version = "0.2"
+-
+ [dev-dependencies.tokio-core]
+ version = "0.1"
+ 
+-- 
+2.24.0
+
