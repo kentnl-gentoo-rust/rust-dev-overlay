@@ -1,0 +1,35 @@
+From 82203b5238b2f20aa6338ddf6cc13d57e740d432 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 10 Jan 2020 21:01:42 +1300
+Subject: Remove all nightly-only features.
+
+---
+ Cargo.toml | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index c25a8a1..caf340e 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,18 +21,7 @@ keywords = ["macro", "lazy", "static"]
+ categories = ["no-std", "rust-patterns", "memory-management"]
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
+-[dependencies.compiletest_rs]
+-version = "0.3"
+-optional = true
+ 
+-[dependencies.spin]
+-version = "0.4.6"
+-optional = true
+-
+-[features]
+-compiletest = ["compiletest_rs"]
+-nightly = []
+-spin_no_std = ["nightly", "spin"]
+ [badges.appveyor]
+ repository = "rust-lang-nursery/lazy-static.rs"
+ 
+-- 
+2.24.0
+
