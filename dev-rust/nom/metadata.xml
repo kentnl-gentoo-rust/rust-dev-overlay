@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="regexp">Require deps needed for 'regexp' crate feature</flag>
+		<flag name="regexp-macros">Require deps needed for 'regexp_macros' crate feature</flag>
+	</use>
+</pkgmetadata>

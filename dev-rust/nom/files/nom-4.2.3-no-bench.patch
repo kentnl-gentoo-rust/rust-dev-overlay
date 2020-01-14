@@ -1,0 +1,64 @@
+From 2b2320b07b8b90164968d939955d3605790f5db9 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 14 Jan 2020 21:27:06 +1300
+Subject: Remove bench references in Cargo.toml and related deps
+
+Due to the benchmarks being stripped, this crate doesn't work with
+_ANY_ cargo commands, due to the hard references in Cargo.toml to
+files that no longer exist.
+
+Excess dependencies that were used in the stripped benchmarks
+also removed.
+---
+ Cargo.toml | 27 ---------------------------
+ 1 file changed, 27 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 279c6d1..faba908 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -92,29 +92,6 @@ name = "reborrow_fold"
+ [[test]]
+ name = "test1"
+ 
+-[[bench]]
+-name = "arithmetic"
+-harness = false
+-
+-[[bench]]
+-name = "http"
+-harness = false
+-
+-[[bench]]
+-name = "ini"
+-harness = false
+-
+-[[bench]]
+-name = "ini_complete"
+-harness = false
+-
+-[[bench]]
+-name = "ini_str"
+-harness = false
+-
+-[[bench]]
+-name = "json"
+-harness = false
+ [dependencies.lazy_static]
+ version = "^1.0"
+ optional = true
+@@ -126,11 +103,7 @@ default-features = false
+ [dependencies.regex]
+ version = "^1.0"
+ optional = true
+-[dev-dependencies.criterion]
+-version = "0.2"
+ 
+-[dev-dependencies.jemallocator]
+-version = "^0.1"
+ [build-dependencies.version_check]
+ version = "^0.1"
+ 
+-- 
+2.24.0
+
