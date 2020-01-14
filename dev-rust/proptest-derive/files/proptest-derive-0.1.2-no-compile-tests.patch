@@ -1,0 +1,41 @@
+From 48c8d9b02a58939e33c62d1e1c3175f2f6538087 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 14 Jan 2020 17:57:20 +1300
+Subject: Disable compile tests and remove deps
+
+These tests have undeclared deps on proptest_derive and fail
+spectacularly.
+---
+ Cargo.toml           | 3 ---
+ tests/compiletest.rs | 1 +
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e5edbdb..9e80bbf 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -36,9 +36,6 @@ version = "0.6"
+ [dependencies.syn]
+ version = "0.15.17"
+ features = ["visit", "extra-traits", "full"]
+-[dev-dependencies.compiletest_rs]
+-version = "0.3.19"
+-features = ["tmp", "stable"]
+ 
+ [dev-dependencies.proptest]
+ version = "0.9.4"
+diff --git a/tests/compiletest.rs b/tests/compiletest.rs
+index f8c5083..3743ad2 100644
+--- a/tests/compiletest.rs
++++ b/tests/compiletest.rs
+@@ -6,6 +6,7 @@
+ // option. This file may not be copied, modified, or distributed
+ // except according to those terms.
+ 
++#![cfg(circular_deps)]
+ extern crate compiletest_rs as ct;
+ 
+ use std::env;
+-- 
+2.24.0
+

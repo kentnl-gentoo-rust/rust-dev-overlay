@@ -1,0 +1,38 @@
+From bfe893513a0deae83507de8a4d9b73906754ab38 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 14 Jan 2020 16:25:11 +1300
+Subject: Remove benchmarks and bench-only deps
+
+---
+ Cargo.toml            |  6 ----
+ benches/large_enum.rs | 69 -------------------------------------------
+ 2 files changed, 75 deletions(-)
+ delete mode 100644 benches/large_enum.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 19cb3e0..e5edbdb 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,9 +27,6 @@ repository = "https://github.com/AltSysrq/proptest"
+ [lib]
+ proc-macro = true
+ 
+-[[bench]]
+-name = "large_enum"
+-harness = false
+ [dependencies.proc-macro2]
+ version = "0.4"
+ 
+@@ -43,9 +40,6 @@ features = ["visit", "extra-traits", "full"]
+ version = "0.3.19"
+ features = ["tmp", "stable"]
+ 
+-[dev-dependencies.criterion]
+-version = "0.2"
+-
+ [dev-dependencies.proptest]
+ version = "0.9.4"
+ [badges.appveyor]
+-- 
+2.24.0
+

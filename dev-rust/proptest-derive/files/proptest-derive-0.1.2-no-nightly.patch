@@ -1,0 +1,50 @@
+From e5dec0c285a538312bc01e5b606f772392d55cb4 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 14 Jan 2020 17:21:22 +1300
+Subject: Disable nightly tests
+
+---
+ tests/enum.rs             | 1 +
+ tests/skip.rs             | 1 +
+ tests/uninhabited-pass.rs | 1 +
+ 3 files changed, 3 insertions(+)
+
+diff --git a/tests/enum.rs b/tests/enum.rs
+index 913f488..4252ece 100644
+--- a/tests/enum.rs
++++ b/tests/enum.rs
+@@ -6,6 +6,7 @@
+ // option. This file may not be copied, modified, or distributed
+ // except according to those terms.
+ 
++#![cfg(nightly)]
+ #![feature(never_type)]
+ 
+ use proptest::prelude::Arbitrary;
+diff --git a/tests/skip.rs b/tests/skip.rs
+index 95cafd5..811fe5c 100644
+--- a/tests/skip.rs
++++ b/tests/skip.rs
+@@ -6,6 +6,7 @@
+ // option. This file may not be copied, modified, or distributed
+ // except according to those terms.
+ 
++#![cfg(nightly)]
+ #![feature(never_type)]
+ #![allow(dead_code, unreachable_code)]
+ 
+diff --git a/tests/uninhabited-pass.rs b/tests/uninhabited-pass.rs
+index 0841139..dd6bca2 100644
+--- a/tests/uninhabited-pass.rs
++++ b/tests/uninhabited-pass.rs
+@@ -6,6 +6,7 @@
+ // option. This file may not be copied, modified, or distributed
+ // except according to those terms.
+ 
++#![cfg(nightly)]
+ #![feature(never_type)]
+ #![allow(dead_code, unreachable_code)]
+ 
+-- 
+2.24.0
+
