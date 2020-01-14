@@ -1,0 +1,23 @@
+From 2139197bbd205bcc5ba040da61976f8fbcc3bfef Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 14 Jan 2020 20:06:12 +1300
+Subject: Remove windows only dependencies
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f9b19a8..0191917 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,6 +22,3 @@ license = "ISC"
+ repository = "https://github.com/nagisa/rust_libloading/"
+ [build-dependencies.cc]
+ version = "1.0"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["winerror", "errhandlingapi", "libloaderapi"]
+-- 
+2.24.0
+
