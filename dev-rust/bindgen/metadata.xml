@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="bin">Compile/Provide the 'bindgen' binary executable</flag>
+		<flag name="logging">Require deps needed for 'logging' crate feature</flag>
+		<flag name="which-rustfmt">Require deps needed for 'which-rustfmt' crate feature</flag>
+	</use>
+</pkgmetadata>
