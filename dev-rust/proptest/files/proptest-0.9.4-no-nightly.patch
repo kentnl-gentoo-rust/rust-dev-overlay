@@ -1,0 +1,24 @@
+From 122f0c3605d33fd73df438b0305356fa36c9bb9e Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 14 Jan 2020 14:55:19 +1300
+Subject: Disable nightly features
+
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 459c3aa..38abde1 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -82,7 +82,6 @@ default-code-coverage = ["std", "fork", "timeout", "bit-set"]
+ fork = ["std", "rusty-fork", "tempfile"]
+ std = ["rand/std", "byteorder/std", "lazy_static", "quick-error", "regex-syntax", "num-traits/std"]
+ timeout = ["fork", "rusty-fork/timeout"]
+-unstable = []
+ [badges.appveyor]
+ branch = "master"
+ repository = "AltSysrq/proptest"
+-- 
+2.24.0
+
