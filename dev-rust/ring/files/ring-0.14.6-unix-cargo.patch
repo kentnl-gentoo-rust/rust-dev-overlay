@@ -1,0 +1,29 @@
+From 89df29ace60874d33a271aca59ea93afb4a48d66 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 16 Jan 2020 20:09:31 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index d29958f..8ce1e49 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -60,12 +60,7 @@ internal_benches = []
+ slow_tests = []
+ test_logging = []
+ use_heap = []
+-[target."cfg(any(target_os = \"android\", target_os = \"linux\"))".dependencies]
+ [target."cfg(any(target_os = \"redox\", all(unix, not(any(target_os = \"macos\", target_os = \"ios\")))))".dependencies.lazy_static]
+ version = "1.2"
+ [target."cfg(not(target_os = \"ios\"))".dependencies.spin]
+ version = "0.5.0"
+-[target."cfg(target_os = \"windows\")".dependencies.winapi]
+-version = "0.3.6"
+-features = ["ntsecapi", "wtypesbase"]
+-default_features = false
+-- 
+2.24.0
+
