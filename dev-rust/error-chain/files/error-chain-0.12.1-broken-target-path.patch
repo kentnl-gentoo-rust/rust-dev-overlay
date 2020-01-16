@@ -1,0 +1,35 @@
+From 3a297b56b402d215efdc21a784977dccc0b16aa6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 16 Jan 2020 23:00:27 +1300
+Subject: Fix hard-coded path to targets
+
+---
+ tests/tests.rs | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/tests/tests.rs b/tests/tests.rs
+index 9b2dddc..f67b8cb 100644
+--- a/tests/tests.rs
++++ b/tests/tests.rs
+@@ -203,10 +203,16 @@ fn has_backtrace_depending_on_env() {
+     use std::process::Command;
+     use std::path::Path;
+ 
++    let target = match (std::env::var("CARGO_TARGET_DIR"),std::env::var("PROFILE")) {
++        (Ok(d),Ok(p)) => format!("{}/{}", d, p),
++        (Ok(d),Err(_)) => format!("{}/debug", d),
++        (Err(_),Ok(p)) => format!("./target/{}", p),
++        _ => "./target/debug/".to_string()
++    };
+     let cmd_path = if cfg!(windows) {
+-        Path::new("./target/debug/has_backtrace.exe")
++        Path::new(&target).join("has_backtrace.exe")
+     } else {
+-        Path::new("./target/debug/has_backtrace")
++        Path::new(&target).join("has_backtrace")
+     };
+     let mut cmd = Command::new(cmd_path);
+ 
+-- 
+2.24.0
+
