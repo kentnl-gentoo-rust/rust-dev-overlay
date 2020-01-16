@@ -1,0 +1,145 @@
+From 78c0aacb23b3dbf11eb271919b0cb4e04f4fa541 Mon Sep 17 00:00:00 2001
+From: Colin Kiegel <kiegel@gmx.de>
+Date: Sun, 9 Jun 2019 10:52:25 +0200
+Subject: fix #32
+
+Rust debug output now includes a trailing comma
+
+bump minimum rust version accordingly
+---
+ tests/assert_eq.rs | 34 +++++++++++++++++-----------------
+ tests/assert_ne.rs | 24 ++++++++++++------------
+ 2 files changed, 29 insertions(+), 29 deletions(-)
+
+diff --git a/tests/assert_eq.rs b/tests/assert_eq.rs
+index e2b2057..f5cf09d 100644
+--- a/tests/assert_eq.rs
++++ b/tests/assert_eq.rs
+@@ -12,10 +12,10 @@ extern crate difference;
+ [32m>[0m[32m        lorem: "Hello W[0m[1;48;5;22;32mr[0m[32mo[0m[32mld!",[0m
+          ipsum: 42,
+          dolor: Ok(
+-[31m<[0m[31m            "hey[0m[31m"[0m
+-[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m"[0m
+-         )
+-     }
++[31m<[0m[31m            "hey[0m[31m",[0m
++[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m",[0m
++         ),
++     },
+  )
+ 
+ "#)]
+@@ -52,10 +52,10 @@ fn assert_eq() {
+ [32m>[0m[32m        lorem: "Hello W[0m[1;48;5;22;32mr[0m[32mo[0m[32mld!",[0m
+          ipsum: 42,
+          dolor: Ok(
+-[31m<[0m[31m            "hey[0m[31m"[0m
+-[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m"[0m
+-         )
+-     }
++[31m<[0m[31m            "hey[0m[31m",[0m
++[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m",[0m
++         ),
++     },
+  )
+ 
+ "#
+@@ -104,7 +104,7 @@ fn assert_eq_with_comparable_types() {
+ [32m>[0m[32m    [0m[1;48;5;22;32m84[0m[32m,[0m
+ [32m>[0m[32m    [0m[32m2[0m[1;48;5;22;32m4[0m[32m8,[0m
+ [32m>[0m[32m    [0m[1;48;5;22;32m4[0m[32m5,[0m
+-     64
++     64,
+  ]
+ 
+ "#)]
+@@ -124,10 +124,10 @@ fn issue12() {
+ [32m>[0m[32m        lorem: "Hello W[0m[1;48;5;22;32mr[0m[32mo[0m[32mld!",[0m
+          ipsum: 42,
+          dolor: Ok(
+-[31m<[0m[31m            "hey[0m[31m"[0m
+-[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m"[0m
+-         )
+-     }
++[31m<[0m[31m            "hey[0m[31m",[0m
++[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m",[0m
++         ),
++     },
+  )
+ 
+ "#)]
+@@ -164,10 +164,10 @@ fn assert_eq_trailing_comma() {
+ [32m>[0m[32m        lorem: "Hello W[0m[1;48;5;22;32mr[0m[32mo[0m[32mld!",[0m
+          ipsum: 42,
+          dolor: Ok(
+-[31m<[0m[31m            "hey[0m[31m"[0m
+-[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m"[0m
+-         )
+-     }
++[31m<[0m[31m            "hey[0m[31m",[0m
++[32m>[0m[32m            "hey[0m[1;48;5;22;32m ho![0m[32m",[0m
++         ),
++     },
+  )
+ 
+ "#
+diff --git a/tests/assert_ne.rs b/tests/assert_ne.rs
+index 88ad3fa..39a7a94 100644
+--- a/tests/assert_ne.rs
++++ b/tests/assert_ne.rs
+@@ -9,9 +9,9 @@ Some(
+         lorem: "Hello World!",
+         ipsum: 42,
+         dolor: Ok(
+-            "hey"
+-        )
+-    }
++            "hey",
++        ),
++    },
+ )
+ 
+ "#)]
+@@ -42,9 +42,9 @@ Some(
+         lorem: "Hello World!",
+         ipsum: 42,
+         dolor: Ok(
+-            "hey"
+-        )
+-    }
++            "hey",
++        ),
++    },
+ )
+ 
+ "#
+@@ -116,9 +116,9 @@ Some(
+         lorem: "Hello World!",
+         ipsum: 42,
+         dolor: Ok(
+-            "hey"
+-        )
+-    }
++            "hey",
++        ),
++    },
+ )
+ 
+ "#)]
+@@ -149,9 +149,9 @@ Some(
+         lorem: "Hello World!",
+         ipsum: 42,
+         dolor: Ok(
+-            "hey"
+-        )
+-    }
++            "hey",
++        ),
++    },
+ )
+ 
+ "#
+-- 
+2.24.0
+

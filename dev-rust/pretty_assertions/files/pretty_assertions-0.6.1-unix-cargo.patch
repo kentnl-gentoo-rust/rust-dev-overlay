@@ -1,0 +1,27 @@
+From 7dfae46b26a719095031e5981b0ad7d559228dc2 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 16 Jan 2020 21:38:55 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 8b6bd55..db32096 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,10 +27,5 @@ version = "0.11"
+ 
+ [dependencies.difference]
+ version = "2.0.0"
+-[target."cfg(windows)".dependencies.ctor]
+-version = "0.1.7"
+-
+-[target."cfg(windows)".dependencies.output_vt100]
+-version = "0.1.2"
+ [badges.travis-ci]
+ repository = "colin-kiegel/rust-pretty-assertions"
+-- 
+2.24.0
+
