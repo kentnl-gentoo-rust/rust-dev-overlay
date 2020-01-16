@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="all">Require deps needed for 'all' crate feature</flag>
+		<flag name="all-algorithms">Require deps needed for 'all-algorithms' crate feature</flag>
+		<flag name="all-implementations">Require deps needed for 'all-implementations' crate feature</flag>
+		<flag name="brotli">Require deps needed for 'brotli' crate feature</flag>
+		<flag name="bzip2">Require deps needed for 'bzip2' crate feature</flag>
+		<flag name="deflate">Require deps needed for 'deflate' crate feature</flag>
+		<flag name="futures-bufread">Require deps needed for 'futures-bufread' crate feature</flag>
+		<flag name="futures-write">Require deps needed for 'futures-write' crate feature</flag>
+		<flag name="gzip">Require deps needed for 'gzip' crate feature</flag>
+		<flag name="stream">Require deps needed for 'stream' crate feature</flag>
+		<flag name="zlib">Require deps needed for 'zlib' crate feature</flag>
+		<flag name="zstd">Require deps needed for 'zstd' crate feature</flag>
+	</use>
+</pkgmetadata>
