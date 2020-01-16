@@ -1,0 +1,81 @@
+From 309af1d1d6ab54840d04ac893b7478235314875e Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 17 Jan 2020 00:44:09 +1300
+Subject: Fix network tests to early-exit if no network IO can work
+
+---
+ src/lib.rs  | 10 ++++++++--
+ src/test.rs | 15 ++++++++++++---
+ 2 files changed, 20 insertions(+), 5 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 5efb08f..c1c0c3f 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -48,7 +48,10 @@
+ //!
+ //! let connector = TlsConnector::new().unwrap();
+ //!
+-//! let stream = TcpStream::connect("google.com:443").unwrap();
++//! let stream = match TcpStream::connect("google.com:443") {
++//!     Ok(s) => s,
++//!     _ => return // Skip test if no network
++//! };
+ //! let mut stream = connector.connect("google.com", stream).unwrap();
+ //!
+ //! stream.write_all(b"GET / HTTP/1.0\r\n\r\n").unwrap();
+@@ -432,7 +435,10 @@ impl TlsConnectorBuilder {
+ ///
+ /// let connector = TlsConnector::new().unwrap();
+ ///
+-/// let stream = TcpStream::connect("google.com:443").unwrap();
++/// let stream = match TcpStream::connect("google.com:443") {
++///     Ok(s) => s,
++///     _ => return // No network IO possible, ignore test
++/// };
+ /// let mut stream = connector.connect("google.com", stream).unwrap();
+ ///
+ /// stream.write_all(b"GET / HTTP/1.0\r\n\r\n").unwrap();
+diff --git a/src/test.rs b/src/test.rs
+index f52d7fa..733e241 100644
+--- a/src/test.rs
++++ b/src/test.rs
+@@ -22,7 +22,10 @@ mod tests {
+     #[test]
+     fn connect_google() {
+         let builder = p!(TlsConnector::new());
+-        let s = p!(TcpStream::connect("google.com:443"));
++        let s = match TcpStream::connect("google.com:443") {
++            Ok(r) => r,
++            _ => return
++        };
+         let mut socket = p!(builder.connect("google.com", s));
+ 
+         p!(socket.write_all(b"GET / HTTP/1.0\r\n\r\n"));
+@@ -37,7 +40,10 @@ mod tests {
+     #[test]
+     fn connect_bad_hostname() {
+         let builder = p!(TlsConnector::new());
+-        let s = p!(TcpStream::connect("google.com:443"));
++        let s = match TcpStream::connect("google.com:443") {
++            Ok(r) => r,
++            _ => return
++        };
+         builder.connect("goggle.com", s).unwrap_err();
+     }
+ 
+@@ -46,7 +52,10 @@ mod tests {
+         let builder = p!(TlsConnector::builder()
+             .danger_accept_invalid_hostnames(true)
+             .build());
+-        let s = p!(TcpStream::connect("google.com:443"));
++        let s = match TcpStream::connect("google.com:443") {
++            Ok(r) => r,
++            _ => return
++        };
+         builder.connect("goggle.com", s).unwrap();
+     }
+ 
+-- 
+2.24.0
+
