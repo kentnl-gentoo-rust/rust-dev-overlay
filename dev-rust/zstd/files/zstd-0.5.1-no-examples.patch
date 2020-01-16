@@ -1,0 +1,38 @@
+From ba129134d8c6134001a7f4f05fda02bed870bcb1 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 16 Jan 2020 05:56:18 +1300
+Subject: Remove examples and example-only deps
+
+---
+ Cargo.toml            |   5 --
+ examples/benchmark.rs | 109 ------------------------------------------
+ examples/stream.rs    |  39 ---------------
+ examples/train.rs     |  37 --------------
+ examples/zstd.rs      |  49 -------------------
+ examples/zstdcat.rs   |  43 -----------------
+ 6 files changed, 282 deletions(-)
+ delete mode 100644 examples/benchmark.rs
+ delete mode 100644 examples/stream.rs
+ delete mode 100644 examples/train.rs
+ delete mode 100644 examples/zstd.rs
+ delete mode 100644 examples/zstdcat.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 673ca68..a926709 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -35,11 +35,6 @@ optional = true
+ version = "=2.0.3"
+ features = ["experimental"]
+ default-features = false
+-[dev-dependencies.clap]
+-version = "2.0"
+-
+-[dev-dependencies.humansize]
+-version = "1.0"
+ 
+ [dev-dependencies.partial-io]
+ version = "0.3"
+-- 
+2.24.0
+
