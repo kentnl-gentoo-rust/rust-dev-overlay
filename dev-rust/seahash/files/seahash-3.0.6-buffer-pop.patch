@@ -1,0 +1,64 @@
+From 669326034cb05d2631ba45af29c99ae0d7939a95 Mon Sep 17 00:00:00 2001
+From: Philip Woolford <woolford.philip@gmail.com>
+Date: Wed, 10 Apr 2019 14:56:34 +0930
+Subject: Fix `buffer::pop`
+
+The `pop()` function rotated the internal state in the wrong order, causing `pop()`s to overwrite `b`, `c` and `d` to be equal every time.
+This has been fixed, and the `mut a` has been removed from `push()` too.
+
+Bug: https://gitlab.redox-os.org/redox-os/seahash/issues/3
+Bug: https://gitlab.redox-os.org/redox-os/seahash/merge_requests/1
+---
+ src/buffer.rs | 22 +++++++++-------------
+ 1 file changed, 9 insertions(+), 13 deletions(-)
+
+diff --git a/src/buffer.rs b/src/buffer.rs
+index a39be99..019e7fe 100644
+--- a/src/buffer.rs
++++ b/src/buffer.rs
+@@ -174,10 +174,8 @@ impl State {
+ 
+     /// Write another 64-bit integer into the state.
+     pub fn push(&mut self, x: u64) {
+-        let mut a = self.a;
+-
+         // Mix `x` into `a`.
+-        a = helper::diffuse(a ^ x);
++        let a = helper::diffuse(self.a ^ x);
+ 
+         //  Rotate around.
+         //  _______________________
+@@ -196,22 +194,20 @@ impl State {
+     ///
+     /// Given the value of the most recently written u64 `last`, remove it from the state.
+     pub fn pop(&mut self, last: u64) {
+-        // Decrese the written bytes counter.
+-        self.written -= 8;
+-
+-        // Remove the recently written data.
+-        self.d = helper::undiffuse(self.d) ^ last;
+-
+-        let mut a = self.a;
++        // Un-mix `last` from `d`. Removes the recently written data.
++        let d = helper::undiffuse(self.d) ^ last;
+ 
+         //  Rotate back.
+         //  _______________________
+         // v                       |
+         // a ----> b ----> c ----> d
+-        self.a = self.d;
+-        self.b = a;
+-        self.c = self.b;
+         self.d = self.c;
++        self.c = self.b;
++        self.b = self.a;
++        self.a = d;
++
++        // Decrese the written bytes counter.
++        self.written -= 8;
+     }
+ 
+     /// Finalize the state.
+-- 
+2.24.0
+
