@@ -1,0 +1,42 @@
+From bd36a8b1f39b34d0f4050aff1d32c7077dd0cda6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 18 Jan 2020 20:41:03 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 2c46d61..06baabc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -98,11 +98,11 @@ io-std = ["rt-core"]
+ io-util = ["memchr"]
+ macros = ["tokio-macros"]
+ net = ["dns", "tcp", "udp", "uds"]
+-process = ["io-driver", "libc", "mio-named-pipes", "signal", "winapi/consoleapi", "winapi/minwindef", "winapi/threadpoollegacyapiset", "winapi/winerror"]
++process = ["io-driver", "libc", "signal"]
+ rt-core = []
+ rt-threaded = ["num_cpus", "rt-core"]
+ rt-util = []
+-signal = ["io-driver", "lazy_static", "libc", "mio-uds", "signal-hook-registry", "winapi/consoleapi", "winapi/minwindef"]
++signal = ["io-driver", "lazy_static", "libc", "mio-uds", "signal-hook-registry"]
+ stream = ["futures-core"]
+ sync = ["fnv"]
+ tcp = ["io-driver", "iovec"]
+@@ -121,11 +121,3 @@ optional = true
+ [target."cfg(unix)".dependencies.signal-hook-registry]
+ version = "1.1.1"
+ optional = true
+-[target."cfg(windows)".dependencies.mio-named-pipes]
+-version = "0.1.6"
+-optional = true
+-
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3.8"
+-optional = true
+-default-features = false
+-- 
+2.24.0
+
