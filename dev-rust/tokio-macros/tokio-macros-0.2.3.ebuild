@@ -12,8 +12,11 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="test"
+IUSE="test"
 BDEPEND="
 	=dev-rust/quote-1*:=
 	( =dev-rust/syn-1*:=[printing,proc-macro] >=dev-rust/syn-1.0.3 )
+	test? (
+		=dev-rust/tokio-0.2*:=[full]
+	)
 "
