@@ -1,0 +1,26 @@
+From 2271ace718069af91a89f3dd3b6a8bcf8e4ed4ac Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 06:16:49 +1300
+Subject: Nuke examples and deps
+
+---
+ Cargo.toml          |  2 -
+ examples/walkdir.rs | 91 ---------------------------------------------
+ 2 files changed, 93 deletions(-)
+ delete mode 100644 examples/walkdir.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 34a7b5b..17e1726 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -18,7 +18,5 @@ kernel32-sys = "0.2"
+ winapi = "0.2"
+ 
+ [dev-dependencies]
+-docopt = "0.7"
+ quickcheck = { version = "0.4", default-features = false }
+ rand = "0.3"
+-rustc-serialize = "0.3"
+-- 
+2.24.0
+

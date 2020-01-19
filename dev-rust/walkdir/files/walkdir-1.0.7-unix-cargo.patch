@@ -1,0 +1,27 @@
+From 5d4cc361060991025bd99740ef31fc0f3c8768a0 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 06:17:11 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 17e1726..f4e162a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -13,10 +13,6 @@ license = "Unlicense/MIT"
+ [dependencies]
+ same-file = "0.1.1"
+ 
+-[target.'cfg(windows)'.dependencies]
+-kernel32-sys = "0.2"
+-winapi = "0.2"
+-
+ [dev-dependencies]
+ quickcheck = { version = "0.4", default-features = false }
+ rand = "0.3"
+-- 
+2.24.0
+
