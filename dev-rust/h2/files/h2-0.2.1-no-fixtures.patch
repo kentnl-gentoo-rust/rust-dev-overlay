@@ -1,0 +1,26 @@
+From 440a3367ec56649daf6c1ce2ea5bac4f405e44e0 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 08:52:36 +1300
+Subject: Disable fixtures tests
+
+The assets required by these tests are stripped from the published
+crate.
+---
+ src/hpack/test/fixture.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/hpack/test/fixture.rs b/src/hpack/test/fixture.rs
+index 20ee127..c01126e 100644
+--- a/src/hpack/test/fixture.rs
++++ b/src/hpack/test/fixture.rs
+@@ -161,6 +161,7 @@ macro_rules! fixture_mod {
+     }) => {
+         mod $module {
+             $(
++                #[ignore]
+                 #[test]
+                 fn $fn() {
+                     let path = ::std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+-- 
+2.24.0
+
