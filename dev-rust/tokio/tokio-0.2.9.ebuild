@@ -12,7 +12,6 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 IUSE="full io-driver io-util macros net process rt-threaded signal stream sync tcp test time udp uds"
-RESTRICT="test"
 
 F_FNV="( =dev-rust/fnv-1*:= >=dev-rust/fnv-1.0.6 )"
 F_FUTURES_CORE="=dev-rust/futures-core-0.3*:="
@@ -46,7 +45,7 @@ F_FULL="${F_IO_DRIVER} ${F_IO_UTIL} ${F_MACROS} ${F_NET}
 DEV_DEPEND="
 	=dev-rust/futures-0.3*:=[async-await,executor,std]
 	( =dev-rust/loom-0.2*:= >=dev-rust/loom-0.2.13 )
-	( =dev-rust/proptest-0.9*:=[bit-set,fork,timeout] >=dev-rust/proptest-0.9.4 )
+	( =dev-rust/proptest-0.9*:=[bit-set,fork,std,timeout] >=dev-rust/proptest-0.9.4 )
 	( =dev-rust/tempfile-3*:= >=dev-rust/tempfile-3.1.0 )
 	=dev-rust/tokio-test-0.2*:=
 	${F_FNV} ${F_FUTURES_CORE} ${F_IOVEC}
@@ -72,7 +71,11 @@ BDEPEND="
 	time? ( ${F_TIME} )
 	udp? ( ${F_UDP} )
 	uds? ( ${F_UDS} )
+	test? ( ${DEV_DEPEND} )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-unix-cargo.patch"
 )
+src_test() {
+	ecargo test --all-features
+}
