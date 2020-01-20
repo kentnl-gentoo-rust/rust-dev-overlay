@@ -1,0 +1,41 @@
+From 9b15f62ba5acf5f8fb40218c30247159957e0626 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 21 Jan 2020 00:49:41 +1300
+Subject: Disable expensive tests
+
+---
+ tests/fuzz.rs | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/tests/fuzz.rs b/tests/fuzz.rs
+index 8765d5f..6bfa89c 100644
+--- a/tests/fuzz.rs
++++ b/tests/fuzz.rs
+@@ -52,6 +52,7 @@ fn no_send() {
+     });
+ }
+ 
++#[cfg_attr(not(smoke_test),ignore)]
+ #[test]
+ fn multiple_threads_race() {
+     loom::model(|| {
+@@ -82,7 +83,7 @@ fn multiple_threads_race() {
+     });
+ }
+ 
+-
++#[cfg_attr(not(smoke_test),ignore)]
+ #[test]
+ fn message_per_thread() {
+     loom::model(|| {
+@@ -112,6 +113,7 @@ fn message_per_thread() {
+     });
+ }
+ 
++#[cfg_attr(not(smoke_test),ignore)]
+ #[test]
+ fn extra_message() {
+     loom::model(|| {
+-- 
+2.24.0
+
