@@ -1,0 +1,24 @@
+From a4e2433e47fc12390cf623d32d94bffde57e8195 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 23:23:10 +1300
+Subject: Fix broken tests
+
+---
+ tests/pin_project.rs | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/tests/pin_project.rs b/tests/pin_project.rs
+index a8964fb..7605250 100644
+--- a/tests/pin_project.rs
++++ b/tests/pin_project.rs
+@@ -335,7 +335,6 @@ fn lifetime_project() {
+     }
+ }
+ 
+-#[rustversion::since(1.36)]
+ #[test]
+ fn lifetime_project_elided() {
+     #[pin_project]
+-- 
+2.24.0
+
