@@ -1,0 +1,97 @@
+From b52cad486e157388ef90e1d2469686873ec6e684 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 09:32:20 +1300
+Subject: Disable broken tests and subsequent deps
+
+Required version of compiletest_rs is very broken
+---
+ Cargo.toml  | 3 ---
+ src/lib.rs  | 4 ++--
+ src/test.rs | 8 ++++++++
+ 3 files changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e7f712f..960d3a2 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,8 +23,5 @@ version = "1.2"
+ [dev-dependencies.rand]
+ version = "0.3"
+ 
+-[dev-dependencies.compiletest_rs]
+-version = "0.2.1"
+-
+ [dev-dependencies.futures]
+ version = "0.1.7"
+diff --git a/src/lib.rs b/src/lib.rs
+index 416d9fc..21f9c8b 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1,6 +1,6 @@
+ #![allow(non_camel_case_types)] // I prefer to use ALL_CAPS for type parameters
+-#![cfg_attr(test, feature(conservative_impl_trait))]
+-#![cfg_attr(test, feature(i128_type))]
++#![cfg_attr(all(test, broken_tests), feature(conservative_impl_trait))]
++#![cfg_attr(all(test, broken_tests), feature(i128_type))]
+ 
+ // If you're not compiling the unstable code, it often happens that
+ // there is stuff that is considered "dead code" and so forth. So
+diff --git a/src/test.rs b/src/test.rs
+index a100757..b4bba6b 100644
+--- a/src/test.rs
++++ b/src/test.rs
+@@ -1,9 +1,11 @@
+ #![cfg(test)]
+ 
++#[cfg(broken_tests)]
+ extern crate compiletest_rs as compiletest;
+ 
+ use std::path::PathBuf;
+ 
++#[cfg(broken_tests)]
+ fn run_compiletest(mode: &str, path: &str) {
+     let mut config = compiletest::default_config();
+     config.mode = mode.parse().ok().expect("Invalid mode");
+@@ -13,33 +15,39 @@ fn run_compiletest(mode: &str, path: &str) {
+     compiletest::run_tests(&config);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn negative_tests_compile_fail() {
+     run_compiletest("compile-fail", "tests/compile-fail");
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ #[cfg(rayon_unstable)]
+ fn negative_tests_compile_fail_unstable() {
+     run_compiletest("compile-fail", "tests/compile-fail-unstable");
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn negative_tests_run_fail() {
+     run_compiletest("run-fail", "tests/run-fail");
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ #[cfg(rayon_unstable)]
+ fn negative_tests_run_fail_unstable() {
+     run_compiletest("run-fail", "tests/run-fail-unstable");
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn positive_test_run_pass() {
+     run_compiletest("run-pass", "tests/run-pass");
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ #[cfg(rayon_unstable)]
+ fn positive_test_run_pass_unstable() {
+-- 
+2.24.0
+

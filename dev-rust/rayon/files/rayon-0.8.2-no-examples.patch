@@ -1,0 +1,32 @@
+From 50426cf51fb104a4b99c82be3332a36c1473a49b Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 09:19:49 +1300
+Subject: Nuke examples
+
+---
+ Cargo.toml              |  6 ---
+ examples/README.md      |  3 --
+ examples/cpu_monitor.rs | 85 -----------------------------------------
+ 3 files changed, 94 deletions(-)
+ delete mode 100644 examples/README.md
+ delete mode 100644 examples/cpu_monitor.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 9b57834..e7f712f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,11 +26,5 @@ version = "0.3"
+ [dev-dependencies.compiletest_rs]
+ version = "0.2.1"
+ 
+-[dev-dependencies.docopt]
+-version = "0.7"
+-
+-[dev-dependencies.rustc-serialize]
+-version = "0.3"
+-
+ [dev-dependencies.futures]
+ version = "0.1.7"
+-- 
+2.24.0
+
