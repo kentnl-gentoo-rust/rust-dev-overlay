@@ -1,0 +1,25 @@
+From 02dd767fe2cd079625a8ea7efa9cfab315acc2ab Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 8 Jan 2020 07:54:52 +1300
+Subject: Disable test with undeclared circular deps
+
+Bug: https://github.com/rust-lang/futures-rs/issues/1019
+---
+ src/try_future/try_chain.rs | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/try_future/try_chain.rs b/src/try_future/try_chain.rs
+index 662bdf2..ef223d8 100644
+--- a/src/try_future/try_chain.rs
++++ b/src/try_future/try_chain.rs
+@@ -77,6 +77,7 @@ impl<Fut1, Fut2, Data> TryChain<Fut1, Fut2, Data>
+     }
+ }
+ 
++#[cfg(circular_deps)]
+ #[cfg(test)]
+ mod tests {
+     use std::pin::Pin;
+-- 
+2.24.0
+
