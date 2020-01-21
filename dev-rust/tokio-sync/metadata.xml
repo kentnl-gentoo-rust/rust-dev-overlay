@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="async-traits">Require deps needed for 'async-traits' crate feature</flag>
+	</use>
 </pkgmetadata>
