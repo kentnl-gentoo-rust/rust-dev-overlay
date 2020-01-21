@@ -1,0 +1,44 @@
+From 0a8ba88d2f93eb091eae9d73a337313c4460260d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 22 Jan 2020 04:42:17 +1300
+Subject: Remove benches and their deps
+
+---
+ Cargo.toml               |  10 --
+ benches/no_subscriber.rs |  61 -------------
+ benches/subscriber.rs    | 192 ---------------------------------------
+ 3 files changed, 263 deletions(-)
+ delete mode 100644 benches/no_subscriber.rs
+ delete mode 100644 benches/subscriber.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 4ae3769..45a1f73 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,13 +26,6 @@ repository = "https://github.com/tokio-rs/tracing"
+ all-features = true
+ rustdoc-args = ["--cfg", "docsrs"]
+ 
+-[[bench]]
+-name = "subscriber"
+-harness = false
+-
+-[[bench]]
+-name = "no_subscriber"
+-harness = false
+ [dependencies.cfg-if]
+ version = "0.1.10"
+ 
+@@ -46,9 +39,6 @@ version = "0.1.6"
+ [dependencies.tracing-core]
+ version = "0.1.9"
+ default-features = false
+-[dev-dependencies.criterion]
+-version = "0.3"
+-default_features = false
+ 
+ [dev-dependencies.futures]
+ version = "0.1"
+-- 
+2.24.0
+
