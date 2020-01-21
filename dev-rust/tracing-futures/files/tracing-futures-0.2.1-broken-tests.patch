@@ -1,0 +1,46 @@
+From a5567ddef873009eaa6f9d756461db3681d3b992 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 22 Jan 2020 07:34:41 +1300
+Subject: Disable broken tests
+
+---
+ src/lib.rs | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 05c6d42..aae1d6a 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -384,24 +384,27 @@ impl<T> WithDispatch<T> {
+     }
+ }
+ 
+-#[cfg(test)]
++#[cfg(all(broken_tests,test))]
+ pub(crate) use self::support as test_support;
+ // This has to have the same name as the module in `tracing`.
+ #[path = "../../tracing/tests/support/mod.rs"]
+-#[cfg(test)]
++#[cfg(all(broken_tests,test))]
+ #[allow(unreachable_pub)]
+ pub(crate) mod support;
+ 
+ #[cfg(test)]
+ mod tests {
++    #[cfg(broken_tests)]
+     use super::{test_support::*, *};
+ 
++    #[cfg(broken_tests)]
+     struct PollN<T, E> {
+         and_return: Option<Result<T, E>>,
+         finish_at: usize,
+         polls: usize,
+     }
+ 
++    #[cfg(broken_tests)]
+     impl PollN<(), ()> {
+         fn new_ok(finish_at: usize) -> Self {
+             Self {
+-- 
+2.24.0
+

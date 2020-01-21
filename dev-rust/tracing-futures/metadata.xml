@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="futures-01">Require deps needed for 'futures-01' crate feature</flag>
+		<flag name="futures-03">Require deps needed for 'futures-03' crate feature</flag>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
+		<flag name="std-future">Require deps needed for 'std-future' crate feature</flag>
+		<flag name="tokio">Require deps needed for 'tokio' crate feature</flag>
+		<flag name="tokio-executor">Require deps needed for 'tokio-executor' crate feature</flag>
+	</use>
+</pkgmetadata>
