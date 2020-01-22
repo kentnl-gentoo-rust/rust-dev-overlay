@@ -6,4 +6,9 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="blocking">Require deps needed for 'blocking' crate feature</flag>
+		<flag name="current-thread">Require deps needed for 'current-thread' crate feature</flag>
+		<flag name="tracing">Require deps needed for 'tracing' crate feature</flag>
+	</use>
 </pkgmetadata>
