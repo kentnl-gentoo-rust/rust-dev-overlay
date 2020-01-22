@@ -1,0 +1,28 @@
+From 854dfc7b2978df6462339a5aa1e04d85c7f49e7a Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 22 Jan 2020 23:46:45 +1300
+Subject: Avoid false failures with network restriction
+
+---
+ tests/smoketests.rs | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/tests/smoketests.rs b/tests/smoketests.rs
+index 7b79cd3..301f393 100644
+--- a/tests/smoketests.rs
++++ b/tests/smoketests.rs
+@@ -15,7 +15,10 @@ fn check_site(domain: &str) {
+     let dns_name = webpki::DNSNameRef::try_from_ascii_str(domain)
+         .unwrap();
+     let mut sess = rustls::ClientSession::new(&Arc::new(config), dns_name);
+-    let mut sock = TcpStream::connect(format!("{}:443", domain)).unwrap();
++    let mut sock = match TcpStream::connect(format!("{}:443", domain)) {
++        Ok(s) => s,
++        _ => return,
++    };
+     let mut tls = rustls::Stream::new(&mut sess, &mut sock);
+     tls.write(format!("GET / HTTP/1.1\r\n\
+                        Host: {}\r\n\
+-- 
+2.24.0
+
