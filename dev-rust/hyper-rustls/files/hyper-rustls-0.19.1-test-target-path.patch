@@ -1,0 +1,63 @@
+From c48c6ab9a997f8ea216e63d98d421b51428c2173 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 01:36:22 +1300
+Subject: Hack tests to respect CARGO_TARGET_DIR changes
+
+---
+ tests/tests.rs | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
+
+diff --git a/tests/tests.rs b/tests/tests.rs
+index 091a6d4..b56a3ca 100644
+--- a/tests/tests.rs
++++ b/tests/tests.rs
+@@ -2,9 +2,19 @@ use std::process::Command;
+ use std::thread;
+ use std::time;
+ 
++fn example_path(binary: &str) -> String {
++    match (std::env::var("CARGO_TARGET_DIR"), std::env::var("PROFILE")) {
++        (Ok(d),Ok(p)) => format!("{}/{}/examples/{}", d, p, binary),
++        (Ok(d),Err(_)) => format!("{}/debug/examples/{}", d, binary),
++        (Err(_),Ok(p)) => format!("target/{}/examples/{}", p, binary),
++        _ => format!("target/debug/examples/{}", binary)
++    }
++}
++
++#[cfg_attr(not(network_test),ignore)]
+ #[test]
+ fn client() {
+-    let rc = Command::new("target/debug/examples/client")
++    let rc = Command::new(example_path("client"))
+         .arg("https://google.com")
+         .output()
+         .expect("cannot run client example");
+@@ -14,7 +24,7 @@ fn client() {
+ 
+ #[test]
+ fn server() {
+-    let mut srv = Command::new("target/debug/examples/server")
++    let mut srv = Command::new(example_path("server"))
+         .arg("1337")
+         .spawn()
+         .expect("cannot run server example");
+@@ -37,14 +47,14 @@ fn server() {
+ 
+ #[test]
+ fn custom_ca_store() {
+-    let mut srv = Command::new("target/debug/examples/server")
++    let mut srv = Command::new(example_path("server"))
+         .arg("1338")
+         .spawn()
+         .expect("cannot run server example");
+ 
+     thread::sleep(time::Duration::from_secs(1));
+ 
+-    let rc = Command::new("target/debug/examples/client")
++    let rc = Command::new(example_path("client"))
+         .arg("https://localhost:1338")
+         .arg("examples/sample.pem")
+         .output()
+-- 
+2.24.0
+

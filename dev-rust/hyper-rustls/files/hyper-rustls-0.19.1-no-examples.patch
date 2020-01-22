@@ -1,0 +1,40 @@
+From ab9373797877384d404effd5108c2e01930eb348 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 00:07:58 +1300
+Subject: remove examples
+
+---
+ Cargo.toml          |   9 ---
+ examples/client.rs  |  85 -------------------------
+ examples/sample.pem | 113 ---------------------------------
+ examples/sample.rsa |  27 --------
+ examples/server.rs  | 150 --------------------------------------------
+ 5 files changed, 384 deletions(-)
+ delete mode 100644 examples/client.rs
+ delete mode 100644 examples/sample.pem
+ delete mode 100644 examples/sample.rsa
+ delete mode 100644 examples/server.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6e82731..faa7697 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,15 +21,6 @@ readme = "README.md"
+ license = "Apache-2.0/ISC/MIT"
+ repository = "https://github.com/ctz/hyper-rustls"
+ 
+-[[example]]
+-name = "client"
+-path = "examples/client.rs"
+-required-features = ["tokio-runtime"]
+-
+-[[example]]
+-name = "server"
+-path = "examples/server.rs"
+-required-features = ["tokio-runtime"]
+ [dependencies.bytes]
+ version = "0.5.2"
+ 
+-- 
+2.24.0
+
