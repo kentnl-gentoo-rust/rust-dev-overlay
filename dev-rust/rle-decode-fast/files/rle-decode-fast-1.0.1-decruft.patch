@@ -1,0 +1,37 @@
+From ca602e92fb03098d7ec7d007b6ae7e4b5b9288f2 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 16:35:40 +1300
+Subject: Remove benchmark and doc cruft
+
+---
+ Cargo.toml                             |  11 ---
+ benches/bench.rs                       | 128 -------------------------
+ docs/benchmark-big-lb-big-length.PNG   | Bin 24950 -> 0 bytes
+ docs/benchmark-big-lb-small-length.PNG | Bin 26837 -> 0 bytes
+ 4 files changed, 139 deletions(-)
+ delete mode 100644 benches/bench.rs
+ delete mode 100644 docs/benchmark-big-lb-big-length.PNG
+ delete mode 100644 docs/benchmark-big-lb-small-length.PNG
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 3038e11..8b59d62 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -19,14 +19,3 @@ description = "THE fastest way to implement any kind of decoding for Run Length
+ readme = "README.md"
+ license = "MIT OR Apache-2.0"
+ repository = "https://github.com/WanzenBug/rle-decode-helper"
+-
+-[[bench]]
+-name = "bench"
+-harness = false
+-required-features = ["bench"]
+-[dependencies.criterion]
+-version = "0.2"
+-optional = true
+-
+-[features]
+-bench = ["criterion"]
+-- 
+2.24.0
+
