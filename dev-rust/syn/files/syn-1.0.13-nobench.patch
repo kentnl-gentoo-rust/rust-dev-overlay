@@ -1,0 +1,35 @@
+From 06a675a41e6c0ce84b360faad2a6bbad2cd1cd6b Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 21:32:56 +1300
+Subject: Nuke benches
+
+---
+ Cargo.toml      |   8 ---
+ benches/file.rs |  30 ---------
+ benches/rust.rs | 158 ------------------------------------------------
+ 3 files changed, 196 deletions(-)
+ delete mode 100644 benches/file.rs
+ delete mode 100644 benches/rust.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 718d2a3..0c2e5cf 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -28,14 +28,6 @@ all-features = true
+ [package.metadata.playground]
+ all-features = true
+ 
+-[[bench]]
+-name = "rust"
+-harness = false
+-required-features = ["full", "parsing"]
+-
+-[[bench]]
+-name = "file"
+-required-features = ["full", "parsing"]
+ [dependencies.proc-macro2]
+ version = "1.0.7"
+ default-features = false
+-- 
+2.24.0
+
