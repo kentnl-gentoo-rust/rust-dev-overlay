@@ -1,0 +1,42 @@
+From b8a4fc8a22ab91ea7554054467002d983c642e81 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 17:58:08 +1300
+Subject: Remove benches, examples and related deps
+
+---
+ Cargo.toml           | 10 +---------
+ benches/benchmark.rs | 31 -------------------------------
+ examples/rev_map.rs  | 14 --------------
+ 3 files changed, 1 insertion(+), 54 deletions(-)
+ delete mode 100644 benches/benchmark.rs
+ delete mode 100644 examples/rev_map.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5061b79..dc18151 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,20 +21,12 @@ keywords = ["mime", "filesystem", "extension"]
+ license = "MIT"
+ repository = "https://github.com/abonander/mime_guess"
+ 
+-[[example]]
+-name = "rev_map"
+-required-features = ["rev-mappings"]
+-
+-[[bench]]
+-name = "benchmark"
+-harness = false
+ [dependencies.mime]
+ version = "0.3"
+ 
+ [dependencies.unicase]
+ version = "2.4.0"
+-[dev-dependencies.criterion]
+-version = "0.2"
++
+ [build-dependencies.unicase]
+ version = "2.4.0"
+ 
+-- 
+2.24.0
+
