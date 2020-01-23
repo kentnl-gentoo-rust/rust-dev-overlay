@@ -1,0 +1,28 @@
+From b8fc2040a4eaf95b5a9e8a79896cfdc5f60ab441 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 17:19:25 +1300
+Subject: Remove examples and example deps
+
+---
+ Cargo.toml        |   3 +-
+ examples/flate.rs | 119 ----------------------------------------------
+ 2 files changed, 1 insertion(+), 121 deletions(-)
+ delete mode 100644 examples/flate.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 7b008ab..6b0966a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -32,8 +32,7 @@ version = "1.0.0"
+ 
+ [dependencies.take_mut]
+ version = "0.2.2"
+-[dev-dependencies.clap]
+-version = "2"
++
+ [badges.codecov]
+ repository = "sile/libflate"
+ 
+-- 
+2.24.0
+
