@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="blocking">Require deps needed for 'blocking' crate feature</flag>
+		<flag name="cookies">Require deps needed for 'cookies' crate feature</flag>
+		<flag name="default-tls">Require deps needed for 'default-tls' crate feature</flag>
+		<flag name="gzip">Require deps needed for 'gzip' crate feature</flag>
+		<flag name="json">Require deps needed for 'json' crate feature</flag>
+		<flag name="native-tls">Require deps needed for 'native-tls' crate feature</flag>
+		<flag name="native-tls-vendored">Require deps needed for 'native-tls-vendored' crate feature</flag>
+		<flag name="rustls-tls">Require deps needed for 'rustls-tls' crate feature</flag>
+	</use>
+</pkgmetadata>
