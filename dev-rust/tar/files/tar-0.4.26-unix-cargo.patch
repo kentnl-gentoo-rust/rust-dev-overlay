@@ -1,0 +1,26 @@
+From 01aebc3977951ec758e520e173061e670e3d3481 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 20:56:58 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6fbe0b6..27ad6ad 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -30,8 +30,7 @@ version = "0.3"
+ 
+ [features]
+ default = ["xattr"]
+-[target."cfg(target_os = \"redox\")".dependencies.redox_syscall]
+-version = "0.1"
++
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+ 
+-- 
+2.24.0
+
