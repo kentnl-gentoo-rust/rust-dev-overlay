@@ -21,9 +21,6 @@ src_test() {
 	# Default tests broken by invalid TARGET
 	# https://github.com/gyakovlev/rust-dev-overlay/issues/3
 	# # Tests write to ./target and fail if ./target doesn't exist
-	# mkdir -p target
-	# rust-crate_src_test
-
-	# Alternative to tests given tests fail
-	ecargo build --all-targets
+	mkdir -p target
+	rust-crate_src_test
 }
