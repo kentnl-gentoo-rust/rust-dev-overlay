@@ -26,7 +26,7 @@ esac
 # dev-dependencies or crates like winapi.
 : ${RUST_CRATE_EMPTY:=}
 
-inherit multiprocessing toolchain-funcs
+inherit rust-toolchain multiprocessing toolchain-funcs
 
 EXPORT_FUNCTIONS src_unpack src_compile src_configure src_install src_test
 
@@ -127,7 +127,7 @@ rust-crate_src_configure() {
 	export CARGO_HOME="${ECARGO_HOME}"
 	export HOST="${CBUILD}"
 	export HOST_CC="$(tc-getBUILD_CC)"
-	export TARGET="${CHOST}"
+	export TARGET="$(rust_abi)"
 	export TARGET_CC="$(tc-getCC)"
 	# https://github.com/rust-lang/pkg-config-rs/issues/41
 	tc-is-cross-compiler && export PKG_CONFIG_ALLOW_CROSS=1
