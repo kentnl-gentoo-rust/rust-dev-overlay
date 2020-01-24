@@ -33,10 +33,7 @@ EXPORT_FUNCTIONS src_unpack src_compile src_configure src_install src_test
 SLOT="${PV}/${PR}"
 IUSE="test"
 
-BDEPEND="
-	>=virtual/rust-1.34.1:=
-	>=virtual/cargo-0.32.1
-"
+BDEPEND=">=virtual/rust-1.37.0:="
 
 ECRATE_NAME="${PN}"
 ECARGO_HOME="${WORKDIR}/cargo_home"
