@@ -1,0 +1,206 @@
+From be2c5bf6bf7622c1ea00f444075687d4c3b29a2b Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 17 Nov 2019 23:47:28 +1300
+Subject: Disable tests that require unshipped resources to function
+
+---
+ src/elements/module.rs        | 19 +++++++++++++++++++
+ src/elements/name_section.rs  |  1 +
+ src/elements/reloc_section.rs |  1 +
+ src/elements/section.rs       |  1 +
+ 4 files changed, 22 insertions(+)
+
+diff --git a/src/elements/module.rs b/src/elements/module.rs
+index 4ad1c6d..305d86c 100644
+--- a/src/elements/module.rs
++++ b/src/elements/module.rs
+@@ -647,6 +647,7 @@ mod integration_tests {
+ 	use super::super::{deserialize_file, serialize, deserialize_buffer, Section, TypeSection, FunctionSection, ExportSection, CodeSection};
+ 	use super::Module;
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn hello() {
+ 		let module = deserialize_file("./res/cases/v1/hello.wasm").expect("Should be deserialized");
+@@ -655,6 +656,7 @@ mod integration_tests {
+ 		assert_eq!(module.sections().len(), 8);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn serde() {
+ 		let module = deserialize_file("./res/cases/v1/test5.wasm").expect("Should be deserialized");
+@@ -666,6 +668,7 @@ mod integration_tests {
+ 		assert_eq!(module_old.sections().len(), module_new.sections().len());
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn serde_type() {
+ 		let mut module = deserialize_file("./res/cases/v1/test5.wasm").expect("Should be deserialized");
+@@ -684,6 +687,7 @@ mod integration_tests {
+ 		);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn serde_import() {
+ 		let mut module = deserialize_file("./res/cases/v1/test5.wasm").expect("Should be deserialized");
+@@ -702,6 +706,7 @@ mod integration_tests {
+ 		);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn serde_code() {
+ 		let mut module = deserialize_file("./res/cases/v1/test5.wasm").expect("Should be deserialized");
+@@ -721,6 +726,7 @@ mod integration_tests {
+ 		);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn const_() {
+ 		use super::super::Instruction::*;
+@@ -749,6 +755,7 @@ mod integration_tests {
+ 		assert_eq!(I32Const(2147483647), func.code().elements()[17]);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn store() {
+ 		use super::super::Instruction::*;
+@@ -760,6 +767,7 @@ mod integration_tests {
+ 		assert_eq!(I64Store(0, 32), func.code().elements()[2]);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn peek() {
+ 		use super::peek_size;
+@@ -773,6 +781,7 @@ mod integration_tests {
+ 	}
+ 
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn peek_2() {
+ 		use super::peek_size;
+@@ -785,6 +794,7 @@ mod integration_tests {
+ 		assert_eq!(peek_size(&buf), buf.len() - 9);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn peek_3() {
+ 		use super::peek_size;
+@@ -804,6 +814,7 @@ mod integration_tests {
+ 		assert_eq!(Module::default().magic, module2.magic);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn names() {
+ 		let module = deserialize_file("./res/cases/v1/with_names.wasm")
+@@ -844,12 +855,14 @@ mod integration_tests {
+ 	}
+ 
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn memory_space() {
+ 		let module = deserialize_file("./res/cases/v1/two-mems.wasm").expect("failed to deserialize");
+ 		assert_eq!(module.memory_space(), 2);
+ 	}
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn add_custom_section() {
+         let mut module = deserialize_file("./res/cases/v1/start_mut.wasm").expect("failed to deserialize");
+@@ -868,6 +881,7 @@ mod integration_tests {
+         assert!(module.custom_sections().next().is_none());
+     }
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn mut_start() {
+         let mut module = deserialize_file("./res/cases/v1/start_mut.wasm").expect("failed to deserialize");
+@@ -878,6 +892,7 @@ mod integration_tests {
+         assert_eq!(None, module.start_section());
+     }
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn add_start() {
+         let mut module = deserialize_file("./res/cases/v1/start_add.wasm").expect("failed to deserialize");
+@@ -889,6 +904,7 @@ mod integration_tests {
+         assert_eq!(sections, vec![1, 2, 3, 6, 7, 8, 9, 11, 12]);
+     }
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn add_start_custom() {
+         let mut module = deserialize_file("./res/cases/v1/start_add_custom.wasm").expect("failed to deserialize");
+@@ -904,6 +920,7 @@ mod integration_tests {
+         assert_eq!(sections, vec![1, 2, 3, 6, 7, 8, 9, 11, 12, 0]);
+     }
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn names_section_present() {
+         let mut module = deserialize_file("./res/cases/v1/names.wasm").expect("failed to deserialize");
+@@ -920,6 +937,7 @@ mod integration_tests {
+         assert!(module.has_names_section());
+     }
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn names_section_not_present() {
+         let mut module = deserialize_file("./res/cases/v1/test.wasm").expect("failed to deserialize");
+@@ -961,6 +979,7 @@ mod integration_tests {
+         assert!(deserialize_buffer::<Module>(&serialized).is_ok());
+     }
+ 
++    #[cfg_attr(not(dev_test),ignore)]
+     #[test]
+     fn serialization_roundtrip() {
+         let module = deserialize_file("./res/cases/v1/test.wasm").expect("failed to deserialize");
+diff --git a/src/elements/name_section.rs b/src/elements/name_section.rs
+index 7001085..9aed737 100644
+--- a/src/elements/name_section.rs
++++ b/src/elements/name_section.rs
+@@ -348,6 +348,7 @@ mod tests {
+ 		serialize_test(name_section);
+ 	}
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn deserialize_local_names() {
+ 		let module = super::super::deserialize_file("./res/cases/v1/names_with_imports.wasm")
+diff --git a/src/elements/reloc_section.rs b/src/elements/reloc_section.rs
+index 50c867f..2dae70c 100644
+--- a/src/elements/reloc_section.rs
++++ b/src/elements/reloc_section.rs
+@@ -324,6 +324,7 @@ mod tests {
+ 	use super::super::{Section, deserialize_file};
+ 	use super::RelocationEntry;
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn reloc_section() {
+ 		let module =
+diff --git a/src/elements/section.rs b/src/elements/section.rs
+index 6668e82..c869096 100644
+--- a/src/elements/section.rs
++++ b/src/elements/section.rs
+@@ -826,6 +826,7 @@ mod tests {
+ 	};
+ 	use super::{Section, TypeSection, Type, DataSection, ElementSection, CodeSection};
+ 
++	#[cfg_attr(not(dev_test),ignore)]
+ 	#[test]
+ 	fn import_section() {
+ 		let module = deserialize_file("./res/cases/v1/test5.wasm").expect("Should be deserialized");
+-- 
+2.24.0
+
