@@ -1,0 +1,28 @@
+From 35164dee46d63f184b6df448769c3e30179bfcb0 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 14 Nov 2019 22:18:25 +1300
+Subject: No benchmark or example deps
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index ea4d322..252e7a2 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,11 +24,6 @@ repository = "https://github.com/m4b/scroll"
+ [dependencies.scroll_derive]
+ version = "0.10"
+ optional = true
+-[dev-dependencies.byteorder]
+-version = "1"
+-
+-[dev-dependencies.rayon]
+-version = "1"
+ 
+ [features]
+ default = ["std"]
+-- 
+2.24.0
+
