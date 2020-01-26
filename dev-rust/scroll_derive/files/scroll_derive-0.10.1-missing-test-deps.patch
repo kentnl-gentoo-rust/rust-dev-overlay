@@ -1,0 +1,25 @@
+From c678c0aa3229cddc78e88c3ca32d288a78705ed7 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 26 Jan 2020 20:34:54 +1300
+Subject: Restore dev_dependency on scroll
+
+This prevents tests barfing
+---
+ Cargo.toml | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 2cc1d00..618796f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -32,3 +32,7 @@ version = "1"
+ 
+ [dependencies.syn]
+ version = "1"
++
++[dev_dependencies.scroll]
++version = "0.10"
++default-features = false
+-- 
+2.25.0
+
