@@ -11,7 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+IUSE="test"
 DEV_DEPEND="
 	=dev-rust/scroll-0.10*:=
 "
@@ -19,6 +19,7 @@ BDEPEND="
 	=dev-rust/proc-macro2-1*:=
 	=dev-rust/quote-1*:=
 	=dev-rust/syn-1*:=
+	test? ( ${DEV_DEPEND} )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-missing-test-deps.patch"
