@@ -1,0 +1,31 @@
+From 412f6989fef98dbff13910f08bfd4affb7f47236 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 28 Jan 2020 23:56:57 +1300
+Subject: Remove binary-target cargo-afl
+
+---
+ Cargo.toml           |   6 --
+ src/bin/cargo-afl.rs | 214 -------------------------------------------
+ 2 files changed, 220 deletions(-)
+ delete mode 100644 src/bin/cargo-afl.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index dc56d8a..152babe 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -20,12 +20,6 @@ homepage = "https://github.com/rust-fuzz/afl.rs"
+ readme = "README.md"
+ license = "Apache-2.0"
+ repository = "https://github.com/rust-fuzz/afl.rs"
+-[dependencies.cc]
+-version = "1.0"
+-
+-[dependencies.clap]
+-version = "2.29"
+-
+ [dependencies.rustc_version]
+ version = "0.2"
+ 
+-- 
+2.25.0
+
