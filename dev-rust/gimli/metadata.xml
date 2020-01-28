@@ -8,5 +8,6 @@
 	</longdescription>
 	<use>
 		<flag name="write">Require deps needed for 'write' crate feature</flag>
+		<flag name="read">Require deps needed for 'read' crate feature</flag>
 	</use>
 </pkgmetadata>
