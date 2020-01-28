@@ -1,0 +1,43 @@
+From e68062c16f651edbe0b74d7e5a2e77c649b7f5c4 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 29 Jan 2020 02:13:27 +1300
+Subject: Disable std_in tests
+
+std_in is redirected/closed under portage and causes this test to fail
+
+Bug: https://github.com/softprops/atty/issues/39
+---
+ src/lib.rs | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 501cad6..dc4d226 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -164,6 +164,7 @@ mod tests {
+     use super::{is, Stream};
+ 
+     #[test]
++    #[cfg_attr(not(broken_tests),ignore)]
+     #[cfg(windows)]
+     fn is_err() {
+         // appveyor pipes its output
+@@ -195,6 +196,7 @@ mod tests {
+         assert!(is(Stream::Stdout))
+     }
+ 
++    #[cfg_attr(not(broken_tests),ignore)]
+     #[test]
+     #[cfg(target_os = "macos")]
+     fn is_in() {
+@@ -202,6 +204,7 @@ mod tests {
+         assert!(is(Stream::Stdin))
+     }
+ 
++    #[cfg_attr(not(broken_tests),ignore)]
+     #[test]
+     #[cfg(all(not(target_os = "macos"), unix))]
+     fn is_in() {
+-- 
+2.25.0
+

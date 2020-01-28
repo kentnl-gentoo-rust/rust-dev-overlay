@@ -1,0 +1,35 @@
+From e7a024fb6437046ef7c641e9e570fa608f875d80 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 29 Jan 2020 02:03:16 +1300
+Subject: Remove non-unix dependencies
+
+This removes optional dependencies that are not useful on non-unix
+platforms, as cargo is currently not smart enough to do it itself
+
+Bug: https://github.com/rust-lang/cargo/issues/5896
+Bug: https://github.com/rust-lang/cargo/issues/5133
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index d6bf2d0..822cad3 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,13 +22,8 @@ readme = "README.md"
+ keywords = ["terminal", "tty", "isatty"]
+ license = "MIT"
+ repository = "https://github.com/softprops/atty"
+-[target."cfg(target_os = \"hermit\")".dependencies.hermit-abi]
+-version = "0.1.6"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2"
+ default-features = false
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["consoleapi", "processenv", "minwinbase", "minwindef", "winbase"]
+ [badges.travis-ci]
+ repository = "softprops/atty"
+-- 
+2.25.0
+
