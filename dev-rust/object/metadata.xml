@@ -9,5 +9,6 @@
 	<use>
 		<flag name="compression">Require deps needed for 'compression' crate feature</flag>
 		<flag name="wasm">Require deps needed for 'wasm' crate feature</flag>
+		<flag name="write">Require deps needed for 'write' crate feature</flag>
 	</use>
 </pkgmetadata>

@@ -1,0 +1,42 @@
+From 7aee65630e2c53a123d42b14982a7c4a2a47ab7d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 26 Jan 2020 22:37:15 +1300
+Subject: Remove examples
+
+Remove example-only deps
+---
+ Cargo.toml          |   5 --
+ examples/nm.rs      |  98 ------------------------------
+ examples/objcopy.rs | 141 --------------------------------------------
+ examples/objdump.rs |  77 ------------------------
+ 4 files changed, 321 deletions(-)
+ delete mode 100644 examples/nm.rs
+ delete mode 100644 examples/objcopy.rs
+ delete mode 100644 examples/objdump.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index ad5079b..3ac5023 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,9 +23,6 @@ repository = "https://github.com/gimli-rs/object"
+ [package.metadata.docs.rs]
+ all-features = true
+ 
+-[[example]]
+-name = "objcopy"
+-required-features = ["read", "write"]
+ [dependencies.crc32fast]
+ version = "1.2"
+ optional = true
+@@ -57,8 +54,6 @@ version = "0.10"
+ [dependencies.uuid]
+ version = "0.8"
+ default-features = false
+-[dev-dependencies.memmap]
+-version = "0.7"
+ 
+ [features]
+ compression = ["flate2"]
+-- 
+2.25.0
+
