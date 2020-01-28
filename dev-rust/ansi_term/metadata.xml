@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="derive-serde-style">Require deps needed for 'derive_serde_style' crate feature</flag>
+	</use>
 </pkgmetadata>

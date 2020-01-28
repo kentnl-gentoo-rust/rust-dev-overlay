@@ -1,0 +1,23 @@
+From 4f598d753643c4438bad6f8e79936a049640e818 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 16 Dec 2019 17:31:48 +1300
+Subject: Remove non-unix target deps
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 0e5feba..3256c75 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -38,6 +38,3 @@ version = "1.0.39"
+ 
+ [features]
+ derive_serde_style = ["serde"]
+-[target."cfg(target_os=\"windows\")".dependencies.winapi]
+-version = "0.3.4"
+-features = ["consoleapi", "errhandlingapi", "fileapi", "handleapi", "processenv"]
+-- 
+2.25.0
+
