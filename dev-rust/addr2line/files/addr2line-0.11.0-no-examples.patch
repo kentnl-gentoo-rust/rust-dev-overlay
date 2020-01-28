@@ -1,0 +1,39 @@
+From b17a46c96ef62e4e2c4d2d29e5c25ccdd2c04b48 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 28 Jan 2020 20:26:05 +1300
+Subject: Disable examples
+
+---
+ Cargo.toml            |   7 --
+ examples/addr2line.rs | 242 ------------------------------------------
+ 2 files changed, 249 deletions(-)
+ delete mode 100644 examples/addr2line.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 12ca09f..1055be8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,10 +29,6 @@ debug = true
+ [profile.release]
+ debug = true
+ 
+-[[example]]
+-name = "addr2line"
+-required-features = ["std-object"]
+-
+ [[test]]
+ name = "output_equivalence"
+ harness = false
+@@ -78,9 +74,6 @@ default-features = false
+ [dev-dependencies.backtrace]
+ version = "0.3.13"
+ 
+-[dev-dependencies.clap]
+-version = "2"
+-
+ [dev-dependencies.findshlibs]
+ version = "0.5"
+ 
+-- 
+2.25.0
+

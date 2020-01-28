@@ -1,0 +1,64 @@
+From 930f241a7ecdb3569c28fa27b9a5f3682529d630 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 28 Jan 2020 22:01:22 +1300
+Subject: Disable tests broken due to missing fixtures
+
+---
+ tests/parse.rs | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/tests/parse.rs b/tests/parse.rs
+index 99d668a..35ff18c 100644
+--- a/tests/parse.rs
++++ b/tests/parse.rs
+@@ -50,6 +50,7 @@ fn dwarf_borrow<'a>(
+     dwarf.borrow(&borrow_section)
+ }
+ 
++#[cfg_attr(not(dev_tests),ignore)]
+ #[test]
+ fn parse_base_rc() {
+     let target = release_fixture_path();
+@@ -59,6 +60,7 @@ fn parse_base_rc() {
+     });
+ }
+ 
++#[cfg_attr(not(dev_tests),ignore)]
+ #[test]
+ fn parse_base_slice() {
+     let target = release_fixture_path();
+@@ -70,6 +72,7 @@ fn parse_base_slice() {
+     });
+ }
+ 
++#[cfg_attr(not(dev_tests),ignore)]
+ #[test]
+ fn parse_lines_rc() {
+     let target = release_fixture_path();
+@@ -80,6 +83,7 @@ fn parse_lines_rc() {
+     });
+ }
+ 
++#[cfg_attr(not(dev_tests),ignore)]
+ #[test]
+ fn parse_lines_slice() {
+     let target = release_fixture_path();
+@@ -92,6 +96,7 @@ fn parse_lines_slice() {
+     });
+ }
+ 
++#[cfg_attr(not(dev_tests),ignore)]
+ #[test]
+ fn parse_functions_rc() {
+     let target = release_fixture_path();
+@@ -102,6 +107,7 @@ fn parse_functions_rc() {
+     });
+ }
+ 
++#[cfg_attr(not(dev_tests),ignore)]
+ #[test]
+ fn parse_functions_slice() {
+     let target = release_fixture_path();
+-- 
+2.25.0
+
