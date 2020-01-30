@@ -1,0 +1,45 @@
+From 98dc1ea42b139ac00a0a61db74d1b7580d76db66 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 29 Jan 2020 17:15:03 +1300
+Subject: Remove nightly and non-unix aspects
+
+---
+ Cargo.toml | 14 --------------
+ 1 file changed, 14 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 97a9b19..3d632ac 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -59,15 +59,6 @@ optional = true
+ [dependencies.cfg-if]
+ version = "0.1.6"
+ 
+-[dependencies.compiler_builtins]
+-version = "0.1.2"
+-optional = true
+-
+-[dependencies.core]
+-version = "1.0.0"
+-optional = true
+-package = "rustc-std-workspace-core"
+-
+ [dependencies.cpp_demangle]
+ version = "0.2.3"
+ optional = true
+@@ -112,12 +103,7 @@ gimli-symbolize = ["addr2line", "findshlibs", "memmap", "goblin"]
+ kernel32 = []
+ libbacktrace = ["backtrace-sys"]
+ libunwind = []
+-rustc-dep-of-std = ["backtrace-sys/rustc-dep-of-std", "cfg-if/rustc-dep-of-std", "core", "compiler_builtins", "libc/rustc-dep-of-std", "rustc-demangle/rustc-dep-of-std"]
+ serialize-rustc = ["rustc-serialize"]
+ serialize-serde = ["serde"]
+ std = []
+ unix-backtrace = []
+-verify-winapi = ["winapi/dbghelp", "winapi/handleapi", "winapi/libloaderapi", "winapi/minwindef", "winapi/processthreadsapi", "winapi/synchapi", "winapi/winbase", "winapi/winnt"]
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3.3"
+-optional = true
+-- 
+2.25.0
+

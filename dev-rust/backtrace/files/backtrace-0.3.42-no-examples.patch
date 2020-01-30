@@ -1,0 +1,80 @@
+From b133030b6c0f426f6b8a2f104f0ad58969a021f6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 29 Jan 2020 16:48:55 +1300
+Subject: Remove unwanted cruft
+
+---
+ .github/workflows/main.yml                    | 207 ------------------
+ Cargo.toml                                    |   8 -
+ benches/benchmarks.rs                         |  94 --------
+ ci/android-ndk.sh                             |  23 --
+ ci/android-sdk.sh                             |  74 -------
+ ci/docker/aarch64-linux-android/Dockerfile    |  18 --
+ .../aarch64-unknown-linux-gnu/Dockerfile      |  11 -
+ ci/docker/arm-linux-androideabi/Dockerfile    |  37 ----
+ .../arm-unknown-linux-gnueabihf/Dockerfile    |  10 -
+ ci/docker/armv7-linux-androideabi/Dockerfile  |  18 --
+ .../armv7-unknown-linux-gnueabihf/Dockerfile  |  10 -
+ ci/docker/i586-unknown-linux-gnu/Dockerfile   |   5 -
+ ci/docker/i686-linux-android/Dockerfile       |  18 --
+ ci/docker/i686-unknown-linux-gnu/Dockerfile   |   5 -
+ .../powerpc64-unknown-linux-gnu/Dockerfile    |  16 --
+ ci/docker/x86_64-linux-android/Dockerfile     |  18 --
+ ci/docker/x86_64-pc-windows-gnu/Dockerfile    |  10 -
+ ci/docker/x86_64-unknown-linux-gnu/Dockerfile |   5 -
+ .../x86_64-unknown-linux-musl/Dockerfile      |   6 -
+ ci/run-docker.sh                              |  32 ---
+ ci/run.sh                                     |   5 -
+ ci/runtest-android.rs                         |  50 -----
+ examples/backtrace.rs                         |   7 -
+ examples/raw.rs                               |  54 -----
+ 24 files changed, 741 deletions(-)
+ delete mode 100644 .github/workflows/main.yml
+ delete mode 100644 benches/benchmarks.rs
+ delete mode 100755 ci/android-ndk.sh
+ delete mode 100755 ci/android-sdk.sh
+ delete mode 100644 ci/docker/aarch64-linux-android/Dockerfile
+ delete mode 100644 ci/docker/aarch64-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/arm-linux-androideabi/Dockerfile
+ delete mode 100644 ci/docker/arm-unknown-linux-gnueabihf/Dockerfile
+ delete mode 100644 ci/docker/armv7-linux-androideabi/Dockerfile
+ delete mode 100644 ci/docker/armv7-unknown-linux-gnueabihf/Dockerfile
+ delete mode 100644 ci/docker/i586-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/i686-linux-android/Dockerfile
+ delete mode 100644 ci/docker/i686-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/powerpc64-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/x86_64-linux-android/Dockerfile
+ delete mode 100644 ci/docker/x86_64-pc-windows-gnu/Dockerfile
+ delete mode 100644 ci/docker/x86_64-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/x86_64-unknown-linux-musl/Dockerfile
+ delete mode 100755 ci/run-docker.sh
+ delete mode 100755 ci/run.sh
+ delete mode 100644 ci/runtest-android.rs
+ delete mode 100644 examples/backtrace.rs
+ delete mode 100644 examples/raw.rs
+
+diff --git a/.github/workflows/main.yml b/.github/workflows/main.yml
+deleted file mode 100644
+index 728daf2..0000000
+diff --git a/Cargo.toml b/Cargo.toml
+index a9846d6..97a9b19 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,14 +24,6 @@ readme = "README.md"
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-lang/backtrace-rs"
+ 
+-[[example]]
+-name = "backtrace"
+-required-features = ["std"]
+-
+-[[example]]
+-name = "raw"
+-required-features = ["std"]
+-
+ [[test]]
+ name = "skip_inner_frames"
+ required-features = ["std"]
+-- 
+2.25.0
+
