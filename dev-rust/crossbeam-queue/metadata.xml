@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
+	</use>
 </pkgmetadata>
