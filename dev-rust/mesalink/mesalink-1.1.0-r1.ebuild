@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -19,12 +19,12 @@ BDEPEND="
 	=dev-rust/base64-0.10*:=
 	=dev-rust/bitflags-1*:=
 	=dev-rust/enum_to_u8_slice_derive-0.1*:=
-	=dev-rust/env_logger-0.6*:=
+	=dev-rust/env_logger-0.6*:=[atty,humantime,regex,termcolor]
 	=dev-rust/lazy_static-1*:=
 	=dev-rust/libc-0.2*:=
 	=dev-rust/parking_lot-0.9*:=
-	=dev-rust/ring-0.16*:=
-	=dev-rust/rustls-0.16*:=
+	=dev-rust/ring-0.16*:=[dev-urandom-fallback]
+	=dev-rust/rustls-0.16*:=[logging]
 	=dev-rust/sct-0.6*:=
 	=dev-rust/untrusted-0.7*:=
 	=dev-rust/webpki-0.21*:=
