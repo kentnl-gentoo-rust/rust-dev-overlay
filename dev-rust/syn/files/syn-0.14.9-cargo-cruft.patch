@@ -1,0 +1,39 @@
+From 24c9b8d39e8d319952f0a1a219d5a5380c6e9969 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 31 Jan 2020 08:17:48 +1300
+Subject: Remove unused example dross
+
+---
+ Cargo.toml | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a63b481..7a61240 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,10 +27,6 @@ all-features = true
+ [package.metadata.playground]
+ all-features = true
+ 
+-[[example]]
+-name = "dump-syntax"
+-path = "examples/dump-syntax/main.rs"
+-required-features = ["full", "parsing", "extra-traits"]
+ [dependencies.proc-macro2]
+ version = "0.4.4"
+ default-features = false
+@@ -42,11 +38,6 @@ default-features = false
+ 
+ [dependencies.unicode-xid]
+ version = "0.1"
+-[dev-dependencies.rayon]
+-version = "1.0"
+-
+-[dev-dependencies.walkdir]
+-version = "2.1"
+ 
+ [features]
+ clone-impls = []
+-- 
+2.25.0
+

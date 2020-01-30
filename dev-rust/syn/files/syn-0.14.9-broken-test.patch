@@ -1,0 +1,25 @@
+From fc4016e2bfea4671032568844a6f6b73d0ded6e2 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 31 Jan 2020 08:35:27 +1300
+Subject: Disable nightlyonly doctest
+
+---
+ src/buffer.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/buffer.rs b/src/buffer.rs
+index 499c4f1..e394515 100644
+--- a/src/buffer.rs
++++ b/src/buffer.rs
+@@ -21,7 +21,7 @@
+ //! This example shows a basic token parser for parsing a token stream without
+ //! using Syn's parser combinator macros.
+ //!
+-//! ```
++//! ```ignore
+ //! #![feature(proc_macro_diagnostic)]
+ //!
+ //! extern crate syn;
+-- 
+2.25.0
+
