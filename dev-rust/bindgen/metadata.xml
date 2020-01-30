@@ -9,6 +9,7 @@
 	<use>
 		<flag name="bin">Compile/Provide the 'bindgen' binary executable</flag>
 		<flag name="logging">Require deps needed for 'logging' crate feature</flag>
+		<flag name="runtime">Require deps needed for 'runtime' crate feature</flag>
 		<flag name="which-rustfmt">Require deps needed for 'which-rustfmt' crate feature</flag>
 	</use>
 </pkgmetadata>
