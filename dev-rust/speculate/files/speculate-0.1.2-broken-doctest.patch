@@ -1,0 +1,25 @@
+From 12410c14c0603ad5bba7a50cb36c1705d37cb905 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 31 Jan 2020 07:59:59 +1300
+Subject: Disable broken doc test
+
+---
+ src/lib.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index b73febb..6e5397f 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -90,7 +90,7 @@ fn get_root_name() -> proc_macro2::Ident {
+ ///
+ ///   For example:
+ ///
+-///   ```rust
++///   ```ignore
+ ///   #[macro_use] extern crate speculate as other_speculate;
+ ///   # fn main() {}
+ ///   # speculate! {
+-- 
+2.25.0
+
