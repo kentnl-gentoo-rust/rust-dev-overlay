@@ -1,0 +1,105 @@
+From 2167c1265561a49abc9033598c9b74504928e64d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 11 Dec 2019 18:51:57 +1300
+Subject: Remove use of nightly-only APIs
+
+---
+ src/lib.rs | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 51b22db..c4232fb 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -2,8 +2,6 @@
+ 
+ #![doc(html_root_url = "https://docs.rs/fs2/0.4.3")]
+ 
+-#![cfg_attr(test, feature(test))]
+-
+ #[cfg(windows)]
+ extern crate winapi;
+ 
+@@ -200,6 +198,7 @@ pub fn allocation_granularity<P>(path: P) -> Result<u64> where P: AsRef<Path> {
+ mod test {
+ 
+     extern crate tempdir;
++    #[cfg(nightly)]
+     extern crate test;
+ 
+     use std::fs;
+@@ -333,6 +332,7 @@ mod test {
+ 
+     /// Benchmarks creating and removing a file. This is a baseline benchmark
+     /// for comparing against the truncate and allocate benchmarks.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_file_create(b: &mut test::Bencher) {
+         let tempdir = tempdir::TempDir::new("fs2").unwrap();
+@@ -350,6 +350,7 @@ mod test {
+     }
+ 
+     /// Benchmarks creating a file, truncating it to 32MiB, and deleting it.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_file_truncate(b: &mut test::Bencher) {
+         let size = 32 * 1024 * 1024;
+@@ -369,6 +370,7 @@ mod test {
+     }
+ 
+     /// Benchmarks creating a file, allocating 32MiB for it, and deleting it.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_file_allocate(b: &mut test::Bencher) {
+         let size = 32 * 1024 * 1024;
+@@ -388,6 +390,7 @@ mod test {
+     }
+ 
+     /// Benchmarks creating a file, allocating 32MiB for it, and deleting it.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_allocated_size(b: &mut test::Bencher) {
+         let size = 32 * 1024 * 1024;
+@@ -407,6 +410,7 @@ mod test {
+     }
+ 
+     /// Benchmarks duplicating a file descriptor or handle.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_duplicate(b: &mut test::Bencher) {
+         let tempdir = tempdir::TempDir::new("fs2").unwrap();
+@@ -417,6 +421,7 @@ mod test {
+     }
+ 
+     /// Benchmarks locking and unlocking a file lock.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_lock_unlock(b: &mut test::Bencher) {
+         let tempdir = tempdir::TempDir::new("fs2").unwrap();
+@@ -430,6 +435,7 @@ mod test {
+     }
+ 
+     /// Benchmarks the free space method.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_free_space(b: &mut test::Bencher) {
+         let tempdir = tempdir::TempDir::new("fs2").unwrap();
+@@ -439,6 +445,7 @@ mod test {
+     }
+ 
+     /// Benchmarks the available space method.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_available_space(b: &mut test::Bencher) {
+         let tempdir = tempdir::TempDir::new("fs2").unwrap();
+@@ -448,6 +455,7 @@ mod test {
+     }
+ 
+     /// Benchmarks the total space method.
++    #[cfg(nightly)]
+     #[bench]
+     fn bench_total_space(b: &mut test::Bencher) {
+         let tempdir = tempdir::TempDir::new("fs2").unwrap();
+-- 
+2.25.0
+

@@ -1,0 +1,26 @@
+From cf9473d7a7abd29d639e1d1c39133d66b499182b Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 2 Feb 2020 06:03:03 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 4c6aded..cf2dfa0 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,9 +23,6 @@ repository = "https://github.com/danburkert/fs2-rs"
+ version = "0.3"
+ [target."cfg(unix)".dependencies.libc]
+ version = "0.2.30"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["handleapi", "processthreadsapi", "winerror", "fileapi", "winbase", "std"]
+ [badges.appveyor]
+ repository = "danburkert/fs2-rs"
+ 
+-- 
+2.25.0
+
