@@ -1,0 +1,77 @@
+From fc23548822b2c63d2cdc6dc7880e4a9df2aed811 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 2 Feb 2020 06:35:32 +1300
+Subject: Remove cruft
+
+Removes benches and resulting unneeded deps
+---
+ .travis.yml               | 10 ----
+ Cargo.toml                | 20 --------
+ appveyor.yml              | 22 ---------
+ benches/build.rs          | 93 -------------------------------------
+ benches/search.rs         | 96 ---------------------------------------
+ ci/script.sh              | 22 ---------
+ scripts/gen-common-inputs | 39 ----------------
+ session.vim               |  1 -
+ 8 files changed, 303 deletions(-)
+ delete mode 100644 .travis.yml
+ delete mode 100644 appveyor.yml
+ delete mode 100644 benches/build.rs
+ delete mode 100644 benches/search.rs
+ delete mode 100755 ci/script.sh
+ delete mode 100755 scripts/gen-common-inputs
+ delete mode 100644 session.vim
+
+diff --git a/.travis.yml b/.travis.yml
+deleted file mode 100644
+index ec508d0..0000000
+diff --git a/Cargo.toml b/Cargo.toml
+index 275ab08..cecce9c 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,32 +21,15 @@ readme = "README.md"
+ keywords = ["search", "information", "retrieval", "dictionary", "map"]
+ license = "Unlicense/MIT"
+ repository = "https://github.com/BurntSushi/fst"
+-[profile.bench]
+-opt-level = 3
+-debug = true
+-
+ [profile.release]
+ debug = true
+ 
+-[[bench]]
+-name = "build"
+-path = "./benches/build.rs"
+-test = false
+-bench = true
+-
+-[[bench]]
+-name = "search"
+-path = "./benches/search.rs"
+-test = false
+-bench = true
+ [dependencies.byteorder]
+ version = "1"
+ 
+ [dependencies.memmap]
+ version = "0.6.0"
+ optional = true
+-[dev-dependencies.fnv]
+-version = "1.0.5"
+ 
+ [dev-dependencies.fst-levenshtein]
+ version = "0.2"
+@@ -54,9 +37,6 @@ version = "0.2"
+ [dev-dependencies.fst-regex]
+ version = "0.2"
+ 
+-[dev-dependencies.lazy_static]
+-version = "0.2.8"
+-
+ [dev-dependencies.quickcheck]
+ version = "0.7"
+ default-features = false
+-- 
+2.25.0
+

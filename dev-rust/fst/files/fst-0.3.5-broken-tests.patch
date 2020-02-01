@@ -1,0 +1,219 @@
+From f54083ae22ca1de303ec59ae254bd345dde03a7f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 2 Feb 2020 07:32:48 +1300
+Subject: Disable broken tests, prune resulting excess deps
+
+---
+ Cargo.toml    |  6 ------
+ src/lib.rs    | 10 +++++-----
+ src/map.rs    |  2 +-
+ src/set.rs    |  2 +-
+ tests/test.rs | 24 ++++++++++++++++++++++--
+ 5 files changed, 29 insertions(+), 15 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index cecce9c..192fe1f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -31,12 +31,6 @@ version = "1"
+ version = "0.6.0"
+ optional = true
+ 
+-[dev-dependencies.fst-levenshtein]
+-version = "0.2"
+-
+-[dev-dependencies.fst-regex]
+-version = "0.2"
+-
+ [dev-dependencies.quickcheck]
+ version = "0.7"
+ default-features = false
+diff --git a/src/lib.rs b/src/lib.rs
+index 2ef5e83..9c2ef30 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -60,7 +60,7 @@ of `1` of `foo`. (Edit distance is the number of character insertions,
+ deletions or substitutions required to get from one string to another. In this
+ case, a character is a Unicode codepoint.)
+ 
+-```rust
++```ignore
+ extern crate fst;
+ extern crate fst_levenshtein; // the fst-levenshtein crate
+ 
+@@ -136,7 +136,7 @@ We can perform case insensitive search on a set using a regular expression.
+ Note that while sets can store arbitrary byte strings, a regular expression
+ will only match valid UTF-8 encoded byte strings.
+ 
+-```rust
++```ignore
+ extern crate fst;
+ extern crate fst_regex; // the fst-regex crate
+ 
+@@ -171,7 +171,7 @@ The example below shows how to find all keys that have at least one capital
+ letter that doesn't appear at the beginning of the key. The example below uses
+ sets, but the same operations are available on maps too.
+ 
+-```rust
++```ignore
+ extern crate fst;
+ extern crate fst_regex; // the fst-regex crate
+ 
+@@ -306,8 +306,8 @@ will be returned if the automaton gets too big (tens of MB in heap usage).
+ #![deny(missing_docs)]
+ 
+ extern crate byteorder;
+-#[cfg(test)] extern crate fst_levenshtein;
+-#[cfg(test)] extern crate fst_regex;
++#[cfg(all(broken_test,test))] extern crate fst_levenshtein;
++#[cfg(all(broken_test,test))] extern crate fst_regex;
+ #[cfg(feature = "mmap")] extern crate memmap;
+ #[cfg(test)] extern crate quickcheck;
+ #[cfg(test)] extern crate rand;
+diff --git a/src/map.rs b/src/map.rs
+index 0c92358..56ea17a 100644
+--- a/src/map.rs
++++ b/src/map.rs
+@@ -289,7 +289,7 @@ impl Map {
+     /// An implementation of regular expressions for `Automaton` is available
+     /// in the `fst-regex` crate, which can be used to search maps.
+     ///
+-    /// ```rust
++    /// ```ignore
+     /// extern crate fst;
+     /// extern crate fst_regex;
+     ///
+diff --git a/src/set.rs b/src/set.rs
+index de2af74..fb252ba 100644
+--- a/src/set.rs
++++ b/src/set.rs
+@@ -189,7 +189,7 @@ impl Set {
+     /// An implementation of regular expressions for `Automaton` is available
+     /// in the `fst-regex` crate, which can be used to search sets.
+     ///
+-    /// ```rust
++    /// ```ignore
+     /// extern crate fst;
+     /// extern crate fst_regex;
+     ///
+diff --git a/tests/test.rs b/tests/test.rs
+index 98af1a7..33b35b0 100644
+--- a/tests/test.rs
++++ b/tests/test.rs
+@@ -1,14 +1,23 @@
+ extern crate fst;
++#[cfg(broken_tests)]
+ extern crate fst_levenshtein;
++#[cfg(broken_tests)]
+ extern crate fst_regex;
+ 
++#[cfg(broken_tests)]
+ use fst_levenshtein::Levenshtein;
++#[cfg(broken_tests)]
+ use fst_regex::Regex;
+ 
+ use fst::{Automaton, IntoStreamer, Streamer};
+-use fst::automaton::{Str, Subsequence};
++use fst::automaton::Str;
++#[cfg(broken_tests)]
++use fst::automaton::Subsequence;
++#[cfg(broken_tests)]
+ use fst::raw::{Builder, Fst, Output};
+-use fst::set::{Set, OpBuilder};
++use fst::set::Set;
++#[cfg(broken_tests)]
++use fst::set::OpBuilder;
+ 
+ static WORDS: &'static str = include_str!("../data/words-10000");
+ 
+@@ -16,6 +25,7 @@ fn get_set() -> Set {
+     Set::from_iter(WORDS.lines()).unwrap()
+ }
+ 
++#[cfg(broken_tests)]
+ fn fst_set<I, S>(ss: I) -> Fst
+         where I: IntoIterator<Item=S>, S: AsRef<[u8]> {
+     let mut bfst = Builder::memory();
+@@ -31,6 +41,7 @@ fn fst_set<I, S>(ss: I) -> Fst
+     fst
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn regex_simple() {
+     let set = fst_set(vec!["abc", "abd", "ayz", "za"]);
+@@ -40,6 +51,7 @@ fn regex_simple() {
+     assert!(rdr.next().is_none());
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn levenshtein_simple() {
+     let set = fst_set(vec!["woof", "wood", "banana"]);
+@@ -48,6 +60,7 @@ fn levenshtein_simple() {
+     assert_eq!(vs, vec!["wood".as_bytes(), "woof".as_bytes()]);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn levenshtein_unicode() {
+     let set = fst_set(vec!["woof", "wood", "banana", "☃snowman☃"]);
+@@ -56,6 +69,7 @@ fn levenshtein_unicode() {
+     assert_eq!(vs, vec!["☃snowman☃".as_bytes()]);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn complement_small() {
+     let keys = vec!["fa", "fo", "fob", "focus", "foo", "food", "foul"];
+@@ -67,6 +81,7 @@ fn complement_small() {
+     assert_eq!(keys, vec!["fa", "focus", "foul"]);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn startswith_small() {
+     let keys = vec![
+@@ -83,6 +98,7 @@ fn startswith_small() {
+     ]);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn intersection_small() {
+     let keys = vec!["fa", "fo", "fob", "focus", "foo", "food", "foul"];
+@@ -95,6 +111,7 @@ fn intersection_small() {
+     assert_eq!(keys, vec!["fo", "food"]);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn union_small() {
+     let keys = vec!["fa", "fo", "fob", "focus", "foo", "food", "foul"];
+@@ -107,6 +124,7 @@ fn union_small() {
+     assert_eq!(keys, vec!["fa", "fo", "fob", "foo", "food", "foul"]);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn intersection_large() {
+     let set = get_set();
+@@ -123,6 +141,7 @@ fn intersection_large() {
+     assert_eq!(stream2.next(), None);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn union_large() {
+     let set = get_set();
+@@ -159,6 +178,7 @@ fn str() {
+     assert_eq!(stream.next(), None);
+ }
+ 
++#[cfg(broken_tests)]
+ #[test]
+ fn subsequence() {
+     let set = get_set();
+-- 
+2.25.0
+
