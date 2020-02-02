@@ -10,5 +10,6 @@
 		<flag name="curl">Require deps needed for 'curl' crate feature</flag>
 		<flag name="https">Require deps needed for 'https' crate feature</flag>
 		<flag name="ssh">Require deps needed for 'ssh' crate feature</flag>
+		<flag name="vendored-openssl">Require deps needed for 'vendored-openssl' crate feature</flag>
 	</use>
 </pkgmetadata>

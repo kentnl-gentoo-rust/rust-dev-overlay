@@ -1,0 +1,57 @@
+From 43f3bac022c1567bc8aced0ca7a0a7f3d1d9bd22 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 3 Feb 2020 07:49:02 +1300
+Subject: Remove examples and example deps
+
+---
+ Cargo.toml            |   8 -
+ examples/add.rs       |  87 ---------
+ examples/blame.rs     | 106 ----------
+ examples/cat-file.rs  | 152 ---------------
+ examples/clone.rs     | 134 -------------
+ examples/diff.rs      | 311 ------------------------------
+ examples/fetch.rs     | 136 -------------
+ examples/init.rs      | 147 --------------
+ examples/log.rs       | 302 -----------------------------
+ examples/ls-remote.rs |  60 ------
+ examples/rev-list.rs  | 110 -----------
+ examples/rev-parse.rs |  67 -------
+ examples/status.rs    | 439 ------------------------------------------
+ examples/tag.rs       | 135 -------------
+ 14 files changed, 2194 deletions(-)
+ delete mode 100644 examples/add.rs
+ delete mode 100644 examples/blame.rs
+ delete mode 100644 examples/cat-file.rs
+ delete mode 100644 examples/clone.rs
+ delete mode 100644 examples/diff.rs
+ delete mode 100644 examples/fetch.rs
+ delete mode 100644 examples/init.rs
+ delete mode 100644 examples/log.rs
+ delete mode 100644 examples/ls-remote.rs
+ delete mode 100644 examples/rev-list.rs
+ delete mode 100644 examples/rev-parse.rs
+ delete mode 100644 examples/status.rs
+ delete mode 100644 examples/tag.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 2054141..2299d8b 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -36,14 +36,6 @@ version = "0.4.8"
+ 
+ [dependencies.url]
+ version = "2.0"
+-[dev-dependencies.docopt]
+-version = "1.0"
+-
+-[dev-dependencies.serde]
+-version = "1.0"
+-
+-[dev-dependencies.serde_derive]
+-version = "1.0"
+ 
+ [dev-dependencies.tempfile]
+ version = "3.1.0"
+-- 
+2.25.0
+
