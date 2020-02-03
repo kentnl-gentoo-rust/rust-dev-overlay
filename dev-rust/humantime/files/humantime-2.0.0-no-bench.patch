@@ -1,0 +1,29 @@
+From 90d1d04cbd98a9c98460928c8bf2859dfaa901ba Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 3 Feb 2020 19:14:56 +1300
+Subject: Remove benchmarks
+
+---
+ Cargo.toml                 |  2 --
+ benches/datetime_format.rs | 56 --------------------------------------
+ benches/datetime_parse.rs  | 47 --------------------------------
+ 3 files changed, 105 deletions(-)
+ delete mode 100644 benches/datetime_format.rs
+ delete mode 100644 benches/datetime_parse.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 39154c9..99c36bc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,8 +26,6 @@ license = "MIT/Apache-2.0"
+ [lib]
+ name = "humantime"
+ path = "src/lib.rs"
+-[dev-dependencies.chrono]
+-version = "0.4"
+ 
+ [dev-dependencies.rand]
+ version = "0.6"
+-- 
+2.25.0
+
