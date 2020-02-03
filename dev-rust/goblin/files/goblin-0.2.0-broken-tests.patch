@@ -1,0 +1,43 @@
+From 7ace74cf70332d2fcb052844f712912c82220625 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 16 Nov 2019 21:32:32 +1300
+Subject: Disable broken tests
+
+Test tries to use files that never exist for us.
+---
+ tests/archive.rs | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/tests/archive.rs b/tests/archive.rs
+index 3c2b4d6..2a66626 100644
+--- a/tests/archive.rs
++++ b/tests/archive.rs
+@@ -1,5 +1,8 @@
++#[cfg(broken_tests)]
+ use std::env;
++#[cfg(broken_tests)]
+ use std::fs;
++#[cfg(broken_tests)]
+ use std::path::PathBuf;
+ 
+ use goblin::archive::*;
+@@ -52,6 +55,7 @@ fn parse_archive() {
+     };
+ }
+ 
++#[cfg(broken_tests)]
+ fn get_libgoblin_rlib() -> PathBuf {
+     // this test lies in `target/<target-triple>/<profile>/deps/`
+     let me = env::current_exe().unwrap();
+@@ -61,7 +65,7 @@ fn get_libgoblin_rlib() -> PathBuf {
+ }
+ 
+ // Cannot run this on Windows because *.rlib type on Windows is unknown
+-#[cfg(not(windows))]
++#[cfg(all(not(windows),broken_tests))]
+ #[test]
+ fn parse_self() {
+     let path = get_libgoblin_rlib();
+-- 
+2.25.0
+
