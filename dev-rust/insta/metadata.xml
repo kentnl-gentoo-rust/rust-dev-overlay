@@ -7,6 +7,7 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="backtrace">Require deps needed for 'backtrace' crate feature</flag>
 		<flag name="redactions">Require deps needed for 'redactions' crate feature</flag>
 		<flag name="ron">Require deps needed for 'ron' crate feature</flag>
 	</use>
