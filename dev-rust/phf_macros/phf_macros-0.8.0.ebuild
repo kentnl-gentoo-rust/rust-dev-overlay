@@ -11,7 +11,7 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+IUSE="test"
 DEV_DEPEND="
 	=dev-rust/phf-0.8*:=[macros,unicase]
 	=dev-rust/trybuild-1*:=
@@ -24,6 +24,7 @@ BDEPEND="
 	=dev-rust/proc-macro2-1*:=
 	=dev-rust/quote-1*:=
 	=dev-rust/syn-1*:=[printing,proc-macro]
+	test? ( ${DEV_DEPEND} )
 "
 src_prepare() {
 	rm -vrf benches/ || die
