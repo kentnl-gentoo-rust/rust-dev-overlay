@@ -1,0 +1,29 @@
+From f4fe994532782de7c765d3d22dc8b34e4dd5d470 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 7 Feb 2020 07:43:58 +1300
+Subject: Strip musl-only target tests
+
+These are unusable without a musl rustc target
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e75fbba..f8e404e 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,11 +23,7 @@ license = "MIT OR Apache-2.0"
+ repository = "https://github.com/rust-lang/libm"
+ [dev-dependencies.no-panic]
+ version = "0.1.8"
+-[build-dependencies.rand]
+-version = "0.6.5"
+-optional = true
+ 
+ [features]
+ default = []
+-musl-reference-tests = ["rand"]
+ unstable = []
+-- 
+2.25.0
+
