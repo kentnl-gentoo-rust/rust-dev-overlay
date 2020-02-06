@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="libm">Require deps needed for 'libm' crate feature</flag>
+	</use>
 </pkgmetadata>
