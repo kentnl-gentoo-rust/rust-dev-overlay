@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="correct">Require deps needed for 'correct' crate feature</flag>
+		<flag name="grisu3">Require deps needed for 'grisu3' crate feature</flag>
+		<flag name="ryu">Require deps needed for 'ryu' crate feature</flag>
+	</use>
+</pkgmetadata>
