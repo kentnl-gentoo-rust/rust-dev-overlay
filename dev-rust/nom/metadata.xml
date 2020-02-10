@@ -7,6 +7,7 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
+		<flag name="lexical">Require deps needed for 'lexical' crate feature</flag>
 		<flag name="regexp">Require deps needed for 'regexp' crate feature</flag>
 		<flag name="regexp-macros">Require deps needed for 'regexp_macros' crate feature</flag>
 	</use>
