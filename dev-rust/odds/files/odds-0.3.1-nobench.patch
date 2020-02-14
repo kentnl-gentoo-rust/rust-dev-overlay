@@ -1,0 +1,39 @@
+From 6cb48a7dd063767652314117647ebff01aa7b8a0 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 3 Dec 2019 06:42:20 +1300
+Subject: Remove benchmarks and benchmark deps
+
+---
+ Cargo.toml            |   7 +-
+ benches/bench.rs      | 402 ------------------------------------------
+ benches/count_ones.rs |  59 -------
+ benches/find.rs       | 230 ------------------------
+ 4 files changed, 1 insertion(+), 697 deletions(-)
+ delete mode 100644 benches/bench.rs
+ delete mode 100644 benches/count_ones.rs
+ delete mode 100644 benches/find.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e05d157..b141057 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -33,15 +33,10 @@ version = "0.1.0"
+ 
+ [dependencies.unchecked-index]
+ version = "0.2.2"
++
+ [dev-dependencies.itertools]
+ version = "0.7.2"
+ 
+-[dev-dependencies.lazy_static]
+-version = "0.2.2"
+-
+-[dev-dependencies.memchr]
+-version = "2.0"
+-
+ [dev-dependencies.quickcheck]
+ version = "0.4.1"
+ default-features = false
+-- 
+2.25.0
+
