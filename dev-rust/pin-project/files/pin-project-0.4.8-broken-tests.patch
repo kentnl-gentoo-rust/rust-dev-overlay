@@ -1,0 +1,59 @@
+From e37ebee5adef353ed9747686c9660cd37675d9df Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 20 Jan 2020 23:23:10 +1300
+Subject: Fix broken tests
+
+---
+ tests/pin_project.rs | 1 -
+ tests/pinned_drop.rs | 4 ----
+ 2 files changed, 5 deletions(-)
+
+diff --git a/tests/pin_project.rs b/tests/pin_project.rs
+index 45f761a..bee4bb7 100644
+--- a/tests/pin_project.rs
++++ b/tests/pin_project.rs
+@@ -382,7 +382,6 @@ fn lifetime_project() {
+     }
+ }
+ 
+-#[rustversion::since(1.36)]
+ #[test]
+ fn lifetime_project_elided() {
+     #[pin_project]
+diff --git a/tests/pinned_drop.rs b/tests/pinned_drop.rs
+index 932f636..7b9a53a 100644
+--- a/tests/pinned_drop.rs
++++ b/tests/pinned_drop.rs
+@@ -137,14 +137,12 @@ fn self_expr() {
+         }
+     }
+ 
+-    #[rustversion::since(1.37)]
+     #[pin_project(PinnedDrop)]
+     pub enum Enum {
+         StructVariant { x: usize },
+         TupleVariant(usize),
+     }
+ 
+-    #[rustversion::since(1.37)]
+     #[pinned_drop]
+     impl PinnedDrop for Enum {
+         fn drop(mut self: Pin<&mut Self>) {
+@@ -188,14 +186,12 @@ fn self_pat() {
+         }
+     }
+ 
+-    #[rustversion::since(1.37)]
+     #[pin_project(PinnedDrop)]
+     pub enum Enum {
+         StructVariant { x: usize },
+         TupleVariant(usize),
+     }
+ 
+-    #[rustversion::since(1.37)]
+     #[pinned_drop]
+     impl PinnedDrop for Enum {
+         fn drop(mut self: Pin<&mut Self>) {
+-- 
+2.25.0
+
