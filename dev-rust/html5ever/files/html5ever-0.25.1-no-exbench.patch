@@ -1,0 +1,52 @@
+From 5d8b3845a2885aa7fbcf2e1cb090d6dc49b2c66d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 2 Jan 2020 02:06:38 +1300
+Subject: Remove examples and benchmarks and their deps
+
+---
+ Cargo.toml                     |   7 -
+ benches/html5ever.rs           |  83 --------
+ examples/arena.rs              | 335 ---------------------------------
+ examples/capi/tokenize.c       |  74 --------
+ examples/noop-tokenize.rs      |  43 -----
+ examples/noop-tree-builder.rs  | 112 -----------
+ examples/print-tree-actions.rs | 177 -----------------
+ examples/tokenize.rs           | 103 ----------
+ 8 files changed, 934 deletions(-)
+ delete mode 100644 benches/html5ever.rs
+ delete mode 100644 examples/arena.rs
+ delete mode 100644 examples/capi/tokenize.c
+ delete mode 100644 examples/noop-tokenize.rs
+ delete mode 100644 examples/noop-tree-builder.rs
+ delete mode 100644 examples/print-tree-actions.rs
+ delete mode 100644 examples/tokenize.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 05dd8ef..cccfa54 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -22,9 +22,6 @@ categories = ["parser-implementations", "web-programming"]
+ license = "MIT / Apache-2.0"
+ repository = "https://github.com/servo/html5ever"
+ 
+-[[bench]]
+-name = "html5ever"
+-harness = false
+ [dependencies.log]
+ version = "0.4"
+ 
+@@ -33,11 +30,7 @@ version = "0.1"
+ 
+ [dependencies.markup5ever]
+ version = "0.10"
+-[dev-dependencies.criterion]
+-version = "0.3"
+ 
+-[dev-dependencies.typed-arena]
+-version = "1.3.0"
+ [build-dependencies.proc-macro2]
+ version = "1"
+ 
+-- 
+2.25.0
+
