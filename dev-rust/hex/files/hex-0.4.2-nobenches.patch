@@ -1,0 +1,46 @@
+From 1aa0ffa311c07e63745537eb0c907a6e1473734e Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 20 Feb 2020 20:18:43 +1300
+Subject: Remove benches and their deps
+
+---
+ Cargo.toml     | 11 --------
+ benches/hex.rs | 70 --------------------------------------------------
+ 2 files changed, 81 deletions(-)
+ delete mode 100644 benches/hex.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6dd9a31..f7ee889 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,24 +26,13 @@ repository = "https://github.com/KokaKiwi/rust-hex"
+ all-features = true
+ rustdoc-args = ["--cfg", "docsrs"]
+ 
+-[[bench]]
+-name = "hex"
+-harness = false
+ [dependencies.serde]
+ version = "1.0"
+ optional = true
+-[dev-dependencies.criterion]
+-version = "0.3"
+-
+-[dev-dependencies.faster-hex]
+-version = "0.4"
+ 
+ [dev-dependencies.pretty_assertions]
+ version = "0.6"
+ 
+-[dev-dependencies.rustc-hex]
+-version = "2.0"
+-
+ [dev-dependencies.serde]
+ version = "1.0"
+ features = ["derive"]
+diff --git a/benches/hex.rs b/benches/hex.rs
+deleted file mode 100644
+index 56b121f..0000000
+-- 
+2.25.0
+

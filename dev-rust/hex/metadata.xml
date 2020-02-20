@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="serde">Require deps needed for 'serde' crate feature</flag>
+	</use>
 </pkgmetadata>
