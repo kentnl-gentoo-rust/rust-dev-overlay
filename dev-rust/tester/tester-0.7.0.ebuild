@@ -17,3 +17,16 @@ BDEPEND="
 	=dev-rust/libc-0.2*:=
 	=dev-rust/term-0.6*:=
 "
+src_test() {
+	local targets=(
+		''
+		# nightly-only feature(asm)
+		# 'asm_black_box'
+		# nightly-only feature(set_stdio)
+		# 'capture'
+	)
+	for i in "${targets[@]}"; do
+		einfo "Testing --features '${i}'"
+		ecargo test --no-default-features --features "${i}"
+	done
+}
