@@ -1,0 +1,180 @@
+From 432ce8f24ce4054f5c50a8c64b1689e3ee0726c6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 29 Jan 2020 16:48:55 +1300
+Subject: Remove unwanted cruft
+
+- Remove nightly only aspects
+- Remove non-unix features
+- Remove benchmarks and their deps
+- Remove examples and their deps
+- Remove upstream CI cruft
+---
+ .github/workflows/main.yml                    | 201 ------------------
+ Cargo.toml                                    |  22 --
+ benches/benchmarks.rs                         |  94 --------
+ ci/android-ndk.sh                             |  23 --
+ ci/android-sdk.sh                             |  74 -------
+ ci/docker/aarch64-linux-android/Dockerfile    |  18 --
+ .../aarch64-unknown-linux-gnu/Dockerfile      |  11 -
+ ci/docker/arm-linux-androideabi/Dockerfile    |  37 ----
+ .../arm-unknown-linux-gnueabihf/Dockerfile    |  10 -
+ ci/docker/armv7-linux-androideabi/Dockerfile  |  18 --
+ .../armv7-unknown-linux-gnueabihf/Dockerfile  |  10 -
+ ci/docker/i586-unknown-linux-gnu/Dockerfile   |   5 -
+ ci/docker/i686-linux-android/Dockerfile       |  18 --
+ ci/docker/i686-unknown-linux-gnu/Dockerfile   |   5 -
+ .../powerpc64-unknown-linux-gnu/Dockerfile    |  16 --
+ ci/docker/x86_64-linux-android/Dockerfile     |  18 --
+ ci/docker/x86_64-pc-windows-gnu/Dockerfile    |  10 -
+ ci/docker/x86_64-unknown-linux-gnu/Dockerfile |   5 -
+ .../x86_64-unknown-linux-musl/Dockerfile      |   6 -
+ ci/run-docker.sh                              |  32 ---
+ ci/run.sh                                     |   5 -
+ ci/runtest-android.rs                         |  50 -----
+ examples/backtrace.rs                         |   7 -
+ examples/raw.rs                               |  54 -----
+ 24 files changed, 749 deletions(-)
+ delete mode 100644 .github/workflows/main.yml
+ delete mode 100644 benches/benchmarks.rs
+ delete mode 100755 ci/android-ndk.sh
+ delete mode 100755 ci/android-sdk.sh
+ delete mode 100644 ci/docker/aarch64-linux-android/Dockerfile
+ delete mode 100644 ci/docker/aarch64-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/arm-linux-androideabi/Dockerfile
+ delete mode 100644 ci/docker/arm-unknown-linux-gnueabihf/Dockerfile
+ delete mode 100644 ci/docker/armv7-linux-androideabi/Dockerfile
+ delete mode 100644 ci/docker/armv7-unknown-linux-gnueabihf/Dockerfile
+ delete mode 100644 ci/docker/i586-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/i686-linux-android/Dockerfile
+ delete mode 100644 ci/docker/i686-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/powerpc64-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/x86_64-linux-android/Dockerfile
+ delete mode 100644 ci/docker/x86_64-pc-windows-gnu/Dockerfile
+ delete mode 100644 ci/docker/x86_64-unknown-linux-gnu/Dockerfile
+ delete mode 100644 ci/docker/x86_64-unknown-linux-musl/Dockerfile
+ delete mode 100755 ci/run-docker.sh
+ delete mode 100755 ci/run.sh
+ delete mode 100644 ci/runtest-android.rs
+ delete mode 100644 examples/backtrace.rs
+ delete mode 100644 examples/raw.rs
+
+diff --git a/.github/workflows/main.yml b/.github/workflows/main.yml
+deleted file mode 100644
+index cd0fc4b..0000000
+diff --git a/Cargo.toml b/Cargo.toml
+index f6d8146..0cf01a0 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,14 +24,6 @@ readme = "README.md"
+ license = "MIT/Apache-2.0"
+ repository = "https://github.com/rust-lang/backtrace-rs"
+ 
+-[[example]]
+-name = "backtrace"
+-required-features = ["std"]
+-
+-[[example]]
+-name = "raw"
+-required-features = ["std"]
+-
+ [[test]]
+ name = "skip_inner_frames"
+ required-features = ["std"]
+@@ -67,15 +59,6 @@ optional = true
+ [dependencies.cfg-if]
+ version = "0.1.10"
+ 
+-[dependencies.compiler_builtins]
+-version = "0.1.2"
+-optional = true
+-
+-[dependencies.core]
+-version = "1.0.0"
+-optional = true
+-package = "rustc-std-workspace-core"
+-
+ [dependencies.cpp_demangle]
+ version = "0.2.3"
+ optional = true
+@@ -120,12 +103,7 @@ gimli-symbolize = ["addr2line", "findshlibs", "memmap", "goblin"]
+ kernel32 = []
+ libbacktrace = ["backtrace-sys"]
+ libunwind = []
+-rustc-dep-of-std = ["backtrace-sys/rustc-dep-of-std", "cfg-if/rustc-dep-of-std", "core", "compiler_builtins", "libc/rustc-dep-of-std", "rustc-demangle/rustc-dep-of-std"]
+ serialize-rustc = ["rustc-serialize"]
+ serialize-serde = ["serde"]
+ std = []
+ unix-backtrace = []
+-verify-winapi = ["winapi/dbghelp", "winapi/handleapi", "winapi/libloaderapi", "winapi/minwindef", "winapi/processthreadsapi", "winapi/synchapi", "winapi/winbase", "winapi/winnt"]
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3.3"
+-optional = true
+diff --git a/benches/benchmarks.rs b/benches/benchmarks.rs
+deleted file mode 100644
+index ad55788..0000000
+diff --git a/ci/android-ndk.sh b/ci/android-ndk.sh
+deleted file mode 100755
+index b5df62b..0000000
+diff --git a/ci/android-sdk.sh b/ci/android-sdk.sh
+deleted file mode 100755
+index aee133e..0000000
+diff --git a/ci/docker/aarch64-linux-android/Dockerfile b/ci/docker/aarch64-linux-android/Dockerfile
+deleted file mode 100644
+index 81c8208..0000000
+diff --git a/ci/docker/aarch64-unknown-linux-gnu/Dockerfile b/ci/docker/aarch64-unknown-linux-gnu/Dockerfile
+deleted file mode 100644
+index d691aa4..0000000
+diff --git a/ci/docker/arm-linux-androideabi/Dockerfile b/ci/docker/arm-linux-androideabi/Dockerfile
+deleted file mode 100644
+index 7cfdae6..0000000
+diff --git a/ci/docker/arm-unknown-linux-gnueabihf/Dockerfile b/ci/docker/arm-unknown-linux-gnueabihf/Dockerfile
+deleted file mode 100644
+index 32095e9..0000000
+diff --git a/ci/docker/armv7-linux-androideabi/Dockerfile b/ci/docker/armv7-linux-androideabi/Dockerfile
+deleted file mode 100644
+index c738716..0000000
+diff --git a/ci/docker/armv7-unknown-linux-gnueabihf/Dockerfile b/ci/docker/armv7-unknown-linux-gnueabihf/Dockerfile
+deleted file mode 100644
+index a55fb27..0000000
+diff --git a/ci/docker/i586-unknown-linux-gnu/Dockerfile b/ci/docker/i586-unknown-linux-gnu/Dockerfile
+deleted file mode 100644
+index d222092..0000000
+diff --git a/ci/docker/i686-linux-android/Dockerfile b/ci/docker/i686-linux-android/Dockerfile
+deleted file mode 100644
+index ef4752c..0000000
+diff --git a/ci/docker/i686-unknown-linux-gnu/Dockerfile b/ci/docker/i686-unknown-linux-gnu/Dockerfile
+deleted file mode 100644
+index d222092..0000000
+diff --git a/ci/docker/powerpc64-unknown-linux-gnu/Dockerfile b/ci/docker/powerpc64-unknown-linux-gnu/Dockerfile
+deleted file mode 100644
+index b4f5d8a..0000000
+diff --git a/ci/docker/x86_64-linux-android/Dockerfile b/ci/docker/x86_64-linux-android/Dockerfile
+deleted file mode 100644
+index 7fea8a1..0000000
+diff --git a/ci/docker/x86_64-pc-windows-gnu/Dockerfile b/ci/docker/x86_64-pc-windows-gnu/Dockerfile
+deleted file mode 100644
+index 7a8fbf4..0000000
+diff --git a/ci/docker/x86_64-unknown-linux-gnu/Dockerfile b/ci/docker/x86_64-unknown-linux-gnu/Dockerfile
+deleted file mode 100644
+index 864d72e..0000000
+diff --git a/ci/docker/x86_64-unknown-linux-musl/Dockerfile b/ci/docker/x86_64-unknown-linux-musl/Dockerfile
+deleted file mode 100644
+index 6984dc2..0000000
+diff --git a/ci/run-docker.sh b/ci/run-docker.sh
+deleted file mode 100755
+index 5a9934b..0000000
+diff --git a/ci/run.sh b/ci/run.sh
+deleted file mode 100755
+index 5cc1515..0000000
+diff --git a/ci/runtest-android.rs b/ci/runtest-android.rs
+deleted file mode 100644
+index dc70121..0000000
+diff --git a/examples/backtrace.rs b/examples/backtrace.rs
+deleted file mode 100644
+index 7f9042e..0000000
+diff --git a/examples/raw.rs b/examples/raw.rs
+deleted file mode 100644
+index b43cab8..0000000
+-- 
+2.25.0
+
