@@ -8,5 +8,6 @@
 	</longdescription>
 	<use>
 		<flag name="asm">Require deps needed for 'asm' crate feature</flag>
+		<flag name="asm-aarch64">Require deps needed for 'asm-aarch64' crate feature</flag>
 	</use>
 </pkgmetadata>
