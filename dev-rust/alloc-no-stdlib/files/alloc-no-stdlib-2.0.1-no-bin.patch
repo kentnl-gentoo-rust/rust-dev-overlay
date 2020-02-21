@@ -1,0 +1,31 @@
+From 43869333bc166e1c9f6a1ae5d38b9590d469ee70 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 22 Feb 2020 12:35:34 +1300
+Subject: Remove binary examples
+
+---
+ Cargo.toml            |  3 --
+ src/bin/example.rs    | 93 -------------------------------------------
+ src/bin/heap_alloc.rs | 45 ---------------------
+ src/bin/tests.rs      | 68 -------------------------------
+ 4 files changed, 209 deletions(-)
+ delete mode 100644 src/bin/example.rs
+ delete mode 100644 src/bin/heap_alloc.rs
+ delete mode 100755 src/bin/tests.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 4adbe35..134adec 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,8 +23,5 @@ keywords = ["custom", "allocator", "calloc", "safe", "nostd"]
+ license = "BSD-3-Clause"
+ repository = "https://github.com/dropbox/rust-alloc-no-stdlib"
+ 
+-[[bin]]
+-name = "example"
+-
+ [features]
+ unsafe = []
+-- 
+2.25.0
+
