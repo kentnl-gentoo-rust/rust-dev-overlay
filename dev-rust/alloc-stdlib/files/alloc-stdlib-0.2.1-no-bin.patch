@@ -1,0 +1,30 @@
+From 34d031d1870063f6b138de8c3fab78054142a4fa Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 22 Feb 2020 13:02:16 +1300
+Subject: Remove binaries
+
+---
+ Cargo.toml         |   3 --
+ src/bin/example.rs | 122 ---------------------------------------------
+ src/bin/tests.rs   |  85 -------------------------------
+ 3 files changed, 210 deletions(-)
+ delete mode 100644 src/bin/example.rs
+ delete mode 100755 src/bin/tests.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 1f3c5a3..0a32505 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -11,9 +11,6 @@ license = "BSD-3-Clause"
+ repository = "https://github.com/dropbox/rust-alloc-no-stdlib"
+ autobins = false
+ 
+-[[bin]]
+-name = "example"
+-
+ [dependencies]
+ "alloc-no-stdlib" = { version="~2.0"}
+ 
+-- 
+2.25.0
+
