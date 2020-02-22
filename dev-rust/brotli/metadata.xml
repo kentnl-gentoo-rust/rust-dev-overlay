@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>rust@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="bin">Compile and install (rust-)brotli and catbrotli</flag>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
+		<flag name="validation">Require deps needed for 'validation' crate feature</flag>
+	</use>
+</pkgmetadata>

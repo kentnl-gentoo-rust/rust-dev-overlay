@@ -1,0 +1,36 @@
+From 329f4b2412a52f851719b0d85541b1bb5d4731dd Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 22 Feb 2020 15:47:28 +1300
+Subject: Remove support for simd feature
+
+As this has nightly-only dependencies
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index becd421..50048d9 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -44,10 +44,6 @@ optional = true
+ version = "~2.3"
+ default-features = false
+ 
+-[dependencies.packed_simd]
+-version = "0.3"
+-optional = true
+-
+ [dependencies.sha2]
+ version = "~0.8"
+ optional = true
+@@ -59,7 +55,6 @@ disable-timer = ["brotli-decompressor/disable-timer"]
+ external-literal-probability = []
+ pass-through-ffi-panics = []
+ seccomp = ["brotli-decompressor/seccomp"]
+-simd = ["packed_simd/into_bits"]
+ std = ["alloc-stdlib", "brotli-decompressor/std"]
+ validation = ["sha2"]
+ vector_scratch_space = []
+-- 
+2.25.0
+

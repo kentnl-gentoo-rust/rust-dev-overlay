@@ -1,0 +1,25 @@
+From 467336cc8082868875173ae6f310114a7463d2b5 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 22 Feb 2020 17:34:34 +1300
+Subject: Remove benchmark feature
+
+Has nightly only knobs it turns on
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 50048d9..fd9fdd7 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -49,7 +49,6 @@ version = "~0.8"
+ optional = true
+ 
+ [features]
+-benchmark = ["brotli-decompressor/benchmark"]
+ default = ["std"]
+ disable-timer = ["brotli-decompressor/disable-timer"]
+ external-literal-probability = []
+-- 
+2.25.0
+

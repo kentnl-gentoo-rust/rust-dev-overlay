@@ -1,0 +1,48 @@
+From b922ee3bc8f0d42ce209bce8e580aafc6e070c51 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 22 Feb 2020 18:40:33 +1300
+Subject: Remove binary targets
+
+---
+ Cargo.toml                   |    7 -
+ src/bin/brotli.rs            |  869 ----------------------
+ src/bin/catbrotli.rs         |  149 ----
+ src/bin/integration_tests.rs | 1317 ----------------------------------
+ src/bin/test_broccoli.rs     |  424 -----------
+ src/bin/test_custom_dict.rs  |  186 -----
+ src/bin/test_threading.rs    |  181 -----
+ src/bin/tests.rs             |  113 ---
+ src/bin/util.rs              |  296 --------
+ src/bin/validate.rs          |  167 -----
+ 10 files changed, 3709 deletions(-)
+ delete mode 100755 src/bin/brotli.rs
+ delete mode 100644 src/bin/catbrotli.rs
+ delete mode 100755 src/bin/integration_tests.rs
+ delete mode 100755 src/bin/test_broccoli.rs
+ delete mode 100755 src/bin/test_custom_dict.rs
+ delete mode 100755 src/bin/test_threading.rs
+ delete mode 100755 src/bin/tests.rs
+ delete mode 100644 src/bin/util.rs
+ delete mode 100644 src/bin/validate.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index fd9fdd7..e865cb2 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,13 +26,6 @@ repository = "https://github.com/dropbox/rust-brotli"
+ lto = true
+ incremental = false
+ 
+-[[bin]]
+-name = "brotli"
+-doc = false
+-
+-[[bin]]
+-name = "catbrotli"
+-doc = false
+ [dependencies.alloc-no-stdlib]
+ version = "2.0"
+ 
+-- 
+2.25.0
+
