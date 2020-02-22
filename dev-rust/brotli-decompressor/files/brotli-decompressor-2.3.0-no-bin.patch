@@ -1,0 +1,42 @@
+From 3551701d95f2b5718f25216c44e01d9a2bc8c486 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 22 Feb 2020 13:30:37 +1300
+Subject: Remove binary targets
+
+---
+ Cargo.toml                      |   3 -
+ examples/decompress.rs          |  37 --
+ src/bin/brotli-decompressor.rs  | 337 -----------
+ src/bin/error_handling_tests.rs | 167 ------
+ src/bin/integration_tests.rs    | 994 --------------------------------
+ src/bin/ipsum.brotli            |   6 -
+ src/bin/ipsum.raw               |  19 -
+ src/bin/ipsum_gen.py            |  10 -
+ src/bin/tests.rs                | 113 ----
+ 9 files changed, 1686 deletions(-)
+ delete mode 100644 examples/decompress.rs
+ delete mode 100755 src/bin/brotli-decompressor.rs
+ delete mode 100755 src/bin/error_handling_tests.rs
+ delete mode 100755 src/bin/integration_tests.rs
+ delete mode 100644 src/bin/ipsum.brotli
+ delete mode 100644 src/bin/ipsum.raw
+ delete mode 100644 src/bin/ipsum_gen.py
+ delete mode 100755 src/bin/tests.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6d11e2d..17eb12b 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,9 +27,6 @@ repository = "https://github.com/dropbox/rust-brotli-decompressor"
+ lto = true
+ incremental = false
+ 
+-[[bin]]
+-name = "brotli-decompressor"
+-doc = false
+ [dependencies.alloc-no-stdlib]
+ version = "~2.0"
+ 
+-- 
+2.25.0
+
