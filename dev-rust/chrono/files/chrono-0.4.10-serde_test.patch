@@ -1,0 +1,32 @@
+From a52d2a771b443a3261a47db38cb595c49d8b741f Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date: Tue, 18 Feb 2020 16:25:28 +0100
+Subject: Fix cargo test with latest serde_json
+
+```rust
+[  117s] error: expected item, found `"serde_json requires that either `std` (default) or `alloc` feature is enabled"`
+[  117s]  --> /usr/share/cargo/registry/serde_json-1.0.48/src/features_check/error.rs:1:1
+[  117s]   |
+[  117s] 1 | "serde_json requires that either `std` (default) or `alloc` feature is enabled"
+[  117s]   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected item
+```
+Bug: https://github.com/chronotope/chrono/pull/396
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 32493b8..9e379bc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -67,7 +67,6 @@ default-features = false
+ 
+ [dev-dependencies.serde_json]
+ version = "1"
+-default-features = false
+ 
+ [features]
+ alloc = []
+-- 
+2.25.0
+

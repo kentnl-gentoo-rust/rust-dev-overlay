@@ -1,0 +1,38 @@
+From 49745c4d49749cc3125445cbe82b8e79520b2896 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 25 Feb 2020 21:57:37 +1300
+Subject: Remove non-unix optional dependencies
+
+This removes optional dependencies that are not useful on non-unix
+platforms, as cargo is currently not smart enough to do it itself
+
+Bug: https://github.com/rust-lang/cargo/issues/5896
+Bug: https://github.com/rust-lang/cargo/issues/513
+---
+ Cargo.toml | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5534ad2..32493b8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -75,16 +75,7 @@ bench = ["std"]
+ clock = ["time", "std"]
+ default = ["clock", "std"]
+ std = []
+-wasmbind = ["wasm-bindgen", "js-sys"]
+-[target."cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))".dependencies.js-sys]
+-version = "0.3"
+-optional = true
+ 
+-[target."cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))".dependencies.wasm-bindgen]
+-version = "0.2"
+-optional = true
+-[target."cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))".dev-dependencies.wasm-bindgen-test]
+-version = "0.2"
+ [badges.appveyor]
+ repository = "chronotope/chrono"
+ 
+-- 
+2.25.0
+
