@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="diff">Require deps needed for 'diff' crate feature</flag>
+	</use>
 </pkgmetadata>
