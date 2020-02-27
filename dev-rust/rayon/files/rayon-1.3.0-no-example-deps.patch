@@ -1,0 +1,38 @@
+From 9c6cd695126d617ab9c0eff3095b09409ef748da Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 21 Feb 2020 12:53:52 +1300
+Subject: Remove examples and deps
+
+---
+ Cargo.toml              |  7 ----
+ examples/README.md      |  3 --
+ examples/cpu_monitor.rs | 81 -----------------------------------------
+ 3 files changed, 91 deletions(-)
+ delete mode 100644 examples/README.md
+ delete mode 100644 examples/cpu_monitor.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 013e3b5..3bb078c 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -35,9 +35,6 @@ version = "1.7.0"
+ [dev-dependencies.doc-comment]
+ version = "0.3"
+ 
+-[dev-dependencies.docopt]
+-version = "1"
+-
+ [dev-dependencies.lazy_static]
+ version = "1"
+ 
+@@ -46,7 +43,3 @@ version = "0.7"
+ 
+ [dev-dependencies.rand_xorshift]
+ version = "0.2"
+-
+-[dev-dependencies.serde]
+-version = "1.0.85"
+-features = ["derive"]
+-- 
+2.25.0
+
