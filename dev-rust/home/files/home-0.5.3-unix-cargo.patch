@@ -1,0 +1,23 @@
+From 45c95b094a209e82ceea69724717e72b4922c02f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 27 Feb 2020 20:07:59 +1300
+Subject: Remove windows only dependencies
+
+---
+ Cargo.toml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 245d5e1..165c21b 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,6 +21,3 @@ documentation = "https://docs.rs/home"
+ readme = "README.md"
+ license = "MIT OR Apache-2.0"
+ repository = "https://github.com/brson/home"
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["shlobj", "std", "winerror"]
+-- 
+2.25.0
+
