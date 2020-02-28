@@ -1,0 +1,37 @@
+From 7055dabcd613678259b99af12c219fdb5783f9f8 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 28 Feb 2020 14:51:28 +1300
+Subject: Remove examples and their deps
+
+---
+ Cargo.toml      |  5 -----
+ examples/tor.rs | 34 ----------------------------------
+ 2 files changed, 39 deletions(-)
+ delete mode 100644 examples/tor.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 783867e..b0ad664 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,9 +24,6 @@ categories = ["asynchronous", "network-programming"]
+ license = "MIT"
+ repository = "https://github.com/sticnarf/tokio-socks"
+ 
+-[[example]]
+-name = "tor"
+-required-features = ["tor"]
+ [dependencies.bytes]
+ version = "0.4"
+ 
+@@ -45,8 +42,6 @@ version = "0.3"
+ [dependencies.tokio]
+ version = "0.2"
+ features = ["io-util", "stream", "tcp"]
+-[dev-dependencies.hyper]
+-version = "0.13"
+ 
+ [dev-dependencies.once_cell]
+ version = "1.2.0"
+-- 
+2.25.0
+
