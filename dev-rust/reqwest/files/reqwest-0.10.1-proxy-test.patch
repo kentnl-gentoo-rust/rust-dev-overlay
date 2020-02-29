@@ -1,0 +1,33 @@
+From a8d891b592159524bd19811fb75dd8f56c9540c5 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 28 Feb 2020 22:45:58 +1300
+Subject: Disable tests broken by ENV race
+
+Bug: https://github.com/seanmonstar/reqwest/issues/829
+---
+ src/proxy.rs | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/proxy.rs b/src/proxy.rs
+index 25eefe2..a873b81 100644
+--- a/src/proxy.rs
++++ b/src/proxy.rs
+@@ -767,6 +767,7 @@ mod tests {
+         }
+     }
+ 
++    #[cfg_attr(not(broken_tests),ignore)]
+     #[test]
+     fn test_get_sys_proxies_parsing() {
+         // save system setting first.
+@@ -791,6 +792,7 @@ mod tests {
+         // reset user setting when guards drop
+     }
+ 
++    #[cfg_attr(not(broken_tests),ignore)]
+     #[test]
+     fn test_get_sys_proxies_in_cgi() {
+         // save system setting first.
+-- 
+2.25.0
+

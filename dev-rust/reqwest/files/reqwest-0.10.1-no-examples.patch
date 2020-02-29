@@ -1,0 +1,53 @@
+From 35a8945f33057e52afc9db3be889076194a68375 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 23 Jan 2020 18:35:13 +1300
+Subject: Remove examples
+
+---
+ Cargo.toml               | 20 -----------------
+ examples/blocking.rs     | 19 ----------------
+ examples/form.rs         |  9 --------
+ examples/json_dynamic.rs | 42 -----------------------------------
+ examples/json_typed.rs   | 47 ----------------------------------------
+ examples/simple.rs       | 17 ---------------
+ 6 files changed, 154 deletions(-)
+ delete mode 100644 examples/blocking.rs
+ delete mode 100644 examples/form.rs
+ delete mode 100644 examples/json_dynamic.rs
+ delete mode 100644 examples/json_typed.rs
+ delete mode 100644 examples/simple.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index e0868f6..2f0dd95 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,26 +29,6 @@ all-features = true
+ [package.metadata.playground]
+ features = ["blocking", "cookies", "json"]
+ 
+-[[example]]
+-name = "blocking"
+-path = "examples/blocking.rs"
+-required-features = ["blocking"]
+-
+-[[example]]
+-name = "json_dynamic"
+-path = "examples/json_dynamic.rs"
+-required-features = ["json"]
+-
+-[[example]]
+-name = "json_typed"
+-path = "examples/json_typed.rs"
+-required-features = ["json"]
+-
+-[[example]]
+-name = "tor_socks"
+-path = "examples/tor_socks.rs"
+-required-features = ["socks"]
+-
+ [[test]]
+ name = "blocking"
+ path = "tests/blocking.rs"
+-- 
+2.25.0
+

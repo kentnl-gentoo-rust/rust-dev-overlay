@@ -15,5 +15,6 @@
 		<flag name="native-tls">Require deps needed for 'native-tls' crate feature</flag>
 		<flag name="native-tls-vendored">Require deps needed for 'native-tls-vendored' crate feature</flag>
 		<flag name="rustls-tls">Require deps needed for 'rustls-tls' crate feature</flag>
+		<flag name="socks">Require deps needed for 'socks' crate feature</flag>
 	</use>
 </pkgmetadata>
