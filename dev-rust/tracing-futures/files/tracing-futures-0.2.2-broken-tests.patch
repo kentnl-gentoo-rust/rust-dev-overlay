@@ -1,0 +1,57 @@
+From d67ebbe84774faa7a8afe8e0e0df14425e1a53ea Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 12 Mar 2020 20:29:19 +1300
+Subject: Disable broken tests
+
+Bug: https://github.com/tokio-rs/tracing/issues/632
+---
+ src/lib.rs | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 4b4cc4b..d8994ba 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -442,19 +442,20 @@ impl<T> WithDispatch<T> {
+     }
+ }
+ 
+-#[cfg(test)]
++#[cfg(all(broken_tests,test))]
+ pub(crate) use self::support as test_support;
+ // This has to have the same name as the module in `tracing`.
+ #[path = "../../tracing/tests/support/mod.rs"]
+-#[cfg(test)]
++#[cfg(all(broken_tests,test))]
+ #[allow(unreachable_pub)]
+ pub(crate) mod support;
+ 
+ #[cfg(test)]
+ mod tests {
++    #[cfg(broken_tests)]
+     use super::{test_support::*, *};
+ 
+-    #[cfg(feature = "futures-01")]
++    #[cfg(all(broken_tests,feature = "futures-01"))]
+     mod futures_01_tests {
+         use futures_01::{future, stream, task, Async, Future, Stream};
+         use tracing::subscriber::with_default;
+@@ -602,6 +603,7 @@ mod tests {
+ 
+         use super::*;
+ 
++        #[cfg(broken_tests)]
+         #[test]
+         fn stream_enter_exit_is_reasonable() {
+             let (subscriber, handle) = subscriber::mock()
+@@ -625,6 +627,7 @@ mod tests {
+             handle.assert_finished();
+         }
+ 
++        #[cfg(broken_tests)]
+         #[test]
+         fn sink_enter_exit_is_reasonable() {
+             let (subscriber, handle) = subscriber::mock()
+-- 
+2.25.0
+
