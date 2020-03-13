@@ -1,0 +1,31 @@
+From 5a08306a1092175e04007d7c68ffcf4699c7e597 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 13 Mar 2020 04:52:10 +1300
+Subject: Add missing test dependencies
+
+---
+ Cargo.toml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 125ee8c..3a0c3f8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -80,6 +80,14 @@ optional = true
+ version = "0.1.9"
+ optional = true
+ 
++[dev-dependencies.futures]
++version = "^0.3.2"
++default-features = false
++features = ["async-await", "thread-pool"]
++
++[dev-dependencies.futures-test]
++version = "^0.3"
++
+ [features]
+ alloc = ["futures-core/alloc", "futures-task/alloc"]
+ async-await = []
+-- 
+2.25.0
+
