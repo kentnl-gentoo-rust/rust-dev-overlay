@@ -1,0 +1,28 @@
+From 1a73a792047ec4af354c6c77abf198cd3e7d093d Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 13 Mar 2020 19:34:36 +1300
+Subject: Add missing dev dependencies
+
+---
+ Cargo.toml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 3235b3d..7a494d0 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -38,6 +38,11 @@ default-features = false
+ version = "1.8.0"
+ optional = true
+ 
++[dev-dependencies.futures]
++version = "^0.3"
++default-features = false
++features = ["alloc", "executor", "thread-pool"]
++
+ [features]
+ default = ["std"]
+ std = ["futures-core/std", "futures-task/std", "futures-util/std"]
+-- 
+2.25.0
+
