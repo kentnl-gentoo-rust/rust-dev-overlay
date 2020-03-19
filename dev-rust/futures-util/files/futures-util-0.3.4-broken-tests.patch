@@ -1,0 +1,64 @@
+From e1db1141b3d8c96d81e794ea6f6007f66f3f6ac0 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 20 Mar 2020 11:34:32 +1300
+Subject: future-utils: Avoid compile failures in tests w/o "std"
+
+This failure is not reproducable under the main futures workspace.
+
+To replicate, one must first:
+
+  future-utils/: cargo package
+
+And then:
+
+  cd "<prefix>/target/package/future-utils-0.3.4"
+  cargo test --no-default-features
+
+This patch remedies this issue by:
+
+- Moving the imports required for this test into the test itself
+- Gating the test so it only compiles when --feature=std (and thus,
+  the #[no_std] in lib.rs doesn't activate)
+
+This approach also future proofs the code somewhat and makes it
+potentially easier to relocate to tests/ one day.
+
+Closes: https://github.com/rust-lang/futures-rs/issues/2102
+---
+ src/future/try_future/try_chain.rs | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/src/future/try_future/try_chain.rs b/src/future/try_future/try_chain.rs
+index 662bdf2d..ddd275a6 100644
+--- a/src/future/try_future/try_chain.rs
++++ b/src/future/try_future/try_chain.rs
+@@ -79,17 +79,19 @@ impl<Fut1, Fut2, Data> TryChain<Fut1, Fut2, Data>
+ 
+ #[cfg(test)]
+ mod tests {
+-    use std::pin::Pin;
+-    use std::task::Poll;
+ 
+-    use futures_test::task::noop_context;
++    #[cfg(feature = "std")] // dont test with no_std
++    #[test]
++    fn try_chain_is_terminated() {
++        use std::pin::Pin;
++        use std::task::Poll;
+ 
+-    use crate::future::ready;
++        use futures_test::task::noop_context;
+ 
+-    use super::{TryChain, TryChainAction};
++        use crate::future::ready;
++
++        use super::{TryChain, TryChainAction};
+ 
+-    #[test]
+-    fn try_chain_is_terminated() {
+         let mut cx = noop_context();
+ 
+         let mut future = TryChain::new(ready(Ok(1)), ());
+-- 
+2.25.0
+

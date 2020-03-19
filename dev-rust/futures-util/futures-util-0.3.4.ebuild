@@ -12,7 +12,6 @@ SRC_URI="https://crates.io/api/v1/crates/${PN}/${PV}/download -> ${P}.crate"
 LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
 IUSE="+async-await-macro channel compat io-compat io read-initializer sink +std"
-RESTRICT="test"
 F_STD="
 	=dev-rust/slab-0.4*:=
 "
@@ -69,9 +68,11 @@ BDEPEND="
 	read-initializer? ( ${F_READ_INITIALIZER} )
 	sink? ( ${F_SINK} )
 	std? ( ${F_STD} )
+	test? ( ${DEV_DEPEND} )
 "
 PATCHES=(
 	"${FILESDIR}/${P}-missing-test-deps.patch"
+	"${FILESDIR}/${P}-broken-tests.patch"
 )
 src_prepare() {
 	rm -vrf benches{,_disabled}/ || die
@@ -79,9 +80,8 @@ src_prepare() {
 }
 src_test() {
 	local targets=(
-		# broken
-		# ''
-		'std futures-channel'
+		''
+		'futures-channel'
 		'futures-io'
 		'futures-macro'
 		'futures-sink'
@@ -95,22 +95,24 @@ src_test() {
 		'alloc'
 		'async-await'
 		'async-await-macro'
-		'bilock'
-		'cfg-target-has-atomic'
+		# nightly
+		# 'bilock'
+		# 'cfg-target-has-atomic'
 		'channel'
 		'compat'
 		'default'
 		'io'
 		'io-compat'
-		'read-initializer'
+		# nightly
+		# 'read-initializer'
 		'sink'
 		'std'
 		'unstable'
 	)
 	for i in "${targets[@]}"; do
 		einfo "Testing --features '${i}'"
-		ecargo test --no-default-features --features "${i}"
+		ecargo test --no-default-features --features "${i}" --lib --tests
 	done
-	einfo "Testing --all-features"
-	ecargo test --all-features
+	einfo "Testing (synthetic) --all-features"
+	ecargo test --no-default-features --features "${targets[*]}" --lib --tests
 }
