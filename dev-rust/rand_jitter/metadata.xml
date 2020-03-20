@@ -8,5 +8,6 @@
 	</longdescription>
 	<use>
 		<flag name="log">Require deps needed for 'log' crate feature</flag>
+		<flag name="std">Require deps needed for 'std' crate feature</flag>
 	</use>
 </pkgmetadata>
