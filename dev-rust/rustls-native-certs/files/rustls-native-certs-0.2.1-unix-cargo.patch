@@ -1,0 +1,24 @@
+From 9c647f3e53114b5ab01d91a0c37cf1a185aff94f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Wed, 22 Jan 2020 21:55:47 +1300
+Subject: remove non-unix deps
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 9f3a09e..c4c1afa 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -36,7 +36,3 @@ version = "0.21"
+ version = "0"
+ [target."cfg(target_os = \"linux\")".dependencies.openssl-probe]
+ version = "0.1.2"
+-[target."cfg(target_os = \"macos\")".dependencies.security-framework]
+-version = "0.4.0"
+-[target."cfg(windows)".dependencies.schannel]
+-version = "0.1.15"
+-- 
+2.24.0
+
