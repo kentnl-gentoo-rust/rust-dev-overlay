@@ -16,6 +16,7 @@
 		<flag name="io-util">Require deps needed for 'io-util' crate feature</flag>
 		<flag name="macros">Require deps needed for 'macros' crate feature</flag>
 		<flag name="net">Require deps needed for 'net' crate feature</flag>
+		<flag name="parking-lot">Require deps needed for 'parking_lot' crate feature</flag>
 		<flag name="process">Require deps needed for 'process' crate feature</flag>
 		<flag name="reactor">Require deps needed for 'reactor' crate feature</flag>
 		<flag name="rt-full">Require deps needed for 'rt-full' crate feature</flag>
