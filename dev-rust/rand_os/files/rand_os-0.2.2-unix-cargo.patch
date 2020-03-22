@@ -1,0 +1,25 @@
+From 4f4d385b775356996a509814f3a97df20a5c895f Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Mon, 23 Mar 2020 09:10:14 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 27c4431..c05faf6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -31,8 +31,6 @@ features = ["getrandom"]
+ 
+ [features]
+ log = ["getrandom/log"]
+-stdweb = ["getrandom/stdweb"]
+-wasm-bindgen = ["getrandom/wasm-bindgen"]
+ [badges.appveyor]
+ repository = "rust-random/rand"
+ 
+-- 
+2.25.0
+
