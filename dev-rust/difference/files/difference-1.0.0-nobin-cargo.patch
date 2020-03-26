@@ -1,0 +1,30 @@
+From 0dcfc53741f6c327f7c9af51012171256c29004a Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 27 Mar 2020 02:35:34 +1300
+Subject: Remove binary targets
+
+---
+ Cargo.toml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index cf5080a..d613b88 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -14,13 +14,8 @@ license = "MIT"
+ travis-ci = { repository = "johannhof/difference.rs" }
+ appveyor = { repository = "johannhof/difference.rs" }
+ 
+-[[bin]]
+-name = "difference"
+-doc = false
+-
+ [features]
+ default = []
+-bin = ["getopts"]
+ 
+ [dependencies]
+ getopts = {version = "0.2", optional = true}
+-- 
+2.25.0
+
