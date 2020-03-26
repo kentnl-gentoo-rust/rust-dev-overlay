@@ -1,0 +1,24 @@
+From 2a0c3d6c517e85be1107fccaaac919ba03becf6c Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 26 Mar 2020 22:18:14 +1300
+Subject: Remove non-unix deps
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f75b258..7606593 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -33,7 +33,3 @@ version = "=1.0.0-beta.3"
+ 
+ [features]
+ no-color = []
+-[target."cfg(windows)".dependencies.winapi]
+-version = "0.3"
+-features = ["consoleapi", "processenv", "winbase"]
+-default-features = false
+-- 
+2.25.0
+
