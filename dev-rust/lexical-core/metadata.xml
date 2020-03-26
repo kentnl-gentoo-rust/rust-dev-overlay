@@ -8,6 +8,7 @@
 	</longdescription>
 	<use>
 		<flag name="correct">Require deps needed for 'correct' crate feature</flag>
+		<flag name="format">Require deps needed for 'format' crate feature</flag>
 		<flag name="grisu3">Require deps needed for 'grisu3' crate feature</flag>
 		<flag name="ryu">Require deps needed for 'ryu' crate feature</flag>
 	</use>
