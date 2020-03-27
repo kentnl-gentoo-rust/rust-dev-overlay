@@ -1,0 +1,22 @@
+From 4283d4616f3a1087a937d653ce1c744f5cab0770 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Mar 2020 09:14:58 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 4f66820..11ef472 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -25,5 +25,3 @@ license = "Unlicense/MIT"
+ repository = "https://github.com/BurntSushi/same-file"
+ [dev-dependencies.doc-comment]
+ version = "0.3"
+-[target."cfg(windows)".dependencies.winapi-util]
+-version = "0.1.1"
+-- 
+2.25.0
+
