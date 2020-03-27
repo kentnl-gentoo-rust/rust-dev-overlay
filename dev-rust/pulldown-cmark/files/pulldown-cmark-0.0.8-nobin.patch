@@ -1,0 +1,29 @@
+From e538eb1bf5359ad32731422666834a2060e478d5 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 27 Mar 2020 20:27:00 +1300
+Subject: Strip binary targets
+
+---
+ Cargo.toml  |   4 --
+ src/main.rs | 193 ----------------------------------------------------
+ 2 files changed, 197 deletions(-)
+ delete mode 100644 src/main.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index a7a200e..86fab84 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -6,10 +6,6 @@ license = "MIT"
+ description = "A pull parser for CommonMark"
+ repository = "https://github.com/google/pulldown-cmark"
+ 
+-[[bin]]
+-name = "pulldown-cmark"
+-doc = false
+-
+ [dependencies]
+ getopts = "0.2"
+ bitflags = "0.5"
+-- 
+2.25.0
+
