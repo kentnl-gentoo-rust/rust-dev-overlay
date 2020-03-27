@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="expectest-compat">Require deps needed for 'expectest_compat' crate feature</flag>
+	</use>
 </pkgmetadata>

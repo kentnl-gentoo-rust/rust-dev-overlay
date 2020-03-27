@@ -1,0 +1,27 @@
+From b53caaccd51377a2bbb1b99957c6d4b7279dadf9 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Fri, 17 Jan 2020 01:42:17 +1300
+Subject: Disable clippy support
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index fe072d2..21d53f8 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -35,10 +35,6 @@ version = "0.5.0"
+ 
+ [dependencies.rayon]
+ version = "0.8.2"
+-[build-dependencies.clippy]
+-version = "0.0.153"
+-optional = true
+-
+ [features]
+ default = []
+ expectest_compat = ["expectest"]
+-- 
+2.25.0
+
