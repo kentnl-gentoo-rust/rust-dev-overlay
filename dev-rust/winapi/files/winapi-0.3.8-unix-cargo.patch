@@ -1,0 +1,27 @@
+From 8c7a14a262f3eec8aa266d172bdf7a8490f054c8 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 29 Mar 2020 00:38:16 +1300
+Subject: Remove non-unix dependencies
+
+---
+ Cargo.toml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 040d361..99f26df 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -397,10 +397,6 @@ ws2tcpip = []
+ wtypes = []
+ wtypesbase = []
+ xinput = []
+-[target.i686-pc-windows-gnu.dependencies.winapi-i686-pc-windows-gnu]
+-version = "0.4"
+-[target.x86_64-pc-windows-gnu.dependencies.winapi-x86_64-pc-windows-gnu]
+-version = "0.4"
+ [badges.appveyor]
+ branch = "0.3"
+ repository = "retep998/winapi-rs"
+-- 
+2.25.0
+
