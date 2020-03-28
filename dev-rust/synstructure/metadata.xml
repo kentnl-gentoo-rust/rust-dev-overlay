@@ -6,4 +6,7 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="proc-macro">Require deps needed for 'proc-macro' crate feature</flag>
+	</use>
 </pkgmetadata>
