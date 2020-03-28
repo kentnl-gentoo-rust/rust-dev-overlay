@@ -1,0 +1,41 @@
+From 8b363897e1cc297d58eab7e28fff2319d7a00125 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sat, 28 Mar 2020 23:26:10 +1300
+Subject: Remove unused deps
+
+---
+ Cargo.toml | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6bdfec5..37bff46 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -42,24 +42,6 @@ version = "1.0"
+ [dependencies.serde]
+ version = "1.0.100"
+ default-features = false
+-[dev-dependencies.automod]
+-version = "0.1"
+-
+-[dev-dependencies.rustversion]
+-version = "1.0"
+-
+-[dev-dependencies.serde_bytes]
+-version = "0.11"
+-
+-[dev-dependencies.serde_derive]
+-version = "1.0"
+-
+-[dev-dependencies.serde_stacker]
+-version = "0.1"
+-
+-[dev-dependencies.trybuild]
+-version = "1.0.19"
+-features = ["diff"]
+ 
+ [features]
+ alloc = ["serde/alloc"]
+-- 
+2.25.0
+
