@@ -1,0 +1,90 @@
+From 39fb351f85977a2ecdc0fe1f2ef772755e8a2c99 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 2 Jan 2020 02:06:38 +1300
+Subject: Remove examples and benchmarks
+
+Remove unused test deps
+---
+ Cargo.toml                     |   7 -
+ benches/html5ever.rs           |  83 --------
+ examples/arena.rs              | 335 ---------------------------------
+ examples/capi/tokenize.c       |  74 --------
+ examples/html2html.rs          |  51 -----
+ examples/noop-tokenize.rs      |  43 -----
+ examples/noop-tree-builder.rs  | 112 -----------
+ examples/print-rcdom.rs        |  84 ---------
+ examples/print-tree-actions.rs | 177 -----------------
+ examples/tokenize.rs           | 103 ----------
+ 10 files changed, 1069 deletions(-)
+ delete mode 100644 benches/html5ever.rs
+ delete mode 100644 examples/arena.rs
+ delete mode 100644 examples/capi/tokenize.c
+ delete mode 100644 examples/html2html.rs
+ delete mode 100644 examples/noop-tokenize.rs
+ delete mode 100644 examples/noop-tree-builder.rs
+ delete mode 100644 examples/print-rcdom.rs
+ delete mode 100644 examples/print-tree-actions.rs
+ delete mode 100644 examples/tokenize.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 7aeb02d..17269d0 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -36,9 +36,6 @@ harness = false
+ [[test]]
+ name = "serializer"
+ 
+-[[bench]]
+-name = "html5ever"
+-harness = false
+ [dependencies.log]
+ version = "0.4"
+ 
+@@ -47,8 +44,6 @@ version = "0.1"
+ 
+ [dependencies.markup5ever]
+ version = "0.9"
+-[dev-dependencies.criterion]
+-version = "0.2"
+ 
+ [dev-dependencies.rustc-test]
+ version = "0.3"
+@@ -56,8 +51,6 @@ version = "0.3"
+ [dev-dependencies.serde_json]
+ version = "1.0"
+ 
+-[dev-dependencies.typed-arena]
+-version = "1.3.0"
+ [build-dependencies.proc-macro2]
+ version = "1"
+ 
+diff --git a/benches/html5ever.rs b/benches/html5ever.rs
+deleted file mode 100644
+index 19e10b3..0000000
+diff --git a/examples/arena.rs b/examples/arena.rs
+deleted file mode 100644
+index ae15d1c..0000000
+diff --git a/examples/capi/tokenize.c b/examples/capi/tokenize.c
+deleted file mode 100644
+index 8c8cdd4..0000000
+diff --git a/examples/html2html.rs b/examples/html2html.rs
+deleted file mode 100644
+index f534054..0000000
+diff --git a/examples/noop-tokenize.rs b/examples/noop-tokenize.rs
+deleted file mode 100644
+index d6c62f1..0000000
+diff --git a/examples/noop-tree-builder.rs b/examples/noop-tree-builder.rs
+deleted file mode 100644
+index 0775449..0000000
+diff --git a/examples/print-rcdom.rs b/examples/print-rcdom.rs
+deleted file mode 100644
+index 1f0ed59..0000000
+diff --git a/examples/print-tree-actions.rs b/examples/print-tree-actions.rs
+deleted file mode 100644
+index bd4f562..0000000
+diff --git a/examples/tokenize.rs b/examples/tokenize.rs
+deleted file mode 100644
+index 039ffb7..0000000
+-- 
+2.25.0
+
