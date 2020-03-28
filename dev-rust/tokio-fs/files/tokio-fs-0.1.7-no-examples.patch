@@ -1,0 +1,27 @@
+From 82cdd498097ae0575a7ef6ace1a0f9b7ca4861b6 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 5 Dec 2019 15:55:08 +1300
+Subject: nuke examples and example deps
+
+---
+ Cargo.toml           |  3 ---
+ examples/std-echo.rs | 47 --------------------------------------------
+ 2 files changed, 50 deletions(-)
+ delete mode 100644 examples/std-echo.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index c2f1ae9..f0e5844 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -42,8 +42,5 @@ version = "3"
+ [dev-dependencies.tokio]
+ version = "0.1.7"
+ 
+-[dev-dependencies.tokio-codec]
+-version = "0.1.0"
+-
+ [dev-dependencies.tokio-io]
+ version = "0.1.6"
+-- 
+2.24.0
+
