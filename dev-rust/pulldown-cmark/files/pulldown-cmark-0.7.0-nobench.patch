@@ -1,0 +1,43 @@
+From bc8b7add591a8976c0e0b43d1d444bb46c46b7d5 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 29 Mar 2020 07:29:05 +1300
+Subject: Remove benches and examples
+
+---
+ Cargo.toml                   |  5 ---
+ benches/html_rendering.rs    | 77 ------------------------------------
+ benches/lib.rs               | 49 -----------------------
+ examples/event-filter.rs     | 29 --------------
+ examples/string-to-string.rs | 26 ------------
+ 5 files changed, 186 deletions(-)
+ delete mode 100644 benches/html_rendering.rs
+ delete mode 100644 benches/lib.rs
+ delete mode 100644 examples/event-filter.rs
+ delete mode 100644 examples/string-to-string.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5f5713c..d5e12ea 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,9 +29,6 @@ name = "pulldown-cmark"
+ doc = false
+ required-features = ["getopts"]
+ 
+-[[bench]]
+-name = "html_rendering"
+-harness = false
+ [dependencies.bitflags]
+ version = "1.2"
+ 
+@@ -44,8 +41,6 @@ version = "2.3"
+ 
+ [dependencies.unicase]
+ version = "2.6"
+-[dev-dependencies.criterion]
+-version = "0.3"
+ 
+ [dev-dependencies.html5ever]
+ version = "0.24"
+-- 
+2.25.0
+

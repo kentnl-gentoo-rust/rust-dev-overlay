@@ -1,0 +1,45 @@
+From 53696a5934b57dfc78e385cc8beeeea449672325 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Sun, 15 Dec 2019 00:17:53 +1300
+Subject: Strip binary targets
+
+---
+ Cargo.toml  |  11 +-----
+ src/main.rs | 109 ----------------------------------------------------
+ 2 files changed, 1 insertion(+), 119 deletions(-)
+ delete mode 100644 src/main.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index d5e12ea..0c34dbc 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -24,18 +24,9 @@ categories = ["text-processing"]
+ license = "MIT"
+ repository = "https://github.com/raphlinus/pulldown-cmark"
+ 
+-[[bin]]
+-name = "pulldown-cmark"
+-doc = false
+-required-features = ["getopts"]
+-
+ [dependencies.bitflags]
+ version = "1.2"
+ 
+-[dependencies.getopts]
+-version = "0.2"
+-optional = true
+-
+ [dependencies.memchr]
+ version = "2.3"
+ 
+@@ -55,6 +46,6 @@ version = "1.3"
+ version = "0.4"
+ 
+ [features]
+-default = ["getopts"]
++default = []
+ gen-tests = []
+ simd = []
+-- 
+2.25.0
+
