@@ -1,0 +1,40 @@
+From 6a627f2fdc5d9b15ca3c4a9357244df2f62cf103 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Thu, 14 Nov 2019 02:57:50 +1300
+Subject: Remove examples/bins and related deps
+
+---
+ Cargo.toml | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 710c325..ca83e91 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -26,23 +26,12 @@ repository = "https://github.com/gimli-rs/cpp_demangle"
+ [profile.release]
+ debug = true
+ 
+-[[bin]]
+-name = "cppfilt"
+-path = "src/bin/cppfilt.rs"
+-required-features = ["cppfilt"]
+-
+-[[bin]]
+-name = "afl_runner"
+-path = "src/bin/afl_runner.rs"
+-required-features = ["afl"]
+ [dependencies.afl]
+ version = "0.5.1"
+ optional = true
+ 
+ [dependencies.cfg-if]
+ version = "0.1.9"
+-[dev-dependencies.clap]
+-version = "2.33.0"
+ 
+ [dev-dependencies.diff]
+ version = "0.1.11"
+-- 
+2.25.0
+
