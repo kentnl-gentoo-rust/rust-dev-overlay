@@ -1,0 +1,125 @@
+From fe8882a4a9bf648e2b3518022b32f8a41b98cd84 Mon Sep 17 00:00:00 2001
+From: Kent Fredric <kentnl@gentoo.org>
+Date: Tue, 31 Mar 2020 22:01:50 +1300
+Subject: Convert to binary-aspect-only crate
+
+---
+ Cargo.lock                       |  971 +---
+ Cargo.toml                       |   39 +-
+ benches/html_rendering.rs        |   77 -
+ benches/lib.rs                   |   49 -
+ build.rs                         |  187 -
+ src/entities.rs                  | 2158 --------
+ src/escape.rs                    |  297 --
+ src/html.rs                      |  520 --
+ src/lib.rs                       |   76 -
+ src/linklabel.rs                 |  135 -
+ src/parse.rs                     | 3094 -----------
+ src/puncttable.rs                |  351 --
+ src/scanners.rs                  | 1244 -----
+ src/simd.rs                      |  229 -
+ src/strings.rs                   |  243 -
+ src/tree.rs                      |  231 -
+ tests/errors.rs                  |   44 -
+ tests/html.rs                    |  245 -
+ tests/lib.rs                     |  422 --
+ tests/suite/footnotes.rs         |  165 -
+ tests/suite/gfm_strikethrough.rs |   27 -
+ tests/suite/gfm_table.rs         |  205 -
+ tests/suite/gfm_tasklist.rs      |   39 -
+ tests/suite/mod.rs               |   12 -
+ tests/suite/regression.rs        |  849 ---
+ tests/suite/spec.rs              | 8447 ------------------------------
+ tests/suite/table.rs             |  205 -
+ 27 files changed, 23 insertions(+), 20538 deletions(-)
+ delete mode 100644 benches/html_rendering.rs
+ delete mode 100644 benches/lib.rs
+ delete mode 100644 build.rs
+ delete mode 100644 src/entities.rs
+ delete mode 100644 src/escape.rs
+ delete mode 100644 src/html.rs
+ delete mode 100644 src/lib.rs
+ delete mode 100644 src/linklabel.rs
+ delete mode 100644 src/parse.rs
+ delete mode 100644 src/puncttable.rs
+ delete mode 100644 src/scanners.rs
+ delete mode 100644 src/simd.rs
+ delete mode 100644 src/strings.rs
+ delete mode 100644 src/tree.rs
+ delete mode 100644 tests/errors.rs
+ delete mode 100644 tests/html.rs
+ delete mode 100644 tests/lib.rs
+ delete mode 100644 tests/suite/footnotes.rs
+ delete mode 100644 tests/suite/gfm_strikethrough.rs
+ delete mode 100644 tests/suite/gfm_table.rs
+ delete mode 100644 tests/suite/gfm_tasklist.rs
+ delete mode 100644 tests/suite/mod.rs
+ delete mode 100644 tests/suite/regression.rs
+ delete mode 100644 tests/suite/spec.rs
+ delete mode 100644 tests/suite/table.rs
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 5f5713c..af6ef6f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -12,10 +12,9 @@
+ 
+ [package]
+ edition = "2018"
+-name = "pulldown-cmark"
++name = "pulldown-cmark-bin"
+ version = "0.7.0"
+ authors = ["Raph Levien <raph.levien@gmail.com>", "Marcus Klaas de Vries <mail@marcusklaas.nl>"]
+-build = "build.rs"
+ exclude = ["/third_party/**/*", "/tools/**/*", "/specs/**/*", "/fuzzer/**/*", "/azure-pipelines.yml"]
+ description = "A pull parser for CommonMark"
+ readme = "README.md"
+@@ -27,39 +26,15 @@ repository = "https://github.com/raphlinus/pulldown-cmark"
+ [[bin]]
+ name = "pulldown-cmark"
+ doc = false
+-required-features = ["getopts"]
+-
+-[[bench]]
+-name = "html_rendering"
+-harness = false
+-[dependencies.bitflags]
+-version = "1.2"
++path = "src/main.rs"
+ 
+ [dependencies.getopts]
+ version = "0.2"
+-optional = true
+-
+-[dependencies.memchr]
+-version = "2.3"
+-
+-[dependencies.unicase]
+-version = "2.6"
+-[dev-dependencies.criterion]
+-version = "0.3"
+-
+-[dev-dependencies.html5ever]
+-version = "0.24"
+-
+-[dev-dependencies.lazy_static]
+-version = "1.4"
+-
+-[dev-dependencies.regex]
+-version = "1.3"
++default-features = false
+ 
+-[dev-dependencies.tendril]
+-version = "0.4"
++[dependencies.pulldown-cmark]
++version = "0.7"
++default-features = false
+ 
+ [features]
+-default = ["getopts"]
+-gen-tests = []
+-simd = []
++simd = ['pulldown-cmark/simd']
+-- 
+2.25.0
+
