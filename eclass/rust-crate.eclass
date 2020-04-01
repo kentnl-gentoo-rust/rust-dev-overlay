@@ -26,7 +26,7 @@ esac
 # dev-dependencies or crates like winapi.
 : ${RUST_CRATE_EMPTY:=}
 
-inherit toolchain-funcs
+inherit rust-toolchain multiprocessing toolchain-funcs
 
 EXPORT_FUNCTIONS src_unpack src_compile src_configure src_install src_test
 
@@ -54,7 +54,7 @@ ecargo() {
 	addwrite Cargo.lock
 	rm -f Cargo.lock
 
-	cargo -v "${@}" || die
+	cargo "${@}" || die
 
 	# Now remove any Cargo.lock files that cargo pointlessly created.
 	rm -f Cargo.lock
@@ -127,7 +127,7 @@ rust-crate_src_configure() {
 	export CARGO_HOME="${ECARGO_HOME}"
 	export HOST="${CBUILD}"
 	export HOST_CC="$(tc-getBUILD_CC)"
-	export TARGET="${CHOST}"
+	export TARGET="$(rust_abi)"
 	export TARGET_CC="$(tc-getCC)"
 	# https://github.com/rust-lang/pkg-config-rs/issues/41
 	tc-is-cross-compiler && export PKG_CONFIG_ALLOW_CROSS=1
@@ -136,7 +136,6 @@ rust-crate_src_configure() {
 	local rustflags=(
 		-Cdebuginfo=2
 		-Copt-level=3
-		-v
 	)
 
 	use test || rustflags+=( -Cpanic=abort )
@@ -203,14 +202,42 @@ rust-crate_src_unpack() {
 	fi
 	# Set up the cargo config.
 	mkdir -p "${ECARGO_HOME}"
+	cargo_gen_config
+}
+
+fi
+
+# @FUNCTION: cargo_gen_config
+# @DESCRIPTION:
+# Generate the $CARGO_HOME/config necessary to use our local registry and settings.
+# Cargo can also be configured through environment variables in addition to the TOML syntax below.
+# For each configuration key below of the form foo.bar the environment variable CARGO_FOO_BAR
+# can also be used to define the value.
+# Environment variables will take precedent over TOML configuration,
+# and currently only integer, boolean, and string keys are supported.
+# For example the build.jobs key can also be defined by CARGO_BUILD_JOBS.
+# Or setting CARGO_TERM_VERBOSE=false in make.conf will make build quieter.
+cargo_gen_config() {
+	debug-print-function ${FUNCNAME} "$@"
+
 	cat <<- EOF > "${ECARGO_HOME}/config"
 	[source.gentoo]
 	directory = "${SYSROOT}${RUST_CRATE_REGISTRY_DIR}"
 
 	[source.crates-io]
 	replace-with = "gentoo"
-	local-registry = "/nonexistent"
+	local-registry = "/nonexistant"
+
+	[net]
+	offline = true
+
+	[build]
+	jobs = $(makeopts_jobs)
+
+	[term]
+	verbose = true
 	EOF
+	# honor NOCOLOR setting
+	[[ "${NOCOLOR}" = true || "${NOCOLOR}" = yes ]] && echo "color = 'never'" >> "${ECARGO_HOME}/config"
 }
 
-fi

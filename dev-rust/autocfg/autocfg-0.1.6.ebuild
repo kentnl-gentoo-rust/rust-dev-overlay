@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,13 +13,14 @@ LICENSE="|| ( MIT Apache-2.0 )"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+src_prepare() {
+	rm -vrf examples/ || die
+	default
+}
 src_test() {
 	# Default tests broken by invalid TARGET
 	# https://github.com/gyakovlev/rust-dev-overlay/issues/3
 	# # Tests write to ./target and fail if ./target doesn't exist
-	# mkdir -p target
-	# rust-crate_src_test
-
-	# Alternative to tests given tests fail
-	ecargo build --all-targets
+	mkdir -p target
+	rust-crate_src_test
 }
